@@ -1,0 +1,28 @@
+{
+  "status": "no_data",
+  "message": "NO LABELED DATA FOUND.\nExpected: E:\\Projects\\AE-CP\\data\\eval\\faces\\labels.csv\nThis evaluation cannot fabricate results without ground truth.\nRun collect_face_eval_samples.py to build a real labeled set (aim for 30+ examples of each class), then re-run this script.",
+  "config": {
+    "random_seed": 42,
+    "time_period_boundaries": {
+      "morning": [
+        6,
+        12
+      ],
+      "afternoon": [
+        12,
+        17
+      ],
+      "evening": [
+        17,
+        21
+      ]
+    },
+    "motion_reference_speed_px": 50.0,
+    "face_cascade_scale_factor": 1.1,
+    "face_cascade_min_neighbors": 4,
+    "face_cascade_min_size": [
+      60,
+      60
+    ]
+  }
+}

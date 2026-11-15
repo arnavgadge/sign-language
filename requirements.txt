@@ -1,0 +1,9 @@
+tensorflow>=2.10.0
+opencv-python>=4.7.0
+numpy>=1.23.0
+scikit-learn>=1.2.0
+pyserial>=3.5
+matplotlib>=3.7.0
+Pillow>=9.0.0
+SpeechRecognition>=3.10.0
+pyaudio>=0.2.13

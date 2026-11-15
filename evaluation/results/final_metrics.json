@@ -1,0 +1,705 @@
+{
+  "dataset_composition": {
+    "n_total": 500,
+    "by_category": {
+      "clear_context": 120,
+      "temporal_dependent": 80,
+      "personalization_dependent": 80,
+      "combined_temporal_personal": 70,
+      "genuinely_ambiguous": 60,
+      "conflict": 40,
+      "cold_start": 20,
+      "literal_fallback": 20,
+      "adversarial": 10
+    },
+    "n_distinct_words": 12,
+    "n_distinct_users": 35,
+    "n_ground_truth_classes": 33,
+    "samples_per_class": {
+      "injury_emergency": 6,
+      "patience_request": 25,
+      "restroom_need": 6,
+      "nausea_complaint": 6,
+      "privacy_request": 13,
+      "halt_action": 30,
+      "information_request": 4,
+      "urgency_go": 9,
+      "direction_to_hospital": 11,
+      "emotional_hurt": 3,
+      "emergency_support": 6,
+      "hygiene_request": 9,
+      "location_pain": 18,
+      "pause_activity": 6,
+      "illness_statement": 18,
+      "appointment_destination": 6,
+      "emotional_distress": 14,
+      "severe_illness": 8,
+      "pain_complaint": 16,
+      "dietary_restriction": 10,
+      "pain_stop": 19,
+      "end_conversation": 5,
+      "task_assistance": 17,
+      "medical_care_request": 16,
+      "hunger_request": 4,
+      "destination_request": 14,
+      "thirst_request": 9,
+      "appointment_inquiry": 24,
+      "medical_symptom": 21,
+      "emergency_medical": 8,
+      "medical_assistance": 17,
+      "LITERAL": 39,
+      "AMBIGUOUS": 83
+    },
+    "min_class_count": 3,
+    "max_class_count": 83
+  },
+  "candidate_coverage": {
+    "n": 378,
+    "coverage": 1.0
+  },
+  "top_k_candidate_recall": {
+    "n_eligible": 378,
+    "top_1": 0.9761904761904762,
+    "top_3": 1.0,
+    "top_5": 1.0
+  },
+  "conflict_metrics": {
+    "tp": 42,
+    "fp": 39,
+    "fn": 56,
+    "tn": 3363,
+    "precision": 0.5185185185185185,
+    "recall": 0.42857142857142855,
+    "f1": 0.4692737430167598
+  },
+  "adversarial_accuracy": {
+    "n": 10,
+    "accuracy": 0.1
+  },
+  "ambiguous_case_handling": {
+    "n": 60,
+    "correctly_flagged_ambiguous": 25,
+    "rate": 0.4166666666666667
+  },
+  "cold_start_by_history_size": [
+    {
+      "sample_id": "G0001",
+      "observation_count": 0,
+      "personal_signal": 0.0,
+      "personal_reliability": 0.0,
+      "correct": true
+    },
+    {
+      "sample_id": "G0008",
+      "observation_count": 0,
+      "personal_signal": 0.0,
+      "personal_reliability": 0.0,
+      "correct": true
+    },
+    {
+      "sample_id": "G0015",
+      "observation_count": 0,
+      "personal_signal": 0.0,
+      "personal_reliability": 0.0,
+      "correct": true
+    },
+    {
+      "sample_id": "G0002",
+      "observation_count": 1,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.3811,
+      "correct": false
+    },
+    {
+      "sample_id": "G0009",
+      "observation_count": 1,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.3811,
+      "correct": false
+    },
+    {
+      "sample_id": "G0016",
+      "observation_count": 1,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.3811,
+      "correct": false
+    },
+    {
+      "sample_id": "G0003",
+      "observation_count": 2,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.4286,
+      "correct": false
+    },
+    {
+      "sample_id": "G0010",
+      "observation_count": 2,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.4286,
+      "correct": false
+    },
+    {
+      "sample_id": "G0017",
+      "observation_count": 2,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.4286,
+      "correct": false
+    },
+    {
+      "sample_id": "G0004",
+      "observation_count": 5,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.5711,
+      "correct": false
+    },
+    {
+      "sample_id": "G0011",
+      "observation_count": 5,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.5711,
+      "correct": false
+    },
+    {
+      "sample_id": "G0018",
+      "observation_count": 5,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.5711,
+      "correct": false
+    },
+    {
+      "sample_id": "G0005",
+      "observation_count": 10,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.8086,
+      "correct": true
+    },
+    {
+      "sample_id": "G0012",
+      "observation_count": 10,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.8086,
+      "correct": true
+    },
+    {
+      "sample_id": "G0019",
+      "observation_count": 10,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.8086,
+      "correct": true
+    },
+    {
+      "sample_id": "G0006",
+      "observation_count": 20,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.9836,
+      "correct": true
+    },
+    {
+      "sample_id": "G0013",
+      "observation_count": 20,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.9836,
+      "correct": true
+    },
+    {
+      "sample_id": "G0020",
+      "observation_count": 20,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.9836,
+      "correct": true
+    },
+    {
+      "sample_id": "G0007",
+      "observation_count": 30,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.9836,
+      "correct": true
+    },
+    {
+      "sample_id": "G0014",
+      "observation_count": 30,
+      "personal_signal": 0.9673,
+      "personal_reliability": 0.9836,
+      "correct": true
+    }
+  ],
+  "per_variant_summary": {
+    "baseline": {
+      "n": 500,
+      "accuracy": 0.078,
+      "status_accuracy": 0.078,
+      "macro_precision": 0.0023636363636363638,
+      "macro_recall": 0.030303030303030304,
+      "macro_f1": 0.004385225164445943,
+      "decision_rates": {
+        "resolved_rate": 0.0,
+        "ambiguous_rate": 0.0,
+        "literal_rate": 1.0
+      },
+      "false_confident_resolution": {
+        "n_resolved": 0,
+        "rate": NaN
+      },
+      "latency": {
+        "mean_ms": 0.00039280006603803486,
+        "median_ms": 0.00039999576983973384,
+        "min_ms": 0.000200001522898674,
+        "max_ms": 0.0012000018614344299,
+        "stdev_ms": 0.00012090257363617993
+      }
+    },
+    "L1_candidates": {
+      "n": 500,
+      "accuracy": 0.078,
+      "status_accuracy": 0.078,
+      "macro_precision": 0.0023636363636363638,
+      "macro_recall": 0.030303030303030304,
+      "macro_f1": 0.004385225164445943,
+      "decision_rates": {
+        "resolved_rate": 0.0,
+        "ambiguous_rate": 0.0,
+        "literal_rate": 1.0
+      },
+      "false_confident_resolution": {
+        "n_resolved": 0,
+        "rate": NaN
+      },
+      "latency": {
+        "mean_ms": 0.6083514000056311,
+        "median_ms": 0.5345500030671246,
+        "min_ms": 0.3375000014784746,
+        "max_ms": 13.124999997671694,
+        "stdev_ms": 0.6136576951825086
+      }
+    },
+    "L1_temporal": {
+      "n": 500,
+      "accuracy": 0.636,
+      "status_accuracy": 0.654,
+      "macro_precision": 0.798817483239547,
+      "macro_recall": 0.7449033238918166,
+      "macro_f1": 0.7417490364585659,
+      "decision_rates": {
+        "resolved_rate": 0.62,
+        "ambiguous_rate": 0.082,
+        "literal_rate": 0.298
+      },
+      "false_confident_resolution": {
+        "n_resolved": 310,
+        "n_wrong": 57,
+        "rate": 0.18387096774193548
+      },
+      "latency": {
+        "mean_ms": 0.6083514000056311,
+        "median_ms": 0.5345500030671246,
+        "min_ms": 0.3375000014784746,
+        "max_ms": 13.124999997671694,
+        "stdev_ms": 0.6136576951825086
+      }
+    },
+    "L1_personal": {
+      "n": 500,
+      "accuracy": 0.42,
+      "status_accuracy": 0.446,
+      "macro_precision": 0.4869680978193325,
+      "macro_recall": 0.30724952186161436,
+      "macro_f1": 0.3349476253576176,
+      "decision_rates": {
+        "resolved_rate": 0.414,
+        "ambiguous_rate": 0.0,
+        "literal_rate": 0.586
+      },
+      "false_confident_resolution": {
+        "n_resolved": 207,
+        "n_wrong": 36,
+        "rate": 0.17391304347826086
+      },
+      "latency": {
+        "mean_ms": 0.6083514000056311,
+        "median_ms": 0.5345500030671246,
+        "min_ms": 0.3375000014784746,
+        "max_ms": 13.124999997671694,
+        "stdev_ms": 0.6136576951825086
+      }
+    },
+    "L1_temporal_personal": {
+      "n": 500,
+      "accuracy": 0.838,
+      "status_accuracy": 0.856,
+      "macro_precision": 0.8540106846451916,
+      "macro_recall": 0.8848333599122853,
+      "macro_f1": 0.8584196635118769,
+      "decision_rates": {
+        "resolved_rate": 0.788,
+        "ambiguous_rate": 0.134,
+        "literal_rate": 0.078
+      },
+      "false_confident_resolution": {
+        "n_resolved": 394,
+        "n_wrong": 53,
+        "rate": 0.13451776649746192
+      },
+      "latency": {
+        "mean_ms": 0.6083514000056311,
+        "median_ms": 0.5345500030671246,
+        "min_ms": 0.3375000014784746,
+        "max_ms": 13.124999997671694,
+        "stdev_ms": 0.6136576951825086
+      }
+    },
+    "full_reliability_weighted": {
+      "n": 500,
+      "accuracy": 0.838,
+      "status_accuracy": 0.856,
+      "macro_precision": 0.8540106846451916,
+      "macro_recall": 0.8848333599122853,
+      "macro_f1": 0.8584196635118769,
+      "decision_rates": {
+        "resolved_rate": 0.788,
+        "ambiguous_rate": 0.134,
+        "literal_rate": 0.078
+      },
+      "false_confident_resolution": {
+        "n_resolved": 394,
+        "n_wrong": 53,
+        "rate": 0.13451776649746192
+      },
+      "latency": {
+        "mean_ms": 0.6083514000056311,
+        "median_ms": 0.5345500030671246,
+        "min_ms": 0.3375000014784746,
+        "max_ms": 13.124999997671694,
+        "stdev_ms": 0.6136576951825086
+      }
+    },
+    "full_unweighted": {
+      "n": 500,
+      "accuracy": 0.382,
+      "status_accuracy": 0.382,
+      "macro_precision": 0.3975413045180487,
+      "macro_recall": 0.16902405497597411,
+      "macro_f1": 0.2039052777272536,
+      "decision_rates": {
+        "resolved_rate": 0.14,
+        "ambiguous_rate": 0.774,
+        "literal_rate": 0.086
+      },
+      "false_confident_resolution": {
+        "n_resolved": 70,
+        "n_wrong": 0,
+        "rate": 0.0
+      },
+      "latency": {
+        "mean_ms": 0.6083514000056311,
+        "median_ms": 0.5345500030671246,
+        "min_ms": 0.3375000014784746,
+        "max_ms": 13.124999997671694,
+        "stdev_ms": 0.6136576951825086
+      }
+    }
+  },
+  "reliability_vs_unweighted_experiment": {
+    "unweighted_comparison": {
+      "config_a_scores": {
+        "medical_assistance": 0.525,
+        "task_assistance": 0.475
+      },
+      "config_a_winner": "medical_assistance",
+      "config_b_scores": {
+        "medical_assistance": 0.525,
+        "task_assistance": 0.475
+      },
+      "config_b_winner": "medical_assistance",
+      "ranking_flipped": false,
+      "note": "Signals are IDENTICAL between config_a and config_b -- an unweighted mean of signals is mathematically guaranteed to give the same winner for both, regardless of reliability. Any difference between the reliability-weighted result (which DOES flip) and this result (which cannot flip, by construction) is the measured contribution of reliability weighting."
+    },
+    "config_a": {
+      "description": "temporal reliability=0.90 (high), personal reliability=0.20 (low), signals unchanged from config_b",
+      "scores": {
+        "medical_assistance": {
+          "final_score": 0.7636,
+          "sources": {
+            "temporal": {
+              "signal": 0.9,
+              "reliability": 0.9,
+              "weighted_contribution": 0.81
+            },
+            "personal": {
+              "signal": 0.15,
+              "reliability": 0.2,
+              "weighted_contribution": 0.03
+            }
+          }
+        },
+        "task_assistance": {
+          "final_score": 0.2364,
+          "sources": {
+            "temporal": {
+              "signal": 0.1,
+              "reliability": 0.9,
+              "weighted_contribution": 0.09
+            },
+            "personal": {
+              "signal": 0.85,
+              "reliability": 0.2,
+              "weighted_contribution": 0.17
+            }
+          }
+        }
+      },
+      "winner": "medical_assistance",
+      "conflict_detected": false,
+      "conflict_score": 0.17
+    },
+    "config_b": {
+      "description": "SAME signals as config_a, reliabilities reversed: temporal=0.20 (low), personal=0.90 (high)",
+      "scores": {
+        "medical_assistance": {
+          "final_score": 0.2864,
+          "sources": {
+            "temporal": {
+              "signal": 0.9,
+              "reliability": 0.2,
+              "weighted_contribution": 0.18
+            },
+            "personal": {
+              "signal": 0.15,
+              "reliability": 0.9,
+              "weighted_contribution": 0.135
+            }
+          }
+        },
+        "task_assistance": {
+          "final_score": 0.7136,
+          "sources": {
+            "temporal": {
+              "signal": 0.1,
+              "reliability": 0.2,
+              "weighted_contribution": 0.02
+            },
+            "personal": {
+              "signal": 0.85,
+              "reliability": 0.9,
+              "weighted_contribution": 0.765
+            }
+          }
+        }
+      },
+      "winner": "task_assistance",
+      "conflict_detected": false,
+      "conflict_score": 0.18
+    },
+    "ranking_flipped": true,
+    "score_delta_medical": -0.47719999999999996,
+    "score_delta_task": 0.4772
+  },
+  "latency_by_stage": {
+    "layer1_candidate_generation": {
+      "mean_ms": 0.01596400002502681,
+      "median_ms": 0.015400000847876072,
+      "min_ms": 0.014400000509340316,
+      "max_ms": 0.0461999952676706,
+      "stdev_ms": 0.0027228324866605514,
+      "n": 300
+    },
+    "layer3_temporal": {
+      "mean_ms": 0.07182299979225111,
+      "median_ms": 0.06479999865405262,
+      "min_ms": 0.061599996115546674,
+      "max_ms": 0.49050000234274194,
+      "stdev_ms": 0.032319150398189465,
+      "n": 300
+    },
+    "layer5_personal": {
+      "mean_ms": 0.060525666534279786,
+      "median_ms": 0.05409999721450731,
+      "min_ms": 0.05200000305194408,
+      "max_ms": 0.28730000485666096,
+      "stdev_ms": 0.027011594017075945,
+      "n": 300
+    },
+    "reasoning_engine": {
+      "mean_ms": 0.07916199996543583,
+      "median_ms": 0.0700999989931006,
+      "min_ms": 0.06650000432273373,
+      "max_ms": 0.44409999827621505,
+      "stdev_ms": 0.037205100626624514,
+      "n": 300
+    },
+    "decision_gate": {
+      "mean_ms": 0.010812666805577464,
+      "median_ms": 0.010199997632298619,
+      "min_ms": 0.009399998816661537,
+      "max_ms": 0.04990000161342323,
+      "stdev_ms": 0.0036199518025664796,
+      "n": 300
+    },
+    "complete_intent_engine": {
+      "mean_ms": 0.5587213332910324,
+      "median_ms": 0.5071499981568195,
+      "min_ms": 0.4422999991220422,
+      "max_ms": 2.387199994700495,
+      "stdev_ms": 0.18685711747320213,
+      "n": 300
+    }
+  },
+  "ontology_overlap_summary": {
+    "n_distinct_trigger_words": 135,
+    "n_high_ambiguity_triggers": 10,
+    "high_ambiguity_triggers": [
+      {
+        "trigger_word": "PLEASE",
+        "n_associated_intents": 8,
+        "associated_intents": [
+          "emphatic_yes",
+          "halt_action",
+          "patience_request",
+          "permission_to_leave",
+          "privacy_request",
+          "quantity_increase",
+          "refusal",
+          "return_home"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "DOCTOR",
+        "n_associated_intents": 7,
+        "associated_intents": [
+          "appointment_destination",
+          "destination_request",
+          "illness_statement",
+          "medical_assistance",
+          "medical_symptom",
+          "medication_water",
+          "severe_illness"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "HELP",
+        "n_associated_intents": 7,
+        "associated_intents": [
+          "emergency_transport",
+          "illness_statement",
+          "injury_emergency",
+          "medical_care_request",
+          "medical_symptom",
+          "pain_stop",
+          "severe_illness"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "PAIN",
+        "n_associated_intents": 7,
+        "associated_intents": [
+          "emergency_transport",
+          "illness_statement",
+          "medical_assistance",
+          "medical_care_request",
+          "pain_complaint",
+          "pain_stop",
+          "sympathy"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "NOW",
+        "n_associated_intents": 6,
+        "associated_intents": [
+          "emergency_medical",
+          "emergency_support",
+          "emergency_transport",
+          "halt_action",
+          "restroom_need",
+          "urgency_go"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "QUICK",
+        "n_associated_intents": 6,
+        "associated_intents": [
+          "emergency_medical",
+          "emergency_support",
+          "emergency_transport",
+          "injury_emergency",
+          "restroom_need",
+          "urgency_go"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "URGENT",
+        "n_associated_intents": 6,
+        "associated_intents": [
+          "emergency_medical",
+          "emergency_support",
+          "emergency_transport",
+          "injury_emergency",
+          "restroom_need",
+          "urgency_go"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "EAT",
+        "n_associated_intents": 5,
+        "associated_intents": [
+          "hunger_request",
+          "meal_complete",
+          "nausea_complaint",
+          "quantity_increase",
+          "thirst_request"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "HURT",
+        "n_associated_intents": 5,
+        "associated_intents": [
+          "illness_statement",
+          "medical_assistance",
+          "medical_care_request",
+          "pain_stop",
+          "sympathy"
+        ],
+        "ambiguity_level": "high"
+      },
+      {
+        "trigger_word": "SICK",
+        "n_associated_intents": 5,
+        "associated_intents": [
+          "dietary_restriction",
+          "medical_assistance",
+          "medical_care_request",
+          "medication_water",
+          "sympathy"
+        ],
+        "ambiguity_level": "high"
+      }
+    ],
+    "n_sparse_intents": 3,
+    "sparse_intents": [
+      {
+        "word": "HELP",
+        "intent_id": "general_attention",
+        "n_triggers": 0,
+        "triggers": []
+      },
+      {
+        "word": "YES",
+        "intent_id": "confirmation",
+        "n_triggers": 0,
+        "triggers": []
+      },
+      {
+        "word": "NO",
+        "intent_id": "negative_response",
+        "n_triggers": 0,
+        "triggers": []
+      }
+    ]
+  }
+}

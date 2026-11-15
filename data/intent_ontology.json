@@ -1,0 +1,824 @@
+{
+  "version": "1.0",
+  "words": {
+
+    "HELP": {
+      "intents": [
+        {
+          "id": "medical_assistance",
+          "label": "Medical Assistance",
+          "output_text": "I need medical assistance.",
+          "lcd_text": "NEED MEDICAL HELP",
+          "emergency": true,
+          "priority_weight": 1.2,
+          "context_triggers": ["PAIN", "CHEST", "HURT", "SICK", "DIZZY", "FALL", "BLOOD", "BREATHE", "HOSPITAL", "DOCTOR"],
+          "context_conflicts": ["WORK", "SCHOOL", "TEACH", "LEARN", "BOOK", "STUDY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.25
+        },
+        {
+          "id": "emergency_support",
+          "label": "Emergency Support",
+          "output_text": "I need emergency help now.",
+          "lcd_text": "EMERGENCY HELP",
+          "emergency": true,
+          "priority_weight": 1.2,
+          "context_triggers": ["DANGER", "FIRE", "POLICE", "URGENT", "NOW", "QUICK"],
+          "context_conflicts": ["WAIT", "CALM", "SLOW", "FINE"],
+          "location_priors": {},
+          "time_priors": {"night": 0.1},
+          "base_probability": 0.20
+        },
+        {
+          "id": "task_assistance",
+          "label": "Task Assistance",
+          "output_text": "I need help with a task.",
+          "lcd_text": "NEED TASK HELP",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["WORK", "TASK", "SHOW", "HOW", "DO", "MAKE", "FIX", "PROJECT", "DEADLINE"],
+          "context_conflicts": ["PAIN", "HURT", "SICK", "EMERGENCY", "DANGER"],
+          "location_priors": {},
+          "time_priors": {"morning": 0.05, "afternoon": 0.05},
+          "base_probability": 0.25
+        },
+        {
+          "id": "information_request",
+          "label": "Information Request",
+          "output_text": "I need some information.",
+          "lcd_text": "NEED INFORMATION",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["WHERE", "WHAT", "HOW", "EXPLAIN", "TELL", "KNOW"],
+          "context_conflicts": ["PAIN", "HURT", "EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.20
+        },
+        {
+          "id": "general_attention",
+          "label": "General Attention Request",
+          "output_text": "I need your attention.",
+          "lcd_text": "ATTENTION PLEASE",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": [],
+          "context_conflicts": ["PAIN", "HURT", "SICK", "DANGER"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.10
+        }
+      ]
+    },
+
+    "PAIN": {
+      "intents": [
+        {
+          "id": "medical_symptom",
+          "label": "Medical Symptom",
+          "output_text": "I am experiencing pain.",
+          "lcd_text": "I HAVE PAIN",
+          "emergency": true,
+          "priority_weight": 1.3,
+          "context_triggers": ["CHEST", "BREATHE", "DIZZY", "FALL", "BLOOD", "HELP", "DOCTOR", "HOSPITAL"],
+          "context_conflicts": ["FINE", "OKAY", "WELL"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.40
+        },
+        {
+          "id": "emotional_distress",
+          "label": "Emotional Distress",
+          "output_text": "I am feeling emotional pain.",
+          "lcd_text": "EMOTIONAL PAIN",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["SAD", "CRY", "HEART", "MISS", "ALONE", "UPSET"],
+          "context_conflicts": ["CHEST", "BREATHE", "DIZZY", "PHYSICAL"],
+          "location_priors": {},
+          "time_priors": {"evening": 0.05, "night": 0.05},
+          "base_probability": 0.30
+        },
+        {
+          "id": "location_pain",
+          "label": "Location-Specific Pain",
+          "output_text": "I have pain somewhere specific.",
+          "lcd_text": "PAIN LOCATION?",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["WHERE", "POINT", "HERE", "BACK", "HEAD", "LEG", "ARM"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        }
+      ]
+    },
+
+    "WATER": {
+      "intents": [
+        {
+          "id": "thirst_request",
+          "label": "Thirst Request",
+          "output_text": "I am thirsty. May I have water?",
+          "lcd_text": "NEED WATER",
+          "emergency": false,
+          "priority_weight": 1.1,
+          "context_triggers": ["DRINK", "THIRSTY", "HOT", "FOOD", "EAT"],
+          "context_conflicts": ["CLEAN", "WASH", "BATH", "PILLS", "MEDICINE"],
+          "location_priors": {},
+          "time_priors": {"morning": 0.05, "afternoon": 0.05},
+          "base_probability": 0.45
+        },
+        {
+          "id": "hygiene_request",
+          "label": "Hygiene Request",
+          "output_text": "I need to wash / clean with water.",
+          "lcd_text": "NEED TO WASH",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["CLEAN", "WASH", "BATH", "DIRTY", "BATHROOM"],
+          "context_conflicts": ["DRINK", "THIRSTY", "FOOD"],
+          "location_priors": {},
+          "time_priors": {"morning": 0.1},
+          "base_probability": 0.30
+        },
+        {
+          "id": "medication_water",
+          "label": "Water for Medication",
+          "output_text": "I need water to take my medication.",
+          "lcd_text": "WATER FOR MEDS",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["MEDICINE", "PILLS", "DOCTOR", "SICK", "TABLET"],
+          "context_conflicts": ["FOOD", "EAT", "DIRTY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.25
+        }
+      ]
+    },
+
+    "FOOD": {
+      "intents": [
+        {
+          "id": "hunger_request",
+          "label": "Hunger Request",
+          "output_text": "I am hungry. I need food.",
+          "lcd_text": "I AM HUNGRY",
+          "emergency": false,
+          "priority_weight": 1.1,
+          "context_triggers": ["HUNGRY", "EAT", "MEAL", "LUNCH", "DINNER", "BREAKFAST", "WATER"],
+          "context_conflicts": ["ALLERGY", "SICK", "MEDICINE"],
+          "location_priors": {},
+          "time_priors": {"morning": 0.1, "afternoon": 0.1, "evening": 0.1},
+          "base_probability": 0.45
+        },
+        {
+          "id": "food_preference",
+          "label": "Food Preference Statement",
+          "output_text": "I have a food preference to communicate.",
+          "lcd_text": "FOOD PREFERENCE",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["LIKE", "WANT", "PREFER", "YES", "NO", "CHOICE"],
+          "context_conflicts": ["HUNGRY", "SICK"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "dietary_restriction",
+          "label": "Dietary Restriction Notice",
+          "output_text": "I have a dietary restriction.",
+          "lcd_text": "DIET RESTRICTION",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["ALLERGY", "NO", "SICK", "MEDICINE", "CANNOT"],
+          "context_conflicts": ["HUNGRY", "WANT", "EAT"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.25
+        }
+      ]
+    },
+
+    "BATHROOM": {
+      "intents": [
+        {
+          "id": "restroom_need",
+          "label": "Restroom Need",
+          "output_text": "I need to use the restroom.",
+          "lcd_text": "NEED BATHROOM",
+          "emergency": false,
+          "priority_weight": 1.2,
+          "context_triggers": ["URGENT", "NOW", "QUICK", "HURRY"],
+          "context_conflicts": ["BATH", "WASH", "CLEAN"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.60
+        },
+        {
+          "id": "privacy_request",
+          "label": "Privacy Request",
+          "output_text": "I need some privacy.",
+          "lcd_text": "NEED PRIVACY",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["ALONE", "PRIVATE", "PLEASE", "ROOM"],
+          "context_conflicts": ["URGENT", "HURRY", "NOW"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.25
+        },
+        {
+          "id": "hygiene_activity",
+          "label": "Hygiene Activity",
+          "output_text": "I need to clean / bathe.",
+          "lcd_text": "NEED TO BATHE",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["WASH", "CLEAN", "BATH", "DIRTY", "WATER"],
+          "context_conflicts": ["URGENT", "QUICK", "HURRY"],
+          "location_priors": {},
+          "time_priors": {"morning": 0.1, "evening": 0.1},
+          "base_probability": 0.15
+        }
+      ]
+    },
+
+    "STOP": {
+      "intents": [
+        {
+          "id": "halt_action",
+          "label": "Stop Action",
+          "output_text": "Please stop what you are doing.",
+          "lcd_text": "PLEASE STOP",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["PLEASE", "NOW", "THAT", "DO"],
+          "context_conflicts": ["PAIN", "HURT", "EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.40
+        },
+        {
+          "id": "pain_stop",
+          "label": "Pain Stop Request",
+          "output_text": "Stop — I am in pain.",
+          "lcd_text": "STOP I AM IN PAIN",
+          "emergency": true,
+          "priority_weight": 1.3,
+          "context_triggers": ["PAIN", "HURT", "OW", "OUCH", "HELP"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "end_conversation",
+          "label": "End Conversation",
+          "output_text": "I would like to end our conversation.",
+          "lcd_text": "END CONVERSATION",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["BYE", "GOODBYE", "FINISHED", "DONE", "THANK"],
+          "context_conflicts": ["PAIN", "HELP", "EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        }
+      ]
+    },
+
+    "GO": {
+      "intents": [
+        {
+          "id": "destination_request",
+          "label": "Destination Request",
+          "output_text": "I need to go somewhere. Where should I go?",
+          "lcd_text": "WHERE TO GO?",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["WHERE", "HOSPITAL", "HOME", "BATHROOM", "DOCTOR"],
+          "context_conflicts": ["NOW", "QUICK", "HURRY", "EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.35
+        },
+        {
+          "id": "permission_to_leave",
+          "label": "Permission to Leave",
+          "output_text": "May I leave / go now?",
+          "lcd_text": "CAN I GO?",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["PLEASE", "CAN", "DONE", "FINISHED", "MAY"],
+          "context_conflicts": ["PAIN", "EMERGENCY", "HELP"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.35
+        },
+        {
+          "id": "urgency_go",
+          "label": "Urgent Departure",
+          "output_text": "I need to leave urgently right now.",
+          "lcd_text": "MUST GO NOW",
+          "emergency": false,
+          "priority_weight": 1.1,
+          "context_triggers": ["QUICK", "NOW", "HURRY", "FAST", "URGENT"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        }
+      ]
+    },
+
+    "WAIT": {
+      "intents": [
+        {
+          "id": "patience_request",
+          "label": "Patience Request",
+          "output_text": "Please wait for a moment.",
+          "lcd_text": "PLEASE WAIT",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["PLEASE", "MOMENT", "SECOND", "SOON"],
+          "context_conflicts": ["EMERGENCY", "URGENT", "QUICK"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.50
+        },
+        {
+          "id": "pause_activity",
+          "label": "Pause Activity",
+          "output_text": "Please pause what you are doing.",
+          "lcd_text": "PAUSE PLEASE",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["STOP", "PAUSE", "HOLD"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "information_incoming",
+          "label": "Information Incoming",
+          "output_text": "Wait — I have something to tell you.",
+          "lcd_text": "I HAVE NEWS",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["TELL", "SAY", "SHOW", "WATCH"],
+          "context_conflicts": ["EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.20
+        }
+      ]
+    },
+
+    "YES": {
+      "intents": [
+        {
+          "id": "confirmation",
+          "label": "Confirmation",
+          "output_text": "Yes.",
+          "lcd_text": "YES",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": [],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.50
+        },
+        {
+          "id": "positive_response",
+          "label": "Positive Response",
+          "output_text": "Yes, that is correct.",
+          "lcd_text": "YES CORRECT",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["CORRECT", "RIGHT", "GOOD", "OKAY"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "emphatic_yes",
+          "label": "Emphatic Agreement",
+          "output_text": "Yes, absolutely.",
+          "lcd_text": "YES ABSOLUTELY",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["PLEASE", "WANT", "NEED"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.20
+        }
+      ]
+    },
+
+    "NO": {
+      "intents": [
+        {
+          "id": "refusal",
+          "label": "Refusal",
+          "output_text": "No, I refuse / decline.",
+          "lcd_text": "NO THANK YOU",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["WANT", "PLEASE", "DO"],
+          "context_conflicts": ["PAIN", "EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.45
+        },
+        {
+          "id": "disagreement",
+          "label": "Disagreement",
+          "output_text": "No, I disagree with that.",
+          "lcd_text": "I DISAGREE",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["WRONG", "BAD", "INCORRECT", "NOT"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.35
+        },
+        {
+          "id": "negative_response",
+          "label": "Negative Response",
+          "output_text": "No.",
+          "lcd_text": "NO",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": [],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.20
+        }
+      ]
+    },
+
+    "SORRY": {
+      "intents": [
+        {
+          "id": "apology",
+          "label": "Apology",
+          "output_text": "I am sorry.",
+          "lcd_text": "I AM SORRY",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["MISTAKE", "WRONG", "FAULT", "MY"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.45
+        },
+        {
+          "id": "sympathy",
+          "label": "Sympathy Expression",
+          "output_text": "I am sorry to hear that.",
+          "lcd_text": "I AM SORRY TOO",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["PAIN", "SAD", "HURT", "SICK", "LOSS"],
+          "context_conflicts": ["MY", "MISTAKE", "FAULT"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.35
+        },
+        {
+          "id": "correction_request",
+          "label": "Correction Request",
+          "output_text": "Sorry — I need to correct something.",
+          "lcd_text": "LET ME CORRECT",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["WRONG", "MISTAKE", "AGAIN", "CHANGE"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.20
+        }
+      ]
+    },
+
+    "MORE": {
+      "intents": [
+        {
+          "id": "quantity_increase",
+          "label": "Quantity Increase Request",
+          "output_text": "I would like more, please.",
+          "lcd_text": "MORE PLEASE",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["FOOD", "WATER", "DRINK", "EAT", "PLEASE"],
+          "context_conflicts": ["STOP", "ENOUGH", "FINISHED"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.50
+        },
+        {
+          "id": "continuation_request",
+          "label": "Continuation Request",
+          "output_text": "Please continue.",
+          "lcd_text": "PLEASE CONTINUE",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["TELL", "SHOW", "SAY", "EXPLAIN", "GO"],
+          "context_conflicts": ["STOP", "FINISHED"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "emphasis_more",
+          "label": "Emphasis / Intensifier",
+          "output_text": "I need to emphasize how important this is.",
+          "lcd_text": "VERY IMPORTANT",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["IMPORTANT", "VERY", "REALLY", "MUST"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.20
+        }
+      ]
+    },
+
+    "FINISHED": {
+      "intents": [
+        {
+          "id": "task_complete",
+          "label": "Task Complete",
+          "output_text": "I have finished the task.",
+          "lcd_text": "TASK DONE",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["WORK", "DO", "MAKE", "DONE", "TASK"],
+          "context_conflicts": ["MORE", "CONTINUE", "AGAIN"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.40
+        },
+        {
+          "id": "meal_complete",
+          "label": "Meal Complete",
+          "output_text": "I have finished eating.",
+          "lcd_text": "DONE EATING",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["FOOD", "EAT", "DRINK", "MEAL"],
+          "context_conflicts": ["MORE", "HUNGRY"],
+          "location_priors": {},
+          "time_priors": {"morning": 0.1, "afternoon": 0.1, "evening": 0.1},
+          "base_probability": 0.30
+        },
+        {
+          "id": "conversation_end",
+          "label": "Conversation End",
+          "output_text": "I am done talking for now. Goodbye.",
+          "lcd_text": "GOODBYE",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["BYE", "THANK", "GOODBYE", "OKAY"],
+          "context_conflicts": ["HELP", "WAIT", "MORE"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        }
+      ]
+    },
+
+    "DOCTOR": {
+      "intents": [
+        {
+          "id": "medical_care_request",
+          "label": "Medical Care Request",
+          "output_text": "I need to see a doctor.",
+          "lcd_text": "NEED A DOCTOR",
+          "emergency": false,
+          "priority_weight": 1.1,
+          "context_triggers": ["SICK", "PAIN", "HURT", "MEDICINE", "HELP"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.45
+        },
+        {
+          "id": "emergency_medical",
+          "label": "Emergency Medical",
+          "output_text": "I need a doctor urgently.",
+          "lcd_text": "URGENT DOCTOR",
+          "emergency": true,
+          "priority_weight": 1.3,
+          "context_triggers": ["URGENT", "QUICK", "NOW", "EMERGENCY", "CHEST", "BREATHE"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "appointment_inquiry",
+          "label": "Appointment Inquiry",
+          "output_text": "I have a question about my doctor's appointment.",
+          "lcd_text": "DR APPOINTMENT",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["APPOINTMENT", "WHEN", "TIME", "SCHEDULE"],
+          "context_conflicts": ["URGENT", "NOW", "EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.25
+        }
+      ]
+    },
+
+    "HOSPITAL": {
+      "intents": [
+        {
+          "id": "emergency_transport",
+          "label": "Emergency Transport Needed",
+          "output_text": "I need to go to the hospital now.",
+          "lcd_text": "TAKE TO HOSPITAL",
+          "emergency": true,
+          "priority_weight": 1.4,
+          "context_triggers": ["URGENT", "NOW", "HELP", "PAIN", "EMERGENCY", "QUICK", "AMBULANCE"],
+          "context_conflicts": ["APPOINTMENT", "VISIT", "SCHEDULE"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.35
+        },
+        {
+          "id": "appointment_destination",
+          "label": "Hospital Appointment",
+          "output_text": "I have a hospital appointment.",
+          "lcd_text": "HOSPITAL APPT",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["APPOINTMENT", "SCHEDULE", "TOMORROW", "TODAY", "DOCTOR"],
+          "context_conflicts": ["URGENT", "NOW", "QUICK", "EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.40
+        },
+        {
+          "id": "direction_to_hospital",
+          "label": "Direction Request",
+          "output_text": "Which way is the hospital?",
+          "lcd_text": "WHERE HOSPITAL?",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["WHERE", "WHICH", "HOW", "GO"],
+          "context_conflicts": ["URGENT", "EMERGENCY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.25
+        }
+      ]
+    },
+
+    "HOME": {
+      "intents": [
+        {
+          "id": "return_home",
+          "label": "Return Home Desire",
+          "output_text": "I want to go home.",
+          "lcd_text": "I WANT TO GO HOME",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["GO", "WANT", "TIRED", "DONE", "FINISHED", "PLEASE"],
+          "context_conflicts": ["EMERGENCY", "STAY", "WAIT"],
+          "location_priors": {},
+          "time_priors": {"evening": 0.1, "night": 0.15},
+          "base_probability": 0.55
+        },
+        {
+          "id": "location_statement",
+          "label": "Home Location Statement",
+          "output_text": "I am / will be at home.",
+          "lcd_text": "I AM AT HOME",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["AM", "STAY", "THERE", "HERE"],
+          "context_conflicts": ["GO", "WANT", "TAKE"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "comfort_request",
+          "label": "Comfort / Safety Request",
+          "output_text": "I want to be somewhere safe and comfortable.",
+          "lcd_text": "NEED COMFORT",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["SAFE", "COMFORTABLE", "SCARED", "AFRAID"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {"night": 0.1},
+          "base_probability": 0.15
+        }
+      ]
+    },
+
+    "SICK": {
+      "intents": [
+        {
+          "id": "illness_statement",
+          "label": "Illness Statement",
+          "output_text": "I am feeling sick.",
+          "lcd_text": "I AM SICK",
+          "emergency": false,
+          "priority_weight": 1.1,
+          "context_triggers": ["PAIN", "HURT", "DOCTOR", "MEDICINE", "HELP"],
+          "context_conflicts": ["FINE", "OKAY", "WELL"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.45
+        },
+        {
+          "id": "nausea_complaint",
+          "label": "Nausea Complaint",
+          "output_text": "I feel nauseous.",
+          "lcd_text": "I FEEL NAUSEOUS",
+          "emergency": false,
+          "priority_weight": 1.0,
+          "context_triggers": ["STOMACH", "FOOD", "EAT", "DIZZY"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "severe_illness",
+          "label": "Severe Illness",
+          "output_text": "I am very sick. I need help.",
+          "lcd_text": "VERY SICK HELP",
+          "emergency": true,
+          "priority_weight": 1.3,
+          "context_triggers": ["VERY", "CHEST", "BREATHE", "DIZZY", "FALL", "HELP", "DOCTOR"],
+          "context_conflicts": [],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.25
+        }
+      ]
+    },
+
+    "HURT": {
+      "intents": [
+        {
+          "id": "pain_complaint",
+          "label": "Pain Complaint",
+          "output_text": "I am hurt / in pain.",
+          "lcd_text": "I AM HURT",
+          "emergency": false,
+          "priority_weight": 1.1,
+          "context_triggers": ["PAIN", "OW", "OUCH", "BODY"],
+          "context_conflicts": ["FEELINGS", "SAD", "EMOTIONAL"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.45
+        },
+        {
+          "id": "injury_emergency",
+          "label": "Injury Emergency",
+          "output_text": "I have an injury. I need help immediately.",
+          "lcd_text": "INJURED NEED HELP",
+          "emergency": true,
+          "priority_weight": 1.3,
+          "context_triggers": ["FALL", "BLOOD", "HELP", "QUICK", "URGENT", "SERIOUS"],
+          "context_conflicts": ["FEELINGS", "SAD"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.30
+        },
+        {
+          "id": "emotional_hurt",
+          "label": "Emotional Hurt",
+          "output_text": "My feelings are hurt.",
+          "lcd_text": "FEELINGS HURT",
+          "emergency": false,
+          "priority_weight": 0.9,
+          "context_triggers": ["FEELINGS", "SAD", "CRY", "UPSET", "HEART"],
+          "context_conflicts": ["BLOOD", "FALL", "PHYSICAL", "BODY"],
+          "location_priors": {},
+          "time_priors": {},
+          "base_probability": 0.25
+        }
+      ]
+    }
+
+  }
+}

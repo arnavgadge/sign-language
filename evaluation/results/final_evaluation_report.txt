@@ -1,0 +1,70 @@
+==============================================================================
+PHASE 9 -- FINAL EVALUATION REPORT (500-case dataset)
+==============================================================================
+
+DATASET COMPOSITION
+------------------------------------------------------------------------------
+Total cases: 500
+By category: {'clear_context': 120, 'temporal_dependent': 80, 'personalization_dependent': 80, 'combined_temporal_personal': 70, 'genuinely_ambiguous': 60, 'conflict': 40, 'cold_start': 20, 'literal_fallback': 20, 'adversarial': 10}
+Distinct words: 12  Distinct users: 35  Ground-truth classes: 33
+Min class count: 3  Max class count: 83
+
+A. CANDIDATE-GENERATION METRICS (Layer 1 -- NOT reported as accuracy)
+------------------------------------------------------------------------------
+Candidate coverage: 1.0000  (n=378)
+Top-K candidate recall: {'n_eligible': 378, 'top_1': 0.9761904761904762, 'top_3': 1.0, 'top_5': 1.0}
+
+TABLE -- Ablation (7 configurations, same 500 cases)
+Configuration                             Accuracy    Status Acc.   Macro F1    Mean Lat.(ms)
+--------------------------------------------------------------------------------------------
+Literal baseline                          0.078       0.078         0.004       0.0004
+Layer 1 candidate generation              0.078       0.078         0.004       0.6084
+Layer 1 + Temporal                        0.636       0.654         0.742       0.6084
+Layer 1 + Personal                        0.420       0.446         0.335       0.6084
+Layer 1 + Temporal + Personal             0.838       0.856         0.858       0.6084
+Full engine (reliability-weighted)        0.838       0.856         0.858       0.6084
+Full engine WITHOUT reliability weighting 0.382       0.382         0.204       0.6084
+
+TABLE -- Confidence Gate Breakdown (full engine, n=500)
+Status        n       Status Correct    Status Incorrect
+-------------------------------------------------------
+RESOLVED      394     350               44
+AMBIGUOUS     67      39                28
+LITERAL       39      39                0
+
+FALSE CONFIDENT RESOLUTION RATE: 0.1345  (53/394 RESOLVED predictions were wrong)
+
+D. CONFLICT DETECTION METRICS
+------------------------------------------------------------------------------
+Precision=0.5185  Recall=0.4286  F1=0.4693  (tp=42 fp=39 fn=56 tn=3363)
+
+G. ROBUSTNESS
+------------------------------------------------------------------------------
+Adversarial accuracy: 0.1000  (n=10)
+Ambiguous-case correctly flagged AMBIGUOUS: 0.4167  (n=60)
+
+EXPERIMENT -- RELIABILITY WEIGHTING vs UNWEIGHTED (controlled, synthetic)
+------------------------------------------------------------------------------
+Reliability-weighted: ranking flipped when reliability reversed = True
+Unweighted:           ranking flipped when reliability reversed = False
+
+LATENCY (ms)
+------------------------------------------------------------------------------
+layer1_candidate_generation  mean=0.0160  median=0.0154  min=0.0144  max=0.0462  stdev=0.0027
+layer3_temporal              mean=0.0718  median=0.0648  min=0.0616  max=0.4905  stdev=0.0323
+layer5_personal              mean=0.0605  median=0.0541  min=0.0520  max=0.2873  stdev=0.0270
+reasoning_engine             mean=0.0792  median=0.0701  min=0.0665  max=0.4441  stdev=0.0372
+decision_gate                mean=0.0108  median=0.0102  min=0.0094  max=0.0499  stdev=0.0036
+complete_intent_engine       mean=0.5587  median=0.5071  min=0.4423  max=2.3872  stdev=0.1869
+
+ONTOLOGY OVERLAP / ROBUSTNESS
+------------------------------------------------------------------------------
+Distinct trigger words: 135
+High-ambiguity trigger words (5+ associated intents): 10
+  ['PLEASE', 'DOCTOR', 'HELP', 'PAIN', 'NOW', 'QUICK', 'URGENT', 'EAT', 'HURT', 'SICK']
+Sparse intents (<3 triggers): 3
+
+ERROR ANALYSIS -- failure category counts (full engine)
+------------------------------------------------------------------------------
+{'confidence-gate over-cautious': 15, 'confidence-gate false-confident resolution': 35, 'reliability-weighting / conflict failure': 13, 'personal-context (cold start) failure': 9, 'adversarial trigger': 9}
+Total incorrect (full engine, intent-level): 81 / 500

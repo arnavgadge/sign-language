@@ -1,0 +1,156 @@
+sample_id,category,variant,user_id,recognized_word,conversation_sequence,ground_truth,predicted_intent,correct,top_score,second_score,margin,status,conflict,temporal_signal,temporal_reliability,personal_signal,personal_reliability,processing_time_ms
+M01,medical_context,baseline,u_med_01,HELP,CHEST > PAIN > HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000400003045797348
+M01,medical_context,L1_only,u_med_01,HELP,CHEST > PAIN > HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,5.576299969106913
+M01,medical_context,L1_temporal,u_med_01,HELP,CHEST > PAIN > HELP,medical_assistance,medical_assistance,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,5.576299969106913
+M01,medical_context,L1_personal,u_med_01,HELP,CHEST > PAIN > HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,5.576299969106913
+M01,medical_context,full,u_med_01,HELP,CHEST > PAIN > HELP,medical_assistance,medical_assistance,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,5.576299969106913
+M02,medical_context,baseline,u_med_02,HELP,BLOOD > FALL > HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+M02,medical_context,L1_only,u_med_02,HELP,BLOOD > FALL > HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.26979995891451836
+M02,medical_context,L1_temporal,u_med_02,HELP,BLOOD > FALL > HELP,medical_assistance,medical_assistance,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.26979995891451836
+M02,medical_context,L1_personal,u_med_02,HELP,BLOOD > FALL > HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.26979995891451836
+M02,medical_context,full,u_med_02,HELP,BLOOD > FALL > HELP,medical_assistance,medical_assistance,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.26979995891451836
+M03,medical_context,baseline,u_med_03,DOCTOR,CHEST > BREATHE > DOCTOR,emergency_medical,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+M03,medical_context,L1_only,u_med_03,DOCTOR,CHEST > BREATHE > DOCTOR,emergency_medical,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.2661999315023422
+M03,medical_context,L1_temporal,u_med_03,DOCTOR,CHEST > BREATHE > DOCTOR,emergency_medical,emergency_medical,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2661999315023422
+M03,medical_context,L1_personal,u_med_03,DOCTOR,CHEST > BREATHE > DOCTOR,emergency_medical,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.2661999315023422
+M03,medical_context,full,u_med_03,DOCTOR,CHEST > BREATHE > DOCTOR,emergency_medical,emergency_medical,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2661999315023422
+M04,medical_context,baseline,u_med_04,DOCTOR,SICK > PAIN > DOCTOR,medical_care_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.0008998904377222061
+M04,medical_context,L1_only,u_med_04,DOCTOR,SICK > PAIN > DOCTOR,medical_care_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,1.6252000350505114
+M04,medical_context,L1_temporal,u_med_04,DOCTOR,SICK > PAIN > DOCTOR,medical_care_request,medical_care_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,1.6252000350505114
+M04,medical_context,L1_personal,u_med_04,DOCTOR,SICK > PAIN > DOCTOR,medical_care_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,1.6252000350505114
+M04,medical_context,full,u_med_04,DOCTOR,SICK > PAIN > DOCTOR,medical_care_request,medical_care_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,1.6252000350505114
+T01,task_context,baseline,u_task_01,HELP,PROJECT > DEADLINE > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000300002284348011
+T01,task_context,L1_only,u_task_01,HELP,PROJECT > DEADLINE > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.2946000313386321
+T01,task_context,L1_temporal,u_task_01,HELP,PROJECT > DEADLINE > HELP,task_assistance,task_assistance,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2946000313386321
+T01,task_context,L1_personal,u_task_01,HELP,PROJECT > DEADLINE > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.2946000313386321
+T01,task_context,full,u_task_01,HELP,PROJECT > DEADLINE > HELP,task_assistance,task_assistance,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2946000313386321
+T02,task_context,baseline,u_task_02,HELP,WORK > TASK > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+T02,task_context,L1_only,u_task_02,HELP,WORK > TASK > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.24149997625499964
+T02,task_context,L1_temporal,u_task_02,HELP,WORK > TASK > HELP,task_assistance,task_assistance,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.24149997625499964
+T02,task_context,L1_personal,u_task_02,HELP,WORK > TASK > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.24149997625499964
+T02,task_context,full,u_task_02,HELP,WORK > TASK > HELP,task_assistance,task_assistance,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.24149997625499964
+T03,task_context,baseline,u_task_03,HELP,SHOW > HOW > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+T03,task_context,L1_only,u_task_03,HELP,SHOW > HOW > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.24089997168630362
+T03,task_context,L1_temporal,u_task_03,HELP,SHOW > HOW > HELP,task_assistance,AMBIGUOUS,False,0.9083,0.8417,0.0666,AMBIGUOUS,False,0.9083,0.7142,0.0,0.0,0.24089997168630362
+T03,task_context,L1_personal,u_task_03,HELP,SHOW > HOW > HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.24089997168630362
+T03,task_context,full,u_task_03,HELP,SHOW > HOW > HELP,task_assistance,AMBIGUOUS,False,0.9083,0.8417,0.0666,AMBIGUOUS,False,0.9083,0.7142,0.0,0.0,0.24089997168630362
+E01,emergency_context,baseline,u_emg_01,HELP,DANGER > URGENT > HELP,emergency_support,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+E01,emergency_context,L1_only,u_emg_01,HELP,DANGER > URGENT > HELP,emergency_support,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.25050004478543997
+E01,emergency_context,L1_temporal,u_emg_01,HELP,DANGER > URGENT > HELP,emergency_support,emergency_support,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.25050004478543997
+E01,emergency_context,L1_personal,u_emg_01,HELP,DANGER > URGENT > HELP,emergency_support,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.25050004478543997
+E01,emergency_context,full,u_emg_01,HELP,DANGER > URGENT > HELP,emergency_support,emergency_support,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.25050004478543997
+E02,emergency_context,baseline,u_emg_02,HELP,FIRE > QUICK > HELP,emergency_support,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+E02,emergency_context,L1_only,u_emg_02,HELP,FIRE > QUICK > HELP,emergency_support,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.2799999201670289
+E02,emergency_context,L1_temporal,u_emg_02,HELP,FIRE > QUICK > HELP,emergency_support,emergency_support,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2799999201670289
+E02,emergency_context,L1_personal,u_emg_02,HELP,FIRE > QUICK > HELP,emergency_support,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.2799999201670289
+E02,emergency_context,full,u_emg_02,HELP,FIRE > QUICK > HELP,emergency_support,emergency_support,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2799999201670289
+I01,information_context,baseline,u_info_01,HELP,WHERE > EXPLAIN > HELP,information_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+I01,information_context,L1_only,u_info_01,HELP,WHERE > EXPLAIN > HELP,information_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.2359000500291586
+I01,information_context,L1_temporal,u_info_01,HELP,WHERE > EXPLAIN > HELP,information_request,information_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2359000500291586
+I01,information_context,L1_personal,u_info_01,HELP,WHERE > EXPLAIN > HELP,information_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.2359000500291586
+I01,information_context,full,u_info_01,HELP,WHERE > EXPLAIN > HELP,information_request,information_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2359000500291586
+C01,cold_start,baseline,u_cold_01,HELP,HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+C01,cold_start,L1_only,u_cold_01,HELP,HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.20759995095431805
+C01,cold_start,L1_temporal,u_cold_01,HELP,HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.20759995095431805
+C01,cold_start,L1_personal,u_cold_01,HELP,HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.20759995095431805
+C01,cold_start,full,u_cold_01,HELP,HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.20759995095431805
+C02,cold_start,baseline,u_cold_02,PAIN,PAIN,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000300002284348011
+C02,cold_start,L1_only,u_cold_02,PAIN,PAIN,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.26759994216263294
+C02,cold_start,L1_temporal,u_cold_02,PAIN,PAIN,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.26759994216263294
+C02,cold_start,L1_personal,u_cold_02,PAIN,PAIN,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.26759994216263294
+C02,cold_start,full,u_cold_02,PAIN,PAIN,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.26759994216263294
+C03,cold_start,baseline,u_cold_03,DOCTOR,DOCTOR,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+C03,cold_start,L1_only,u_cold_03,DOCTOR,DOCTOR,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.21349999587982893
+C03,cold_start,L1_temporal,u_cold_03,DOCTOR,DOCTOR,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.21349999587982893
+C03,cold_start,L1_personal,u_cold_03,DOCTOR,DOCTOR,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.21349999587982893
+C03,cold_start,full,u_cold_03,DOCTOR,DOCTOR,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.21349999587982893
+C04,cold_start,baseline,u_cold_04,HELP,HELP > HELP > HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+C04,cold_start,L1_only,u_cold_04,HELP,HELP > HELP > HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.345,0.0,0.0,0.2239999594166875
+C04,cold_start,L1_temporal,u_cold_04,HELP,HELP > HELP > HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.345,0.0,0.0,0.2239999594166875
+C04,cold_start,L1_personal,u_cold_04,HELP,HELP > HELP > HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.345,0.0,0.0,0.2239999594166875
+C04,cold_start,full,u_cold_04,HELP,HELP > HELP > HELP,LITERAL,LITERAL,True,0.0,0.0,0.0,LITERAL,False,0.0,0.345,0.0,0.0,0.2239999594166875
+P01,personalized,baseline,u_pers_A,HELP,HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+P01,personalized,L1_only,u_pers_A,HELP,HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.3627,0.5736,0.40529994294047356
+P01,personalized,L1_temporal,u_pers_A,HELP,HELP,medical_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.3627,0.5736,0.40529994294047356
+P01,personalized,L1_personal,u_pers_A,HELP,HELP,medical_assistance,medical_assistance,True,0.84,0.3627,0.4773,RESOLVED,False,0.0,0.0,0.84,0.9291,0.40529994294047356
+P01,personalized,full,u_pers_A,HELP,HELP,medical_assistance,medical_assistance,True,0.84,0.3627,0.4773,RESOLVED,False,0.0,0.0,0.84,0.9291,0.40529994294047356
+P02,personalized,baseline,u_pers_B,HELP,HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+P02,personalized,L1_only,u_pers_B,HELP,HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.2975,0.3548000240698457
+P02,personalized,L1_temporal,u_pers_B,HELP,HELP,task_assistance,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.2975,0.3548000240698457
+P02,personalized,L1_personal,u_pers_B,HELP,HELP,task_assistance,task_assistance,True,0.8849,0.3496,0.5353,RESOLVED,False,0.0,0.0,0.8849,0.8841,0.3548000240698457
+P02,personalized,full,u_pers_B,HELP,HELP,task_assistance,task_assistance,True,0.8849,0.3496,0.5353,RESOLVED,False,0.0,0.0,0.8849,0.8841,0.3548000240698457
+P03,personalized,baseline,u_pers_C,PAIN,PAIN,medical_symptom,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+P03,personalized,L1_only,u_pers_C,PAIN,PAIN,medical_symptom,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.21,0.27810002211481333
+P03,personalized,L1_temporal,u_pers_C,PAIN,PAIN,medical_symptom,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.21,0.27810002211481333
+P03,personalized,L1_personal,u_pers_C,PAIN,PAIN,medical_symptom,medical_symptom,True,0.9673,0.0,0.9673,RESOLVED,False,0.0,0.0,0.9673,0.8436,0.27810002211481333
+P03,personalized,full,u_pers_C,PAIN,PAIN,medical_symptom,medical_symptom,True,0.9673,0.0,0.9673,RESOLVED,False,0.0,0.0,0.9673,0.8436,0.27810002211481333
+P04,personalized,baseline,u_pers_D,PAIN,PAIN,emotional_distress,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+P04,personalized,L1_only,u_pers_D,PAIN,PAIN,emotional_distress,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.9673,0.8436,0.27059996500611305
+P04,personalized,L1_temporal,u_pers_D,PAIN,PAIN,emotional_distress,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.9673,0.8436,0.27059996500611305
+P04,personalized,L1_personal,u_pers_D,PAIN,PAIN,emotional_distress,emotional_distress,True,0.9673,0.0,0.9673,RESOLVED,False,0.0,0.0,0.9673,0.8436,0.27059996500611305
+P04,personalized,full,u_pers_D,PAIN,PAIN,emotional_distress,emotional_distress,True,0.9673,0.0,0.9673,RESOLVED,False,0.0,0.0,0.9673,0.8436,0.27059996500611305
+X01,conflict,baseline,u_conf_01,HELP,CHEST > PAIN > HELP,AMBIGUOUS,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+X01,conflict,L1_only,u_conf_01,HELP,CHEST > PAIN > HELP,AMBIGUOUS,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.35,0.3701000241562724
+X01,conflict,L1_temporal,u_conf_01,HELP,CHEST > PAIN > HELP,AMBIGUOUS,medical_assistance,False,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.35,0.3701000241562724
+X01,conflict,L1_personal,u_conf_01,HELP,CHEST > PAIN > HELP,AMBIGUOUS,task_assistance,False,0.9381,0.0,0.9381,RESOLVED,False,0.0,0.21,0.9381,0.9691,0.3701000241562724
+X01,conflict,full,u_conf_01,HELP,CHEST > PAIN > HELP,AMBIGUOUS,AMBIGUOUS,True,0.771,0.6096,0.1614,AMBIGUOUS,True,0.0,0.21,0.9381,0.9691,0.3701000241562724
+X02,conflict,baseline,u_conf_02,HELP,PROJECT > DEADLINE > HELP,AMBIGUOUS,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000300002284348011
+X02,conflict,L1_only,u_conf_02,HELP,PROJECT > DEADLINE > HELP,AMBIGUOUS,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.35,0.3774999640882015
+X02,conflict,L1_temporal,u_conf_02,HELP,PROJECT > DEADLINE > HELP,AMBIGUOUS,task_assistance,False,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.35,0.3774999640882015
+X02,conflict,L1_personal,u_conf_02,HELP,PROJECT > DEADLINE > HELP,AMBIGUOUS,medical_assistance,False,0.9381,0.0,0.9381,RESOLVED,False,0.0,0.21,0.9381,0.9691,0.3774999640882015
+X02,conflict,full,u_conf_02,HELP,PROJECT > DEADLINE > HELP,AMBIGUOUS,AMBIGUOUS,True,0.771,0.6096,0.1614,AMBIGUOUS,True,0.0,0.21,0.9381,0.9691,0.3774999640882015
+A01,adversarial,baseline,u_adv_01,STOP,TASK > DO > HELP > STOP,halt_action,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+A01,adversarial,L1_only,u_adv_01,STOP,TASK > DO > HELP > STOP,halt_action,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.315,0.0,0.0,0.20949996542185545
+A01,adversarial,L1_temporal,u_adv_01,STOP,TASK > DO > HELP > STOP,halt_action,pain_stop,False,0.8417,0.5667,0.275,RESOLVED,False,0.8417,0.84,0.0,0.0,0.20949996542185545
+A01,adversarial,L1_personal,u_adv_01,STOP,TASK > DO > HELP > STOP,halt_action,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.315,0.0,0.0,0.20949996542185545
+A01,adversarial,full,u_adv_01,STOP,TASK > DO > HELP > STOP,halt_action,pain_stop,False,0.8417,0.5667,0.275,RESOLVED,False,0.8417,0.84,0.0,0.0,0.20949996542185545
+A02,adversarial,baseline,u_adv_02,DOCTOR,APPOINTMENT > SCHEDULE > DOCTOR,appointment_inquiry,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000100000761449337
+A02,adversarial,L1_only,u_adv_02,DOCTOR,APPOINTMENT > SCHEDULE > DOCTOR,appointment_inquiry,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.1962999813258648
+A02,adversarial,L1_temporal,u_adv_02,DOCTOR,APPOINTMENT > SCHEDULE > DOCTOR,appointment_inquiry,appointment_inquiry,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.1962999813258648
+A02,adversarial,L1_personal,u_adv_02,DOCTOR,APPOINTMENT > SCHEDULE > DOCTOR,appointment_inquiry,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.1962999813258648
+A02,adversarial,full,u_adv_02,DOCTOR,APPOINTMENT > SCHEDULE > DOCTOR,appointment_inquiry,appointment_inquiry,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.1962999813258648
+D01,daily_needs,baseline,u_day_01,FOOD,HUNGRY > EAT > FOOD,hunger_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.00019988510757684708
+D01,daily_needs,L1_only,u_day_01,FOOD,HUNGRY > EAT > FOOD,hunger_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.19869999960064888
+D01,daily_needs,L1_temporal,u_day_01,FOOD,HUNGRY > EAT > FOOD,hunger_request,hunger_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.19869999960064888
+D01,daily_needs,L1_personal,u_day_01,FOOD,HUNGRY > EAT > FOOD,hunger_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.19869999960064888
+D01,daily_needs,full,u_day_01,FOOD,HUNGRY > EAT > FOOD,hunger_request,hunger_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.19869999960064888
+D02,daily_needs,baseline,u_day_02,FOOD,ALLERGY > SICK > FOOD,dietary_restriction,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000100000761449337
+D02,daily_needs,L1_only,u_day_02,FOOD,ALLERGY > SICK > FOOD,dietary_restriction,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.2071000635623932
+D02,daily_needs,L1_temporal,u_day_02,FOOD,ALLERGY > SICK > FOOD,dietary_restriction,dietary_restriction,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2071000635623932
+D02,daily_needs,L1_personal,u_day_02,FOOD,ALLERGY > SICK > FOOD,dietary_restriction,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.2071000635623932
+D02,daily_needs,full,u_day_02,FOOD,ALLERGY > SICK > FOOD,dietary_restriction,dietary_restriction,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.2071000635623932
+D03,daily_needs,baseline,u_day_03,WATER,THIRSTY > HOT > WATER,thirst_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+D03,daily_needs,L1_only,u_day_03,WATER,THIRSTY > HOT > WATER,thirst_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.20150002092123032
+D03,daily_needs,L1_temporal,u_day_03,WATER,THIRSTY > HOT > WATER,thirst_request,thirst_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.20150002092123032
+D03,daily_needs,L1_personal,u_day_03,WATER,THIRSTY > HOT > WATER,thirst_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.20150002092123032
+D03,daily_needs,full,u_day_03,WATER,THIRSTY > HOT > WATER,thirst_request,thirst_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.20150002092123032
+D04,daily_needs,baseline,u_day_04,BATHROOM,URGENT > HURRY > BATHROOM,restroom_need,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+D04,daily_needs,L1_only,u_day_04,BATHROOM,URGENT > HURRY > BATHROOM,restroom_need,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.20380003843456507
+D04,daily_needs,L1_temporal,u_day_04,BATHROOM,URGENT > HURRY > BATHROOM,restroom_need,restroom_need,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.20380003843456507
+D04,daily_needs,L1_personal,u_day_04,BATHROOM,URGENT > HURRY > BATHROOM,restroom_need,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.20380003843456507
+D04,daily_needs,full,u_day_04,BATHROOM,URGENT > HURRY > BATHROOM,restroom_need,restroom_need,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.20380003843456507
+D05,daily_needs,baseline,u_day_05,BATHROOM,ALONE > PRIVATE > BATHROOM,privacy_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+D05,daily_needs,L1_only,u_day_05,BATHROOM,ALONE > PRIVATE > BATHROOM,privacy_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.21810003090649843
+D05,daily_needs,L1_temporal,u_day_05,BATHROOM,ALONE > PRIVATE > BATHROOM,privacy_request,privacy_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.21810003090649843
+D05,daily_needs,L1_personal,u_day_05,BATHROOM,ALONE > PRIVATE > BATHROOM,privacy_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.21810003090649843
+D05,daily_needs,full,u_day_05,BATHROOM,ALONE > PRIVATE > BATHROOM,privacy_request,privacy_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.21810003090649843
+D06,daily_needs,baseline,u_day_06,HOSPITAL,APPOINTMENT > SCHEDULE > HOSPITAL,appointment_destination,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000100000761449337
+D06,daily_needs,L1_only,u_day_06,HOSPITAL,APPOINTMENT > SCHEDULE > HOSPITAL,appointment_destination,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.20300003234297037
+D06,daily_needs,L1_temporal,u_day_06,HOSPITAL,APPOINTMENT > SCHEDULE > HOSPITAL,appointment_destination,appointment_destination,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.20300003234297037
+D06,daily_needs,L1_personal,u_day_06,HOSPITAL,APPOINTMENT > SCHEDULE > HOSPITAL,appointment_destination,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.20300003234297037
+D06,daily_needs,full,u_day_06,HOSPITAL,APPOINTMENT > SCHEDULE > HOSPITAL,appointment_destination,appointment_destination,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.20300003234297037
+D07,daily_needs,baseline,u_day_07,HOSPITAL,AMBULANCE > URGENT > HOSPITAL,emergency_transport,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+D07,daily_needs,L1_only,u_day_07,HOSPITAL,AMBULANCE > URGENT > HOSPITAL,emergency_transport,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.19719998817890882
+D07,daily_needs,L1_temporal,u_day_07,HOSPITAL,AMBULANCE > URGENT > HOSPITAL,emergency_transport,emergency_transport,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.19719998817890882
+D07,daily_needs,L1_personal,u_day_07,HOSPITAL,AMBULANCE > URGENT > HOSPITAL,emergency_transport,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.19719998817890882
+D07,daily_needs,full,u_day_07,HOSPITAL,AMBULANCE > URGENT > HOSPITAL,emergency_transport,emergency_transport,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.19719998817890882
+D08,daily_needs,baseline,u_day_08,WAIT,MOMENT > PLEASE > WAIT,patience_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+D08,daily_needs,L1_only,u_day_08,WAIT,MOMENT > PLEASE > WAIT,patience_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.19779999274760485
+D08,daily_needs,L1_temporal,u_day_08,WAIT,MOMENT > PLEASE > WAIT,patience_request,patience_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.19779999274760485
+D08,daily_needs,L1_personal,u_day_08,WAIT,MOMENT > PLEASE > WAIT,patience_request,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.21,0.0,0.0,0.19779999274760485
+D08,daily_needs,full,u_day_08,WAIT,MOMENT > PLEASE > WAIT,patience_request,patience_request,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.19779999274760485
+D09,daily_needs,baseline,u_day_09,STOP,BYE > THANK > STOP,end_conversation,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.0,0.0,0.0,0.0,0.000200001522898674
+D09,daily_needs,L1_only,u_day_09,STOP,BYE > THANK > STOP,end_conversation,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.21269998978823423
+D09,daily_needs,L1_temporal,u_day_09,STOP,BYE > THANK > STOP,end_conversation,end_conversation,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.21269998978823423
+D09,daily_needs,L1_personal,u_day_09,STOP,BYE > THANK > STOP,end_conversation,LITERAL,False,0.0,0.0,0.0,LITERAL,False,0.9083,0.7142,0.0,0.0,0.21269998978823423
+D09,daily_needs,full,u_day_09,STOP,BYE > THANK > STOP,end_conversation,end_conversation,True,0.9083,0.0,0.9083,RESOLVED,False,0.9083,0.7142,0.0,0.0,0.21269998978823423

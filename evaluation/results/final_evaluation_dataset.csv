@@ -1,0 +1,501 @@
+sample_id,scenario_category,recognized_word,conversation_sequence,sequence_offsets_seconds,user_id,ground_truth,expected_status,personal_seed,notes
+A0001,clear_context,HURT,FALL > SO > URGENT > OK > SERIOUS > HURT,50.00|40.00|30.00|20.00|10.00|0.00,U308,injury_emergency,RESOLVED,,"template=SC18: Serious injury, needs immediate help."
+A0002,clear_context,WAIT,THEN > MOMENT > PLEASE > WAIT,30.00|20.00|10.00|0.00,U306,patience_request,RESOLVED,,template=SC31: Politely asking for a short wait.
+A0003,clear_context,BATHROOM,QUICK > JUST > JUST > URGENT > BATHROOM,40.00|30.00|20.00|10.00|0.00,U311,restroom_need,RESOLVED,,template=SC27: Urgently needs the restroom.
+A0004,clear_context,SICK,DIZZY > OK > MAYBE > FOOD > EAT > SICK,50.00|40.00|30.00|20.00|10.00|0.00,U311,nausea_complaint,RESOLVED,,"template=SC15: Feeling nauseous, likely food-related."
+A0005,clear_context,BATHROOM,MAYBE > PLEASE > PRIVATE > BATHROOM,30.00|20.00|10.00|0.00,U306,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0006,clear_context,BATHROOM,PRIVATE > PLEASE > BATHROOM,20.00|10.00|0.00,U302,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0007,clear_context,STOP,DO > PLEASE > NOW > STOP,30.00|20.00|10.00|0.00,U303,halt_action,RESOLVED,,template=SC20: Wants an ongoing activity to stop -- not medical.
+A0008,clear_context,HELP,JUST > EXPLAIN > MAYBE > KNOW > HELP,40.00|30.00|20.00|10.00|0.00,U306,information_request,RESOLVED,,template=SC04: Need an explanation or piece of information.
+A0009,clear_context,GO,QUICK > SO > FAST > GO,30.00|20.00|10.00|0.00,U306,urgency_go,RESOLVED,,"template=SC30: Needs to leave right now, urgently."
+A0010,clear_context,HOSPITAL,GO > WHERE > HOSPITAL,20.00|10.00|0.00,U304,direction_to_hospital,RESOLVED,,template=SC13: Asking for directions to the hospital.
+A0011,clear_context,SICK,OK > DIZZY > STOMACH > SO > FOOD > SICK,50.00|40.00|30.00|20.00|10.00|0.00,U300,nausea_complaint,RESOLVED,,"template=SC15: Feeling nauseous, likely food-related."
+A0012,clear_context,HURT,CRY > OK > FEELINGS > HURT,30.00|20.00|10.00|0.00,U308,emotional_hurt,RESOLVED,,"template=SC19: Emotionally hurt, feelings-related."
+A0013,clear_context,HELP,POLICE > FIRE > HELP,20.00|10.00|0.00,U302,emergency_support,RESOLVED,,"template=SC03: Immediate danger, need urgent non-medical help."
+A0014,clear_context,WATER,CLEAN > OK > THEN > DIRTY > WATER,40.00|30.00|20.00|10.00|0.00,U308,hygiene_request,RESOLVED,,template=SC24: Wants water to wash or clean.
+A0015,clear_context,HOSPITAL,WHERE > GO > OK > WHICH > HOSPITAL,40.00|30.00|20.00|10.00|0.00,U307,direction_to_hospital,RESOLVED,,template=SC13: Asking for directions to the hospital.
+A0016,clear_context,PAIN,JUST > WHERE > HEAD > UM > ARM > PAIN,50.00|40.00|30.00|20.00|10.00|0.00,U304,location_pain,RESOLVED,,template=SC07: Indicating or asking about the location of pain.
+A0017,clear_context,WAIT,PAUSE > HOLD > WAIT,20.00|10.00|0.00,U308,pause_activity,RESOLVED,,"template=SC32: Wants an activity paused, not ended."
+A0018,clear_context,HOSPITAL,WHICH > UM > GO > WHERE > HOSPITAL,40.00|30.00|20.00|10.00|0.00,U310,direction_to_hospital,RESOLVED,,template=SC13: Asking for directions to the hospital.
+A0019,clear_context,HURT,FEELINGS > HEART > UPSET > HURT,30.00|20.00|10.00|0.00,U301,emotional_hurt,RESOLVED,,"template=SC19: Emotionally hurt, feelings-related."
+A0020,clear_context,HELP,WHAT > KNOW > MAYBE > WHERE > HELP,40.00|30.00|20.00|10.00|0.00,U304,information_request,RESOLVED,,template=SC04: Need an explanation or piece of information.
+A0021,clear_context,WAIT,PAUSE > OK > STOP > HOLD > WAIT,40.00|30.00|20.00|10.00|0.00,U301,pause_activity,RESOLVED,,"template=SC32: Wants an activity paused, not ended."
+A0022,clear_context,WAIT,UM > SECOND > MOMENT > WAIT,30.00|20.00|10.00|0.00,U308,patience_request,RESOLVED,,template=SC31: Politely asking for a short wait.
+A0023,clear_context,SICK,DOCTOR > THEN > PAIN > SO > HURT > SICK,50.00|40.00|30.00|20.00|10.00|0.00,U308,illness_statement,RESOLVED,,template=SC14: General statement of feeling unwell.
+A0024,clear_context,HELP,ALSO > FIRE > URGENT > POLICE > HELP,40.00|30.00|20.00|10.00|0.00,U310,emergency_support,RESOLVED,,"template=SC03: Immediate danger, need urgent non-medical help."
+A0025,clear_context,HOSPITAL,MAYBE > SCHEDULE > APPOINTMENT > UM > TOMORROW > HOSPITAL,50.00|40.00|30.00|20.00|10.00|0.00,U305,appointment_destination,RESOLVED,,"template=SC12: Has a scheduled, non-urgent hospital appointment."
+A0026,clear_context,BATHROOM,URGENT > MAYBE > HURRY > BATHROOM,30.00|20.00|10.00|0.00,U310,restroom_need,RESOLVED,,template=SC27: Urgently needs the restroom.
+A0027,clear_context,STOP,NOW > UM > THAT > UM > DO > STOP,50.00|40.00|30.00|20.00|10.00|0.00,U304,halt_action,RESOLVED,,template=SC20: Wants an ongoing activity to stop -- not medical.
+A0028,clear_context,WAIT,SOON > SECOND > MAYBE > OK > PLEASE > WAIT,50.00|40.00|30.00|20.00|10.00|0.00,U303,patience_request,RESOLVED,,template=SC31: Politely asking for a short wait.
+A0029,clear_context,PAIN,ALONE > THEN > OK > SAD > PAIN,40.00|30.00|20.00|10.00|0.00,U308,emotional_distress,RESOLVED,,template=SC06: Expressing emotional or psychological pain.
+A0030,clear_context,SICK,BREATHE > SO > ALSO > FALL > SICK,40.00|30.00|20.00|10.00|0.00,U308,severe_illness,RESOLVED,,"template=SC16: Seriously unwell, needs urgent attention."
+A0031,clear_context,BATHROOM,ROOM > PRIVATE > MAYBE > PLEASE > BATHROOM,40.00|30.00|20.00|10.00|0.00,U308,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0032,clear_context,WAIT,STOP > PAUSE > WAIT,20.00|10.00|0.00,U304,pause_activity,RESOLVED,,"template=SC32: Wants an activity paused, not ended."
+A0033,clear_context,BATHROOM,THEN > URGENT > HURRY > BATHROOM,30.00|20.00|10.00|0.00,U307,restroom_need,RESOLVED,,template=SC27: Urgently needs the restroom.
+A0034,clear_context,HOSPITAL,SCHEDULE > APPOINTMENT > HOSPITAL,20.00|10.00|0.00,U311,appointment_destination,RESOLVED,,"template=SC12: Has a scheduled, non-urgent hospital appointment."
+A0035,clear_context,HURT,OW > ALSO > BODY > HURT,30.00|20.00|10.00|0.00,U300,pain_complaint,RESOLVED,,template=SC17: Simple statement of being in pain.
+A0036,clear_context,PAIN,JUST > ALONE > SO > UPSET > PAIN,40.00|30.00|20.00|10.00|0.00,U311,emotional_distress,RESOLVED,,template=SC06: Expressing emotional or psychological pain.
+A0037,clear_context,SICK,CHEST > FALL > DIZZY > SICK,30.00|20.00|10.00|0.00,U310,severe_illness,RESOLVED,,"template=SC16: Seriously unwell, needs urgent attention."
+A0038,clear_context,FOOD,MEDICINE > CANNOT > JUST > ALLERGY > FOOD,40.00|30.00|20.00|10.00|0.00,U300,dietary_restriction,RESOLVED,,template=SC26: Cannot eat something due to allergy/restriction.
+A0039,clear_context,WATER,DIRTY > JUST > CLEAN > WATER,30.00|20.00|10.00|0.00,U303,hygiene_request,RESOLVED,,template=SC24: Wants water to wash or clean.
+A0040,clear_context,PAIN,UPSET > ALONE > PAIN,20.00|10.00|0.00,U305,emotional_distress,RESOLVED,,template=SC06: Expressing emotional or psychological pain.
+A0041,clear_context,BATHROOM,PRIVATE > PLEASE > ROOM > BATHROOM,30.00|20.00|10.00|0.00,U300,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0042,clear_context,BATHROOM,ALONE > OK > ROOM > BATHROOM,30.00|20.00|10.00|0.00,U300,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0043,clear_context,STOP,HURT > THEN > THEN > OW > STOP,40.00|30.00|20.00|10.00|0.00,U301,pain_stop,RESOLVED,,template=SC21: Wants something to stop BECAUSE it is causing pain.
+A0044,clear_context,WATER,SO > CLEAN > WASH > ALSO > BATH > WATER,50.00|40.00|30.00|20.00|10.00|0.00,U309,hygiene_request,RESOLVED,,template=SC24: Wants water to wash or clean.
+A0045,clear_context,HOSPITAL,WHICH > JUST > SO > WHERE > HOSPITAL,40.00|30.00|20.00|10.00|0.00,U311,direction_to_hospital,RESOLVED,,template=SC13: Asking for directions to the hospital.
+A0046,clear_context,SICK,VERY > FALL > OK > BREATHE > SICK,40.00|30.00|20.00|10.00|0.00,U301,severe_illness,RESOLVED,,"template=SC16: Seriously unwell, needs urgent attention."
+A0047,clear_context,STOP,OK > THANK > DONE > STOP,30.00|20.00|10.00|0.00,U301,end_conversation,RESOLVED,,template=SC22: Wants to end the conversation politely.
+A0048,clear_context,PAIN,MAYBE > WHERE > ARM > POINT > PAIN,40.00|30.00|20.00|10.00|0.00,U300,location_pain,RESOLVED,,template=SC07: Indicating or asking about the location of pain.
+A0049,clear_context,HELP,URGENT > POLICE > QUICK > HELP,30.00|20.00|10.00|0.00,U304,emergency_support,RESOLVED,,"template=SC03: Immediate danger, need urgent non-medical help."
+A0050,clear_context,BATHROOM,ALONE > ROOM > BATHROOM,20.00|10.00|0.00,U303,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0051,clear_context,PAIN,JUST > SAD > CRY > MISS > PAIN,40.00|30.00|20.00|10.00|0.00,U311,emotional_distress,RESOLVED,,template=SC06: Expressing emotional or psychological pain.
+A0052,clear_context,STOP,GOODBYE > DONE > UM > THANK > STOP,40.00|30.00|20.00|10.00|0.00,U303,end_conversation,RESOLVED,,template=SC22: Wants to end the conversation politely.
+A0053,clear_context,WATER,SO > BATH > DIRTY > OK > CLEAN > WATER,50.00|40.00|30.00|20.00|10.00|0.00,U303,hygiene_request,RESOLVED,,template=SC24: Wants water to wash or clean.
+A0054,clear_context,STOP,DO > OK > SO > THAT > STOP,40.00|30.00|20.00|10.00|0.00,U305,halt_action,RESOLVED,,template=SC20: Wants an ongoing activity to stop -- not medical.
+A0055,clear_context,STOP,THANK > UM > GOODBYE > JUST > FINISHED > STOP,50.00|40.00|30.00|20.00|10.00|0.00,U300,end_conversation,RESOLVED,,template=SC22: Wants to end the conversation politely.
+A0056,clear_context,HURT,SERIOUS > URGENT > BLOOD > HURT,30.00|20.00|10.00|0.00,U303,injury_emergency,RESOLVED,,"template=SC18: Serious injury, needs immediate help."
+A0057,clear_context,HELP,TASK > SO > PROJECT > HELP,30.00|20.00|10.00|0.00,U305,task_assistance,RESOLVED,,template=SC02: Need for help completing a work task or project.
+A0058,clear_context,HELP,FIX > UM > WORK > ALSO > MAKE > HELP,50.00|40.00|30.00|20.00|10.00|0.00,U311,task_assistance,RESOLVED,,template=SC02: Need for help completing a work task or project.
+A0059,clear_context,DOCTOR,MEDICINE > ALSO > UM > HURT > DOCTOR,40.00|30.00|20.00|10.00|0.00,U303,medical_care_request,RESOLVED,,template=SC08: Non-urgent request to see a doctor because of illness.
+A0060,clear_context,HOSPITAL,APPOINTMENT > SCHEDULE > HOSPITAL,20.00|10.00|0.00,U311,appointment_destination,RESOLVED,,"template=SC12: Has a scheduled, non-urgent hospital appointment."
+A0061,clear_context,HOSPITAL,TODAY > ALSO > TOMORROW > HOSPITAL,30.00|20.00|10.00|0.00,U300,appointment_destination,RESOLVED,,"template=SC12: Has a scheduled, non-urgent hospital appointment."
+A0062,clear_context,WATER,BATH > CLEAN > WATER,20.00|10.00|0.00,U307,hygiene_request,RESOLVED,,template=SC24: Wants water to wash or clean.
+A0063,clear_context,HELP,JUST > FIRE > POLICE > HELP,30.00|20.00|10.00|0.00,U302,emergency_support,RESOLVED,,"template=SC03: Immediate danger, need urgent non-medical help."
+A0064,clear_context,HOSPITAL,SO > WHICH > GO > JUST > WHERE > HOSPITAL,50.00|40.00|30.00|20.00|10.00|0.00,U310,direction_to_hospital,RESOLVED,,template=SC13: Asking for directions to the hospital.
+A0065,clear_context,FOOD,MEAL > MAYBE > LUNCH > FOOD,30.00|20.00|10.00|0.00,U300,hunger_request,RESOLVED,,"template=SC25: Hungry, wants food."
+A0066,clear_context,GO,URGENT > UM > SO > HURRY > GO,40.00|30.00|20.00|10.00|0.00,U310,urgency_go,RESOLVED,,"template=SC30: Needs to leave right now, urgently."
+A0067,clear_context,WAIT,STOP > HOLD > PAUSE > WAIT,30.00|20.00|10.00|0.00,U309,pause_activity,RESOLVED,,"template=SC32: Wants an activity paused, not ended."
+A0068,clear_context,STOP,THANK > BYE > ALSO > DONE > STOP,40.00|30.00|20.00|10.00|0.00,U302,end_conversation,RESOLVED,,template=SC22: Wants to end the conversation politely.
+A0069,clear_context,DOCTOR,SICK > MAYBE > MAYBE > PAIN > DOCTOR,40.00|30.00|20.00|10.00|0.00,U311,medical_care_request,RESOLVED,,template=SC08: Non-urgent request to see a doctor because of illness.
+A0070,clear_context,GO,HOSPITAL > HOME > SO > WHERE > GO,40.00|30.00|20.00|10.00|0.00,U311,destination_request,RESOLVED,,template=SC29: Wants to know where to go.
+A0071,clear_context,HELP,QUICK > POLICE > JUST > THEN > URGENT > HELP,50.00|40.00|30.00|20.00|10.00|0.00,U304,emergency_support,RESOLVED,,"template=SC03: Immediate danger, need urgent non-medical help."
+A0072,clear_context,STOP,THANK > DONE > THEN > BYE > STOP,40.00|30.00|20.00|10.00|0.00,U302,end_conversation,RESOLVED,,template=SC22: Wants to end the conversation politely.
+A0073,clear_context,PAIN,THEN > MAYBE > HEART > ALONE > SAD > PAIN,50.00|40.00|30.00|20.00|10.00|0.00,U303,emotional_distress,RESOLVED,,template=SC06: Expressing emotional or psychological pain.
+A0074,clear_context,STOP,DO > PLEASE > OK > NOW > STOP,40.00|30.00|20.00|10.00|0.00,U306,halt_action,RESOLVED,,template=SC20: Wants an ongoing activity to stop -- not medical.
+A0075,clear_context,HELP,WHAT > JUST > THEN > WHERE > HELP,40.00|30.00|20.00|10.00|0.00,U311,information_request,RESOLVED,,template=SC04: Need an explanation or piece of information.
+A0076,clear_context,WAIT,SECOND > JUST > SOON > WAIT,30.00|20.00|10.00|0.00,U307,patience_request,RESOLVED,,template=SC31: Politely asking for a short wait.
+A0077,clear_context,PAIN,POINT > UM > THEN > LEG > PAIN,40.00|30.00|20.00|10.00|0.00,U308,location_pain,RESOLVED,,template=SC07: Indicating or asking about the location of pain.
+A0078,clear_context,WATER,JUST > HOT > THIRSTY > WATER,30.00|20.00|10.00|0.00,U305,thirst_request,RESOLVED,,"template=SC23: Thirsty, wants water to drink."
+A0079,clear_context,HURT,BLOOD > QUICK > HURT,20.00|10.00|0.00,U302,injury_emergency,RESOLVED,,"template=SC18: Serious injury, needs immediate help."
+A0080,clear_context,FOOD,ALLERGY > THEN > CANNOT > FOOD,30.00|20.00|10.00|0.00,U308,dietary_restriction,RESOLVED,,template=SC26: Cannot eat something due to allergy/restriction.
+A0081,clear_context,HOSPITAL,WHICH > THEN > GO > HOSPITAL,30.00|20.00|10.00|0.00,U308,direction_to_hospital,RESOLVED,,template=SC13: Asking for directions to the hospital.
+A0082,clear_context,HELP,SHOW > THEN > ALSO > TASK > WORK > HELP,50.00|40.00|30.00|20.00|10.00|0.00,U306,task_assistance,RESOLVED,,template=SC02: Need for help completing a work task or project.
+A0083,clear_context,PAIN,HERE > UM > JUST > POINT > PAIN,40.00|30.00|20.00|10.00|0.00,U301,location_pain,RESOLVED,,template=SC07: Indicating or asking about the location of pain.
+A0084,clear_context,STOP,DO > PLEASE > STOP,20.00|10.00|0.00,U307,halt_action,RESOLVED,,template=SC20: Wants an ongoing activity to stop -- not medical.
+A0085,clear_context,DOCTOR,APPOINTMENT > TIME > SCHEDULE > DOCTOR,30.00|20.00|10.00|0.00,U305,appointment_inquiry,RESOLVED,,template=SC10: Routine scheduling question about a doctor's appointment.
+A0086,clear_context,HELP,SHOW > DEADLINE > TASK > HELP,30.00|20.00|10.00|0.00,U308,task_assistance,RESOLVED,,template=SC02: Need for help completing a work task or project.
+A0087,clear_context,STOP,HURT > OK > OUCH > SO > OW > STOP,50.00|40.00|30.00|20.00|10.00|0.00,U304,pain_stop,RESOLVED,,template=SC21: Wants something to stop BECAUSE it is causing pain.
+A0088,clear_context,SICK,EAT > STOMACH > FOOD > SICK,30.00|20.00|10.00|0.00,U303,nausea_complaint,RESOLVED,,"template=SC15: Feeling nauseous, likely food-related."
+A0089,clear_context,PAIN,SAD > ALSO > THEN > HEART > PAIN,40.00|30.00|20.00|10.00|0.00,U308,emotional_distress,RESOLVED,,template=SC06: Expressing emotional or psychological pain.
+A0090,clear_context,PAIN,ALONE > SO > OK > CRY > PAIN,40.00|30.00|20.00|10.00|0.00,U301,emotional_distress,RESOLVED,,template=SC06: Expressing emotional or psychological pain.
+A0091,clear_context,BATHROOM,PRIVATE > ROOM > ALONE > BATHROOM,30.00|20.00|10.00|0.00,U306,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0092,clear_context,WATER,MAYBE > WASH > UM > CLEAN > WATER,40.00|30.00|20.00|10.00|0.00,U309,hygiene_request,RESOLVED,,template=SC24: Wants water to wash or clean.
+A0093,clear_context,PAIN,MISS > OK > SAD > HEART > PAIN,40.00|30.00|20.00|10.00|0.00,U301,emotional_distress,RESOLVED,,template=SC06: Expressing emotional or psychological pain.
+A0094,clear_context,SICK,UM > DIZZY > FOOD > SICK,30.00|20.00|10.00|0.00,U311,nausea_complaint,RESOLVED,,"template=SC15: Feeling nauseous, likely food-related."
+A0095,clear_context,WATER,THIRSTY > HOT > DRINK > WATER,30.00|20.00|10.00|0.00,U308,thirst_request,RESOLVED,,"template=SC23: Thirsty, wants water to drink."
+A0096,clear_context,BATHROOM,ALSO > SO > ALONE > ROOM > BATHROOM,40.00|30.00|20.00|10.00|0.00,U310,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0097,clear_context,FOOD,SICK > MEDICINE > FOOD,20.00|10.00|0.00,U309,dietary_restriction,RESOLVED,,template=SC26: Cannot eat something due to allergy/restriction.
+A0098,clear_context,PAIN,BREATHE > BLOOD > PAIN,20.00|10.00|0.00,U310,medical_symptom,RESOLVED,,template=SC05: Reporting a physical pain symptom.
+A0099,clear_context,WATER,CLEAN > DIRTY > ALSO > BATH > WATER,40.00|30.00|20.00|10.00|0.00,U311,hygiene_request,RESOLVED,,template=SC24: Wants water to wash or clean.
+A0100,clear_context,WATER,THEN > DRINK > JUST > THIRSTY > WATER,40.00|30.00|20.00|10.00|0.00,U300,thirst_request,RESOLVED,,"template=SC23: Thirsty, wants water to drink."
+A0101,clear_context,WAIT,PLEASE > MOMENT > SOON > WAIT,30.00|20.00|10.00|0.00,U305,patience_request,RESOLVED,,template=SC31: Politely asking for a short wait.
+A0102,clear_context,FOOD,ALLERGY > MAYBE > SO > CANNOT > FOOD,40.00|30.00|20.00|10.00|0.00,U307,dietary_restriction,RESOLVED,,template=SC26: Cannot eat something due to allergy/restriction.
+A0103,clear_context,HOSPITAL,WHICH > MAYBE > WHERE > JUST > GO > HOSPITAL,50.00|40.00|30.00|20.00|10.00|0.00,U304,direction_to_hospital,RESOLVED,,template=SC13: Asking for directions to the hospital.
+A0104,clear_context,DOCTOR,CHEST > BREATHE > URGENT > DOCTOR,30.00|20.00|10.00|0.00,U310,emergency_medical,RESOLVED,,template=SC09: Urgent need for a doctor right now.
+A0105,clear_context,WAIT,PAUSE > SO > UM > HOLD > WAIT,40.00|30.00|20.00|10.00|0.00,U308,pause_activity,RESOLVED,,"template=SC32: Wants an activity paused, not ended."
+A0106,clear_context,PAIN,ALSO > DIZZY > BLOOD > FALL > PAIN,40.00|30.00|20.00|10.00|0.00,U310,medical_symptom,RESOLVED,,template=SC05: Reporting a physical pain symptom.
+A0107,clear_context,SICK,JUST > CHEST > DIZZY > SICK,30.00|20.00|10.00|0.00,U300,severe_illness,RESOLVED,,"template=SC16: Seriously unwell, needs urgent attention."
+A0108,clear_context,WAIT,SOON > PLEASE > SECOND > WAIT,30.00|20.00|10.00|0.00,U308,patience_request,RESOLVED,,template=SC31: Politely asking for a short wait.
+A0109,clear_context,GO,MAYBE > FAST > NOW > GO,30.00|20.00|10.00|0.00,U306,urgency_go,RESOLVED,,"template=SC30: Needs to leave right now, urgently."
+A0110,clear_context,BATHROOM,NOW > URGENT > OK > QUICK > BATHROOM,40.00|30.00|20.00|10.00|0.00,U310,restroom_need,RESOLVED,,template=SC27: Urgently needs the restroom.
+A0111,clear_context,HURT,BLOOD > UM > FALL > HURT,30.00|20.00|10.00|0.00,U305,injury_emergency,RESOLVED,,"template=SC18: Serious injury, needs immediate help."
+A0112,clear_context,HELP,KNOW > WHERE > JUST > WHAT > HELP,40.00|30.00|20.00|10.00|0.00,U307,information_request,RESOLVED,,template=SC04: Need an explanation or piece of information.
+A0113,clear_context,HELP,CHEST > PAIN > BLOOD > HELP,30.00|20.00|10.00|0.00,U307,medical_assistance,RESOLVED,,template=SC01: Urgent need for medical attention due to a physical symptom.
+A0114,clear_context,DOCTOR,UM > QUICK > CHEST > DOCTOR,30.00|20.00|10.00|0.00,U303,emergency_medical,RESOLVED,,template=SC09: Urgent need for a doctor right now.
+A0115,clear_context,FOOD,EAT > MEAL > FOOD,20.00|10.00|0.00,U309,hunger_request,RESOLVED,,"template=SC25: Hungry, wants food."
+A0116,clear_context,STOP,OW > MAYBE > PAIN > OK > OUCH > STOP,50.00|40.00|30.00|20.00|10.00|0.00,U307,pain_stop,RESOLVED,,template=SC21: Wants something to stop BECAUSE it is causing pain.
+A0117,clear_context,PAIN,ARM > BACK > HEAD > PAIN,30.00|20.00|10.00|0.00,U306,location_pain,RESOLVED,,template=SC07: Indicating or asking about the location of pain.
+A0118,clear_context,WATER,ALSO > DRINK > THIRSTY > HOT > WATER,40.00|30.00|20.00|10.00|0.00,U305,thirst_request,RESOLVED,,"template=SC23: Thirsty, wants water to drink."
+A0119,clear_context,BATHROOM,ALSO > ROOM > OK > ALONE > BATHROOM,40.00|30.00|20.00|10.00|0.00,U310,privacy_request,RESOLVED,,"template=SC28: Wants privacy, not urgent."
+A0120,clear_context,SICK,THEN > UM > CHEST > DIZZY > SICK,40.00|30.00|20.00|10.00|0.00,U306,severe_illness,RESOLVED,,"template=SC16: Seriously unwell, needs urgent attention."
+B0001,temporal_dependent,SICK,ALSO > DIZZY > JUST > EAT > JUST > SICK,234.76|217.80|200.85|183.90|166.95|0.00,U311,LITERAL,LITERAL,,ALL 5 preceding word(s) placed 235s-167s before target -- genuinely outside the 120s window
+B0002,temporal_dependent,STOP,JUST > OK > FINISHED > DONE > STOP,213.19|197.39|181.59|165.80|0.00,U302,LITERAL,LITERAL,,ALL 4 preceding word(s) placed 213s-166s before target -- genuinely outside the 120s window
+B0003,temporal_dependent,STOP,PAIN > HURT > OUCH > OW > STOP,232.24|211.68|191.12|170.56|0.00,U300,LITERAL,LITERAL,,ALL 4 preceding word(s) placed 232s-171s before target -- genuinely outside the 120s window
+B0004,temporal_dependent,DOCTOR,BREATHE > DOCTOR,170.85|0.00,U311,LITERAL,LITERAL,,ALL 1 preceding word(s) placed 171s-171s before target -- genuinely outside the 120s window
+B0005,temporal_dependent,WATER,UM > THEN > WASH > OK > DIRTY > WATER,258.80|237.04|215.28|193.52|171.76|0.00,U304,LITERAL,LITERAL,,ALL 5 preceding word(s) placed 259s-172s before target -- genuinely outside the 120s window
+B0006,temporal_dependent,FOOD,EAT > OK > FOOD,188.01|169.01|0.00,U308,LITERAL,LITERAL,,ALL 2 preceding word(s) placed 188s-169s before target -- genuinely outside the 120s window
+B0007,temporal_dependent,HURT,BLOOD > ALSO > FALL > SERIOUS > HURT,244.39|220.79|197.19|173.60|0.00,U305,LITERAL,LITERAL,,ALL 4 preceding word(s) placed 244s-174s before target -- genuinely outside the 120s window
+B0008,temporal_dependent,SICK,THEN > CHEST > FALL > DIZZY > VERY > SICK,244.66|225.73|206.80|187.86|168.93|0.00,U302,LITERAL,LITERAL,,ALL 5 preceding word(s) placed 245s-169s before target -- genuinely outside the 120s window
+B0009,temporal_dependent,DOCTOR,ALSO > APPOINTMENT > TIME > UM > THEN > DOCTOR,248.59|228.87|209.15|189.44|169.72|0.00,U303,LITERAL,LITERAL,,ALL 5 preceding word(s) placed 249s-170s before target -- genuinely outside the 120s window
+B0010,temporal_dependent,WATER,HOT > THIRSTY > DRINK > WATER,202.58|185.05|167.53|0.00,U306,LITERAL,LITERAL,,ALL 3 preceding word(s) placed 203s-168s before target -- genuinely outside the 120s window
+B0011,temporal_dependent,DOCTOR,HURT > ALSO > ALSO > MEDICINE > MAYBE > SICK > DOCTOR,268.32|248.60|228.88|209.16|189.44|169.72|0.00,U307,LITERAL,LITERAL,,ALL 6 preceding word(s) placed 268s-170s before target -- genuinely outside the 120s window
+B0012,temporal_dependent,WATER,CLEAN > DIRTY > WASH > WATER,215.60|193.73|171.87|0.00,U307,LITERAL,LITERAL,,ALL 3 preceding word(s) placed 216s-172s before target -- genuinely outside the 120s window
+B0013,temporal_dependent,STOP,SO > NOW > UM > STOP,198.78|182.52|166.26|0.00,U311,LITERAL,LITERAL,,ALL 3 preceding word(s) placed 199s-166s before target -- genuinely outside the 120s window
+B0014,temporal_dependent,HELP,TELL > WHERE > MAYBE > KNOW > WHAT > HELP,243.08|224.46|205.85|187.23|168.62|0.00,U301,LITERAL,LITERAL,,ALL 5 preceding word(s) placed 243s-169s before target -- genuinely outside the 120s window
+B0015,temporal_dependent,HELP,FIRE > DANGER > URGENT > HELP,195.20|180.14|165.07|0.00,U311,LITERAL,LITERAL,,ALL 3 preceding word(s) placed 195s-165s before target -- genuinely outside the 120s window
+B0016,temporal_dependent,HURT,FEELINGS > CRY > HURT,193.17|171.59|0.00,U309,LITERAL,LITERAL,,ALL 2 preceding word(s) placed 193s-172s before target -- genuinely outside the 120s window
+B0017,temporal_dependent,DOCTOR,TIME > SCHEDULE > ALSO > WHEN > MAYBE > ALSO > DOCTOR,64.32|53.60|42.88|32.16|21.44|10.72|0.00,U303,appointment_inquiry,RESOLVED,,"relevant context inside window, template=SC10"
+B0018,temporal_dependent,STOP,THEN > NOW > MAYBE > THAT > PLEASE > DO > MAYBE > STOP,89.81|76.98|64.15|51.32|38.49|25.66|12.83|0.00,U303,halt_action,RESOLVED,,"relevant context inside window, template=SC20"
+B0019,temporal_dependent,WAIT,MOMENT > SECOND > SOON > PLEASE > WAIT,58.56|43.92|29.28|14.64|0.00,U305,patience_request,RESOLVED,,"relevant context inside window, template=SC31"
+B0020,temporal_dependent,GO,URGENT > QUICK > HURRY > NOW > GO,24.68|18.51|12.34|6.17|0.00,U304,urgency_go,RESOLVED,,"relevant context inside window, template=SC30"
+B0021,temporal_dependent,BATHROOM,MAYBE > JUST > MAYBE > PLEASE > BATHROOM,35.89|26.91|17.94|8.97|0.00,U306,privacy_request,RESOLVED,,"relevant context inside window, template=SC28"
+B0022,temporal_dependent,HELP,PAIN > FALL > MAYBE > UM > HELP,27.43|20.57|13.72|6.86|0.00,U301,medical_assistance,RESOLVED,,"relevant context inside window, template=SC01"
+B0023,temporal_dependent,FOOD,OK > ALLERGY > MEDICINE > CANNOT > SICK > FOOD,32.38|25.90|19.43|12.95|6.48|0.00,U305,dietary_restriction,RESOLVED,,"relevant context inside window, template=SC26"
+B0024,temporal_dependent,DOCTOR,ALSO > JUST > TIME > UM > DOCTOR,57.68|43.26|28.84|14.42|0.00,U308,appointment_inquiry,RESOLVED,,"relevant context inside window, template=SC10"
+B0025,temporal_dependent,GO,FAST > QUICK > URGENT > JUST > OK > NOW > GO,65.85|54.88|43.90|32.93|21.95|10.98|0.00,U310,urgency_go,RESOLVED,,"relevant context inside window, template=SC30"
+B0026,temporal_dependent,GO,HURRY > GO,12.82|0.00,U300,urgency_go,RESOLVED,,"relevant context inside window, template=SC30"
+B0027,temporal_dependent,PAIN,OK > ALSO > MAYBE > SAD > ALONE > UPSET > PAIN,70.68|58.90|47.12|35.34|23.56|11.78|0.00,U305,emotional_distress,RESOLVED,,"relevant context inside window, template=SC06"
+B0028,temporal_dependent,WATER,DRINK > HOT > WATER,11.57|5.78|0.00,U300,thirst_request,RESOLVED,,"relevant context inside window, template=SC23"
+B0029,temporal_dependent,HURT,UM > SO > URGENT > SERIOUS > QUICK > BLOOD > UM > HURT,55.96|47.97|39.97|31.98|23.98|15.99|7.99|0.00,U302,injury_emergency,RESOLVED,,"relevant context inside window, template=SC18"
+B0030,temporal_dependent,DOCTOR,ALSO > PAIN > SICK > MEDICINE > HURT > DOCTOR,53.08|42.46|31.85|21.23|10.62|0.00,U308,medical_care_request,RESOLVED,,"relevant context inside window, template=SC08"
+B0031,temporal_dependent,FOOD,ALSO > JUST > SICK > FOOD,29.62|19.74|9.87|0.00,U304,dietary_restriction,RESOLVED,,"relevant context inside window, template=SC26"
+B0032,temporal_dependent,DOCTOR,APPOINTMENT > MAYBE > SCHEDULE > ALSO > DOCTOR,23.12|17.34|11.56|5.78|0.00,U310,appointment_inquiry,RESOLVED,,"relevant context inside window, template=SC10"
+B0033,temporal_dependent,WAIT,SOON > MOMENT > PLEASE > SECOND > WAIT,42.27|31.70|21.14|10.57|0.00,U304,patience_request,RESOLVED,,"relevant context inside window, template=SC31"
+B0034,temporal_dependent,STOP,UM > JUST > THEN > OUCH > STOP,43.07|32.30|21.53|10.77|0.00,U304,pain_stop,RESOLVED,,"relevant context inside window, template=SC21"
+B0035,temporal_dependent,WATER,WASH > CLEAN > OK > DIRTY > SO > OK > WATER,46.04|38.37|30.69|23.02|15.35|7.67|0.00,U306,hygiene_request,RESOLVED,,"relevant context inside window, template=SC24"
+B0036,temporal_dependent,HURT,OW > MAYBE > JUST > JUST > HURT,20.22|15.16|10.11|5.05|0.00,U304,pain_complaint,RESOLVED,,"relevant context inside window, template=SC17"
+B0037,temporal_dependent,GO,SO > FAST > NOW > URGENT > QUICK > GO,46.78|37.43|28.07|18.71|9.36|0.00,U302,urgency_go,RESOLVED,,"relevant context inside window, template=SC30"
+B0038,temporal_dependent,PAIN,POINT > ARM > HEAD > WHERE > PAIN,54.70|41.02|27.35|13.67|0.00,U301,location_pain,RESOLVED,,"relevant context inside window, template=SC07"
+B0039,temporal_dependent,WATER,SO > DRINK > OK > WATER,20.37|13.58|6.79|0.00,U306,thirst_request,RESOLVED,,"relevant context inside window, template=SC23"
+B0040,temporal_dependent,PAIN,CRY > MISS > THEN > UM > PAIN,59.58|44.69|29.79|14.90|0.00,U305,emotional_distress,RESOLVED,,"relevant context inside window, template=SC06"
+B0041,temporal_dependent,WATER,THEN > THIRSTY > MAYBE > ALSO > DRINK > WATER,28.92|23.13|17.35|11.57|5.78|0.00,U307,thirst_request,RESOLVED,,"relevant context inside window, template=SC23"
+B0042,temporal_dependent,GO,WHERE > OK > GO,11.90|5.95|0.00,U309,destination_request,RESOLVED,,"relevant context inside window, template=SC29"
+B0043,temporal_dependent,SICK,SO > THEN > DOCTOR > MEDICINE > SICK,44.92|33.69|22.46|11.23|0.00,U302,illness_statement,RESOLVED,,"relevant context inside window, template=SC14"
+B0044,temporal_dependent,WAIT,SECOND > SOON > OK > WAIT,33.48|22.32|11.16|0.00,U310,patience_request,RESOLVED,,"relevant context inside window, template=SC31"
+B0045,temporal_dependent,WAIT,PLEASE > SECOND > MOMENT > SOON > THEN > WAIT,32.98|26.39|19.79|13.19|6.60|0.00,U301,patience_request,RESOLVED,,"relevant context inside window, template=SC31"
+B0046,temporal_dependent,PAIN,ALSO > CRY > MISS > SO > SAD > UPSET > PAIN,79.17|65.97|52.78|39.58|26.39|13.19|0.00,U309,emotional_distress,RESOLVED,,"relevant context inside window, template=SC06"
+B0047,temporal_dependent,SICK,PAIN > DOCTOR > SICK,22.26|11.13|0.00,U305,illness_statement,RESOLVED,,"relevant context inside window, template=SC14"
+B0048,temporal_dependent,PAIN,ALONE > HEART > CRY > PAIN,19.38|12.92|6.46|0.00,U307,emotional_distress,RESOLVED,,"relevant context inside window, template=SC06"
+B0049,temporal_dependent,HELP,ALSO > THEN > DIZZY > HELP,15.07|10.05|5.02|0.00,U302,medical_assistance,RESOLVED,,"relevant context inside window, template=SC01"
+B0050,temporal_dependent,BATHROOM,NOW > ALSO > URGENT > QUICK > HURRY > SO > BATHROOM,47.03|39.19|31.35|23.51|15.68|7.84|0.00,U300,restroom_need,RESOLVED,,"relevant context inside window, template=SC27"
+B0051,temporal_dependent,FOOD,SO > JUST > ALLERGY > FOOD,36.95|24.63|12.32|0.00,U305,dietary_restriction,RESOLVED,,"relevant context inside window, template=SC26"
+B0052,temporal_dependent,DOCTOR,SO > NOW > QUICK > BREATHE > CHEST > DOCTOR,56.95|45.56|34.17|22.78|11.39|0.00,U306,emergency_medical,RESOLVED,,"relevant context inside window, template=SC09"
+B0053,temporal_dependent,BATHROOM,QUICK > JUST > BATHROOM,29.05|14.52|0.00,U303,restroom_need,RESOLVED,,"relevant context inside window, template=SC27"
+B0054,temporal_dependent,HOSPITAL,GO > MAYBE > OK > THEN > WHERE > HOSPITAL,32.73|26.19|19.64|13.09|6.55|0.00,U305,direction_to_hospital,RESOLVED,,"relevant context inside window, template=SC13"
+B0055,temporal_dependent,WATER,OK > ALSO > DRINK > WATER,18.29|12.20|6.10|0.00,U310,thirst_request,RESOLVED,,"relevant context inside window, template=SC23"
+B0056,temporal_dependent,HOSPITAL,TODAY > APPOINTMENT > TOMORROW > OK > UM > SCHEDULE > ALSO > HOSPITAL,72.96|62.54|52.12|41.69|31.27|20.85|10.42|0.00,U310,appointment_destination,RESOLVED,,"relevant context inside window, template=SC12"
+B0057,temporal_dependent,HELP,PROJECT > JUST > FIX > HELP,25.93|17.28|8.64|0.00,U301,task_assistance,RESOLVED,,"relevant context inside window, template=SC02"
+B0058,temporal_dependent,DOCTOR,ALSO > NOW > BREATHE > DOCTOR,28.55|19.04|9.52|0.00,U303,emergency_medical,RESOLVED,,"relevant context inside window, template=SC09"
+B0059,temporal_dependent,DOCTOR,URGENT > DOCTOR,6.24|0.00,U308,emergency_medical,RESOLVED,,"relevant context inside window, template=SC09"
+B0060,temporal_dependent,FOOD,MEDICINE > ALLERGY > THEN > ALSO > FOOD,49.32|36.99|24.66|12.33|0.00,U306,dietary_restriction,RESOLVED,,"relevant context inside window, template=SC26"
+B0061,temporal_dependent,STOP,NOW > DO > THAT > ALSO > PLEASE > STOP,28.57|22.85|17.14|11.43|5.71|0.00,U311,halt_action,RESOLVED,,"relevant context inside window, template=SC20"
+B0062,temporal_dependent,WAIT,MOMENT > SO > PLEASE > SOON > WAIT,42.19|31.64|21.10|10.55|0.00,U302,patience_request,RESOLVED,,"relevant context inside window, template=SC31"
+B0063,temporal_dependent,FOOD,LUNCH > FOOD,7.26|0.00,U302,hunger_request,RESOLVED,,"relevant context inside window, template=SC25"
+B0064,temporal_dependent,GO,JUST > SO > HOME > WHERE > GO,33.06|24.80|16.53|8.27|0.00,U302,destination_request,RESOLVED,,"relevant context inside window, template=SC29"
+B0065,temporal_dependent,GO,FAST > HURRY > ALSO > SO > SO > GO,37.09|29.67|22.25|14.84|7.42|0.00,U306,urgency_go,RESOLVED,,"relevant context inside window, template=SC30"
+B0066,temporal_dependent,FOOD,SICK > UM > MEDICINE > ALLERGY > FOOD,27.91|20.93|13.96|6.98|0.00,U305,dietary_restriction,RESOLVED,,"relevant context inside window, template=SC26"
+B0067,temporal_dependent,STOP,JUST > UM > THAT > STOP,39.92|26.61|13.31|0.00,U307,halt_action,RESOLVED,,"relevant context inside window, template=SC20"
+B0068,temporal_dependent,HURT,SERIOUS > URGENT > FALL > THEN > MAYBE > QUICK > THEN > HURT,99.23|85.06|70.88|56.70|42.53|28.35|14.18|0.00,U310,injury_emergency,RESOLVED,,"relevant context inside window, template=SC18"
+B0069,temporal_dependent,STOP,OUCH > OW > STOP,23.09|11.55|0.00,U303,pain_stop,RESOLVED,,"relevant context inside window, template=SC21"
+B0070,temporal_dependent,BATHROOM,PRIVATE > ROOM > SO > BATHROOM,41.05|27.36|13.68|0.00,U308,privacy_request,RESOLVED,,"relevant context inside window, template=SC28"
+B0071,temporal_dependent,GO,URGENT > HURRY > NOW > QUICK > GO,59.78|44.84|29.89|14.95|0.00,U311,urgency_go,RESOLVED,,"relevant context inside window, template=SC30"
+B0072,temporal_dependent,STOP,OW > STOP,9.53|0.00,U304,pain_stop,RESOLVED,,"relevant context inside window, template=SC21"
+B0073,temporal_dependent,FOOD,MAYBE > MEAL > HUNGRY > LUNCH > MAYBE > EAT > THEN > FOOD,81.19|69.59|57.99|46.39|34.79|23.20|11.60|0.00,U308,hunger_request,RESOLVED,,"relevant context inside window, template=SC25"
+B0074,temporal_dependent,WAIT,PAUSE > MAYBE > HOLD > WAIT,39.26|26.17|13.09|0.00,U302,pause_activity,RESOLVED,,"relevant context inside window, template=SC32"
+B0075,temporal_dependent,GO,MAYBE > THEN > THEN > WHERE > HOSPITAL > GO,54.92|43.94|32.95|21.97|10.98|0.00,U303,destination_request,RESOLVED,,"relevant context inside window, template=SC29"
+B0076,temporal_dependent,HOSPITAL,APPOINTMENT > UM > OK > HOSPITAL,41.60|27.74|13.87|0.00,U302,appointment_destination,RESOLVED,,"relevant context inside window, template=SC12"
+B0077,temporal_dependent,DOCTOR,JUST > OK > QUICK > CHEST > URGENT > DOCTOR,58.59|46.87|35.15|23.44|11.72|0.00,U308,emergency_medical,RESOLVED,,"relevant context inside window, template=SC09"
+B0078,temporal_dependent,DOCTOR,WHEN > UM > OK > DOCTOR,16.74|11.16|5.58|0.00,U304,appointment_inquiry,RESOLVED,,"relevant context inside window, template=SC10"
+B0079,temporal_dependent,SICK,THEN > MAYBE > ALSO > DIZZY > SICK,36.98|27.74|18.49|9.25|0.00,U301,nausea_complaint,RESOLVED,,"relevant context inside window, template=SC15"
+B0080,temporal_dependent,GO,ALSO > THEN > WHERE > GO,43.04|28.69|14.35|0.00,U309,destination_request,RESOLVED,,"relevant context inside window, template=SC29"
+C0001,personalization_dependent,WAIT,WAIT,0.00,U207,patience_request,RESOLVED,WAIT:patience_request:18:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0002,personalization_dependent,PAIN,PAIN,0.00,U101,medical_symptom,RESOLVED,PAIN:medical_symptom:25:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0003,personalization_dependent,STOP,STOP,0.00,U209,halt_action,RESOLVED,STOP:halt_action:25:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0004,personalization_dependent,STOP,STOP,0.00,U202,halt_action,RESOLVED,STOP:halt_action:18:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0005,personalization_dependent,SICK,SICK,0.00,U103,illness_statement,RESOLVED,SICK:illness_statement:15:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0006,personalization_dependent,DOCTOR,DOCTOR,0.00,U209,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:18:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0007,personalization_dependent,DOCTOR,DOCTOR,0.00,U206,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:15:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0008,personalization_dependent,STOP,STOP,0.00,U208,halt_action,RESOLVED,STOP:halt_action:20:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0009,personalization_dependent,PAIN,PAIN,0.00,U203,location_pain,RESOLVED,PAIN:location_pain:20:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0010,personalization_dependent,DOCTOR,DOCTOR,0.00,U205,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:18:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0011,personalization_dependent,HELP,HELP,0.00,U207,task_assistance,RESOLVED,HELP:task_assistance:15:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0012,personalization_dependent,PAIN,PAIN,0.00,U104,medical_symptom,RESOLVED,PAIN:medical_symptom:15:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0013,personalization_dependent,PAIN,PAIN,0.00,U104,medical_symptom,RESOLVED,PAIN:medical_symptom:18:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0014,personalization_dependent,HELP,HELP,0.00,U107,medical_assistance,RESOLVED,HELP:medical_assistance:20:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0015,personalization_dependent,WAIT,WAIT,0.00,U200,patience_request,RESOLVED,WAIT:patience_request:15:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0016,personalization_dependent,HELP,HELP,0.00,U200,task_assistance,RESOLVED,HELP:task_assistance:15:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0017,personalization_dependent,WAIT,WAIT,0.00,U208,patience_request,RESOLVED,WAIT:patience_request:18:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0018,personalization_dependent,STOP,STOP,0.00,U207,halt_action,RESOLVED,STOP:halt_action:20:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0019,personalization_dependent,SICK,SICK,0.00,U106,illness_statement,RESOLVED,SICK:illness_statement:15:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0020,personalization_dependent,HELP,HELP,0.00,U100,medical_assistance,RESOLVED,HELP:medical_assistance:20:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0021,personalization_dependent,PAIN,PAIN,0.00,U108,medical_symptom,RESOLVED,PAIN:medical_symptom:25:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0022,personalization_dependent,SICK,SICK,0.00,U106,illness_statement,RESOLVED,SICK:illness_statement:25:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0023,personalization_dependent,DOCTOR,DOCTOR,0.00,U205,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:15:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0024,personalization_dependent,PAIN,PAIN,0.00,U100,medical_symptom,RESOLVED,PAIN:medical_symptom:18:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0025,personalization_dependent,DOCTOR,DOCTOR,0.00,U202,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:20:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0026,personalization_dependent,STOP,STOP,0.00,U106,pain_stop,RESOLVED,STOP:pain_stop:20:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0027,personalization_dependent,HELP,HELP,0.00,U102,medical_assistance,RESOLVED,HELP:medical_assistance:15:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0028,personalization_dependent,DOCTOR,DOCTOR,0.00,U109,medical_care_request,RESOLVED,DOCTOR:medical_care_request:15:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0029,personalization_dependent,STOP,STOP,0.00,U200,halt_action,RESOLVED,STOP:halt_action:20:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0030,personalization_dependent,HURT,HURT,0.00,U102,pain_complaint,RESOLVED,HURT:pain_complaint:18:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0031,personalization_dependent,SICK,SICK,0.00,U109,illness_statement,RESOLVED,SICK:illness_statement:20:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0032,personalization_dependent,SICK,SICK,0.00,U103,illness_statement,RESOLVED,SICK:illness_statement:18:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0033,personalization_dependent,PAIN,PAIN,0.00,U102,medical_symptom,RESOLVED,PAIN:medical_symptom:25:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0034,personalization_dependent,PAIN,PAIN,0.00,U105,medical_symptom,RESOLVED,PAIN:medical_symptom:15:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0035,personalization_dependent,DOCTOR,DOCTOR,0.00,U108,medical_care_request,RESOLVED,DOCTOR:medical_care_request:20:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0036,personalization_dependent,HELP,HELP,0.00,U209,task_assistance,RESOLVED,HELP:task_assistance:15:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0037,personalization_dependent,PAIN,PAIN,0.00,U205,location_pain,RESOLVED,PAIN:location_pain:15:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0038,personalization_dependent,HURT,HURT,0.00,U109,pain_complaint,RESOLVED,HURT:pain_complaint:20:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0039,personalization_dependent,PAIN,PAIN,0.00,U200,location_pain,RESOLVED,PAIN:location_pain:25:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0040,personalization_dependent,HELP,HELP,0.00,U206,task_assistance,RESOLVED,HELP:task_assistance:20:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0041,personalization_dependent,HURT,HURT,0.00,U106,pain_complaint,RESOLVED,HURT:pain_complaint:18:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0042,personalization_dependent,DOCTOR,DOCTOR,0.00,U108,medical_care_request,RESOLVED,DOCTOR:medical_care_request:20:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0043,personalization_dependent,DOCTOR,DOCTOR,0.00,U105,medical_care_request,RESOLVED,DOCTOR:medical_care_request:18:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0044,personalization_dependent,HELP,HELP,0.00,U200,task_assistance,RESOLVED,HELP:task_assistance:15:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0045,personalization_dependent,PAIN,PAIN,0.00,U103,medical_symptom,RESOLVED,PAIN:medical_symptom:25:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0046,personalization_dependent,HELP,HELP,0.00,U202,task_assistance,RESOLVED,HELP:task_assistance:20:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0047,personalization_dependent,HURT,HURT,0.00,U106,pain_complaint,RESOLVED,HURT:pain_complaint:18:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0048,personalization_dependent,WAIT,WAIT,0.00,U207,patience_request,RESOLVED,WAIT:patience_request:15:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0049,personalization_dependent,HELP,HELP,0.00,U101,medical_assistance,RESOLVED,HELP:medical_assistance:20:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0050,personalization_dependent,HURT,HURT,0.00,U108,pain_complaint,RESOLVED,HURT:pain_complaint:20:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0051,personalization_dependent,HURT,HURT,0.00,U106,pain_complaint,RESOLVED,HURT:pain_complaint:20:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0052,personalization_dependent,STOP,STOP,0.00,U104,pain_stop,RESOLVED,STOP:pain_stop:20:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0053,personalization_dependent,WAIT,WAIT,0.00,U205,patience_request,RESOLVED,WAIT:patience_request:25:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0054,personalization_dependent,HELP,HELP,0.00,U105,medical_assistance,RESOLVED,HELP:medical_assistance:20:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0055,personalization_dependent,GO,GO,0.00,U206,destination_request,RESOLVED,GO:destination_request:18:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0056,personalization_dependent,HELP,HELP,0.00,U106,medical_assistance,RESOLVED,HELP:medical_assistance:20:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0057,personalization_dependent,GO,GO,0.00,U202,destination_request,RESOLVED,GO:destination_request:18:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0058,personalization_dependent,HURT,HURT,0.00,U107,pain_complaint,RESOLVED,HURT:pain_complaint:25:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0059,personalization_dependent,DOCTOR,DOCTOR,0.00,U207,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:18:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0060,personalization_dependent,STOP,STOP,0.00,U106,pain_stop,RESOLVED,STOP:pain_stop:20:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0061,personalization_dependent,GO,GO,0.00,U204,destination_request,RESOLVED,GO:destination_request:18:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0062,personalization_dependent,DOCTOR,DOCTOR,0.00,U102,medical_care_request,RESOLVED,DOCTOR:medical_care_request:25:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0063,personalization_dependent,GO,GO,0.00,U206,destination_request,RESOLVED,GO:destination_request:18:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0064,personalization_dependent,HELP,HELP,0.00,U108,medical_assistance,RESOLVED,HELP:medical_assistance:15:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0065,personalization_dependent,PAIN,PAIN,0.00,U108,medical_symptom,RESOLVED,PAIN:medical_symptom:25:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0066,personalization_dependent,GO,GO,0.00,U202,destination_request,RESOLVED,GO:destination_request:15:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0067,personalization_dependent,STOP,STOP,0.00,U103,pain_stop,RESOLVED,STOP:pain_stop:25:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0068,personalization_dependent,STOP,STOP,0.00,U202,halt_action,RESOLVED,STOP:halt_action:25:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0069,personalization_dependent,DOCTOR,DOCTOR,0.00,U205,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:18:10d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0070,personalization_dependent,SICK,SICK,0.00,U100,illness_statement,RESOLVED,SICK:illness_statement:20:10d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0071,personalization_dependent,PAIN,PAIN,0.00,U103,medical_symptom,RESOLVED,PAIN:medical_symptom:15:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0072,personalization_dependent,DOCTOR,DOCTOR,0.00,U203,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:15:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0073,personalization_dependent,WAIT,WAIT,0.00,U201,patience_request,RESOLVED,WAIT:patience_request:18:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0074,personalization_dependent,HURT,HURT,0.00,U106,pain_complaint,RESOLVED,HURT:pain_complaint:20:5d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0075,personalization_dependent,HURT,HURT,0.00,U108,pain_complaint,RESOLVED,HURT:pain_complaint:18:2d,"user personality=medical_leaning, no temporal context -- tests personal signal alone"
+C0076,personalization_dependent,HELP,HELP,0.00,U202,task_assistance,RESOLVED,HELP:task_assistance:18:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0077,personalization_dependent,STOP,STOP,0.00,U208,halt_action,RESOLVED,STOP:halt_action:15:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0078,personalization_dependent,WAIT,WAIT,0.00,U201,patience_request,RESOLVED,WAIT:patience_request:15:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0079,personalization_dependent,STOP,STOP,0.00,U203,halt_action,RESOLVED,STOP:halt_action:18:2d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+C0080,personalization_dependent,STOP,STOP,0.00,U201,halt_action,RESOLVED,STOP:halt_action:20:5d,"user personality=task_leaning, no temporal context -- tests personal signal alone"
+D0001,combined_temporal_personal,DOCTOR,ALSO > UM > SICK > DOCTOR,30.00|20.00|10.00|0.00,U107,medical_care_request,RESOLVED,DOCTOR:medical_care_request:10:5d,temporal and personal both support medical_care_request
+D0002,combined_temporal_personal,STOP,PLEASE > DO > THAT > STOP,30.00|20.00|10.00|0.00,U204,halt_action,RESOLVED,STOP:halt_action:15:5d,temporal and personal both support halt_action
+D0003,combined_temporal_personal,HELP,BREATHE > HELP,10.00|0.00,U107,medical_assistance,RESOLVED,HELP:medical_assistance:20:5d,temporal and personal both support medical_assistance
+D0004,combined_temporal_personal,STOP,UM > SO > OW > STOP,30.00|20.00|10.00|0.00,U106,pain_stop,RESOLVED,STOP:pain_stop:20:5d,temporal and personal both support pain_stop
+D0005,combined_temporal_personal,STOP,OUCH > ALSO > HURT > STOP,30.00|20.00|10.00|0.00,U101,pain_stop,RESOLVED,STOP:pain_stop:15:5d,temporal and personal both support pain_stop
+D0006,combined_temporal_personal,PAIN,CHEST > PAIN,10.00|0.00,U106,medical_symptom,RESOLVED,PAIN:medical_symptom:10:5d,temporal and personal both support medical_symptom
+D0007,combined_temporal_personal,HELP,UM > SO > CHEST > SICK > HELP,40.00|30.00|20.00|10.00|0.00,U103,medical_assistance,RESOLVED,HELP:medical_assistance:20:5d,temporal and personal both support medical_assistance
+D0008,combined_temporal_personal,DOCTOR,SICK > DOCTOR,10.00|0.00,U105,medical_care_request,RESOLVED,DOCTOR:medical_care_request:20:5d,temporal and personal both support medical_care_request
+D0009,combined_temporal_personal,WAIT,THEN > OK > SECOND > WAIT,30.00|20.00|10.00|0.00,U204,patience_request,RESOLVED,WAIT:patience_request:20:5d,temporal and personal both support patience_request
+D0010,combined_temporal_personal,STOP,THEN > NOW > THEN > THAT > STOP,40.00|30.00|20.00|10.00|0.00,U203,halt_action,RESOLVED,STOP:halt_action:15:5d,temporal and personal both support halt_action
+D0011,combined_temporal_personal,SICK,UM > PAIN > SICK,20.00|10.00|0.00,U100,illness_statement,RESOLVED,SICK:illness_statement:20:5d,temporal and personal both support illness_statement
+D0012,combined_temporal_personal,DOCTOR,APPOINTMENT > SCHEDULE > DOCTOR,20.00|10.00|0.00,U207,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:15:5d,temporal and personal both support appointment_inquiry
+D0013,combined_temporal_personal,PAIN,CHEST > PAIN,10.00|0.00,U106,medical_symptom,RESOLVED,PAIN:medical_symptom:10:5d,temporal and personal both support medical_symptom
+D0014,combined_temporal_personal,PAIN,THEN > ARM > MAYBE > LEG > PAIN,40.00|30.00|20.00|10.00|0.00,U205,location_pain,RESOLVED,PAIN:location_pain:20:5d,temporal and personal both support location_pain
+D0015,combined_temporal_personal,PAIN,FALL > THEN > CHEST > SO > BLOOD > PAIN,50.00|40.00|30.00|20.00|10.00|0.00,U106,medical_symptom,RESOLVED,PAIN:medical_symptom:10:5d,temporal and personal both support medical_symptom
+D0016,combined_temporal_personal,STOP,SO > MAYBE > THAT > STOP,30.00|20.00|10.00|0.00,U206,halt_action,RESOLVED,STOP:halt_action:15:5d,temporal and personal both support halt_action
+D0017,combined_temporal_personal,STOP,HURT > PAIN > STOP,20.00|10.00|0.00,U109,pain_stop,RESOLVED,STOP:pain_stop:20:5d,temporal and personal both support pain_stop
+D0018,combined_temporal_personal,PAIN,HERE > ARM > THEN > OK > POINT > PAIN,50.00|40.00|30.00|20.00|10.00|0.00,U200,location_pain,RESOLVED,PAIN:location_pain:10:5d,temporal and personal both support location_pain
+D0019,combined_temporal_personal,DOCTOR,JUST > OK > WHEN > DOCTOR,30.00|20.00|10.00|0.00,U207,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:20:5d,temporal and personal both support appointment_inquiry
+D0020,combined_temporal_personal,DOCTOR,PAIN > OK > HURT > DOCTOR,30.00|20.00|10.00|0.00,U107,medical_care_request,RESOLVED,DOCTOR:medical_care_request:10:5d,temporal and personal both support medical_care_request
+D0021,combined_temporal_personal,DOCTOR,ALSO > HURT > DOCTOR,20.00|10.00|0.00,U109,medical_care_request,RESOLVED,DOCTOR:medical_care_request:20:5d,temporal and personal both support medical_care_request
+D0022,combined_temporal_personal,STOP,JUST > UM > PAIN > STOP,30.00|20.00|10.00|0.00,U107,pain_stop,RESOLVED,STOP:pain_stop:20:5d,temporal and personal both support pain_stop
+D0023,combined_temporal_personal,SICK,UM > MEDICINE > SICK,20.00|10.00|0.00,U103,illness_statement,RESOLVED,SICK:illness_statement:15:5d,temporal and personal both support illness_statement
+D0024,combined_temporal_personal,STOP,JUST > OW > JUST > PAIN > STOP,40.00|30.00|20.00|10.00|0.00,U108,pain_stop,RESOLVED,STOP:pain_stop:10:5d,temporal and personal both support pain_stop
+D0025,combined_temporal_personal,STOP,OUCH > SO > JUST > OW > STOP,40.00|30.00|20.00|10.00|0.00,U106,pain_stop,RESOLVED,STOP:pain_stop:15:5d,temporal and personal both support pain_stop
+D0026,combined_temporal_personal,DOCTOR,MAYBE > MEDICINE > DOCTOR,20.00|10.00|0.00,U100,medical_care_request,RESOLVED,DOCTOR:medical_care_request:15:5d,temporal and personal both support medical_care_request
+D0027,combined_temporal_personal,HELP,HURT > OK > THEN > SICK > HELP,40.00|30.00|20.00|10.00|0.00,U100,medical_assistance,RESOLVED,HELP:medical_assistance:10:5d,temporal and personal both support medical_assistance
+D0028,combined_temporal_personal,SICK,PAIN > HURT > THEN > MAYBE > MEDICINE > SICK,50.00|40.00|30.00|20.00|10.00|0.00,U108,illness_statement,RESOLVED,SICK:illness_statement:10:5d,temporal and personal both support illness_statement
+D0029,combined_temporal_personal,DOCTOR,ALSO > MAYBE > TIME > DOCTOR,30.00|20.00|10.00|0.00,U206,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:10:5d,temporal and personal both support appointment_inquiry
+D0030,combined_temporal_personal,PAIN,OK > BLOOD > PAIN,20.00|10.00|0.00,U101,medical_symptom,RESOLVED,PAIN:medical_symptom:10:5d,temporal and personal both support medical_symptom
+D0031,combined_temporal_personal,DOCTOR,MAYBE > PAIN > MEDICINE > SO > SICK > DOCTOR,50.00|40.00|30.00|20.00|10.00|0.00,U102,medical_care_request,RESOLVED,DOCTOR:medical_care_request:15:5d,temporal and personal both support medical_care_request
+D0032,combined_temporal_personal,WAIT,MOMENT > ALSO > SECOND > WAIT,30.00|20.00|10.00|0.00,U203,patience_request,RESOLVED,WAIT:patience_request:20:5d,temporal and personal both support patience_request
+D0033,combined_temporal_personal,GO,UM > MAYBE > HOME > GO,30.00|20.00|10.00|0.00,U203,destination_request,RESOLVED,GO:destination_request:20:5d,temporal and personal both support destination_request
+D0034,combined_temporal_personal,HURT,OW > BODY > HURT,20.00|10.00|0.00,U105,pain_complaint,RESOLVED,HURT:pain_complaint:15:5d,temporal and personal both support pain_complaint
+D0035,combined_temporal_personal,HELP,FIX > DEADLINE > HELP,20.00|10.00|0.00,U208,task_assistance,RESOLVED,HELP:task_assistance:15:5d,temporal and personal both support task_assistance
+D0036,combined_temporal_personal,WAIT,PLEASE > WAIT,10.00|0.00,U206,patience_request,RESOLVED,WAIT:patience_request:10:5d,temporal and personal both support patience_request
+D0037,combined_temporal_personal,WAIT,SECOND > SOON > UM > PLEASE > WAIT,40.00|30.00|20.00|10.00|0.00,U204,patience_request,RESOLVED,WAIT:patience_request:15:5d,temporal and personal both support patience_request
+D0038,combined_temporal_personal,STOP,HURT > UM > PAIN > STOP,30.00|20.00|10.00|0.00,U106,pain_stop,RESOLVED,STOP:pain_stop:15:5d,temporal and personal both support pain_stop
+D0039,combined_temporal_personal,PAIN,JUST > HEAD > PAIN,20.00|10.00|0.00,U209,location_pain,RESOLVED,PAIN:location_pain:10:5d,temporal and personal both support location_pain
+D0040,combined_temporal_personal,PAIN,HERE > POINT > UM > LEG > PAIN,40.00|30.00|20.00|10.00|0.00,U202,location_pain,RESOLVED,PAIN:location_pain:20:5d,temporal and personal both support location_pain
+D0041,combined_temporal_personal,GO,JUST > HOME > GO,20.00|10.00|0.00,U204,destination_request,RESOLVED,GO:destination_request:20:5d,temporal and personal both support destination_request
+D0042,combined_temporal_personal,PAIN,UM > OK > DIZZY > PAIN,30.00|20.00|10.00|0.00,U109,medical_symptom,RESOLVED,PAIN:medical_symptom:10:5d,temporal and personal both support medical_symptom
+D0043,combined_temporal_personal,WAIT,OK > SOON > OK > SECOND > WAIT,40.00|30.00|20.00|10.00|0.00,U206,patience_request,RESOLVED,WAIT:patience_request:20:5d,temporal and personal both support patience_request
+D0044,combined_temporal_personal,HURT,UM > BODY > OW > HURT,30.00|20.00|10.00|0.00,U108,pain_complaint,RESOLVED,HURT:pain_complaint:20:5d,temporal and personal both support pain_complaint
+D0045,combined_temporal_personal,PAIN,UM > BACK > MAYBE > ARM > HERE > PAIN,50.00|40.00|30.00|20.00|10.00|0.00,U201,location_pain,RESOLVED,PAIN:location_pain:20:5d,temporal and personal both support location_pain
+D0046,combined_temporal_personal,DOCTOR,SO > MEDICINE > DOCTOR,20.00|10.00|0.00,U104,medical_care_request,RESOLVED,DOCTOR:medical_care_request:15:5d,temporal and personal both support medical_care_request
+D0047,combined_temporal_personal,HELP,CHEST > DIZZY > OK > SICK > HELP,40.00|30.00|20.00|10.00|0.00,U108,medical_assistance,RESOLVED,HELP:medical_assistance:15:5d,temporal and personal both support medical_assistance
+D0048,combined_temporal_personal,PAIN,OK > DIZZY > FALL > PAIN,30.00|20.00|10.00|0.00,U109,medical_symptom,RESOLVED,PAIN:medical_symptom:20:5d,temporal and personal both support medical_symptom
+D0049,combined_temporal_personal,HELP,ALSO > TASK > HELP,20.00|10.00|0.00,U208,task_assistance,RESOLVED,HELP:task_assistance:15:5d,temporal and personal both support task_assistance
+D0050,combined_temporal_personal,PAIN,CHEST > BLOOD > PAIN,20.00|10.00|0.00,U109,medical_symptom,RESOLVED,PAIN:medical_symptom:20:5d,temporal and personal both support medical_symptom
+D0051,combined_temporal_personal,WAIT,PLEASE > WAIT,10.00|0.00,U208,patience_request,RESOLVED,WAIT:patience_request:10:5d,temporal and personal both support patience_request
+D0052,combined_temporal_personal,DOCTOR,SCHEDULE > DOCTOR,10.00|0.00,U209,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:15:5d,temporal and personal both support appointment_inquiry
+D0053,combined_temporal_personal,STOP,UM > HURT > STOP,20.00|10.00|0.00,U108,pain_stop,RESOLVED,STOP:pain_stop:20:5d,temporal and personal both support pain_stop
+D0054,combined_temporal_personal,PAIN,UM > JUST > LEG > PAIN,30.00|20.00|10.00|0.00,U200,location_pain,RESOLVED,PAIN:location_pain:15:5d,temporal and personal both support location_pain
+D0055,combined_temporal_personal,DOCTOR,JUST > SCHEDULE > APPOINTMENT > DOCTOR,30.00|20.00|10.00|0.00,U205,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:20:5d,temporal and personal both support appointment_inquiry
+D0056,combined_temporal_personal,SICK,DOCTOR > HURT > SICK,20.00|10.00|0.00,U109,illness_statement,RESOLVED,SICK:illness_statement:10:5d,temporal and personal both support illness_statement
+D0057,combined_temporal_personal,STOP,THEN > OK > NOW > STOP,30.00|20.00|10.00|0.00,U206,halt_action,RESOLVED,STOP:halt_action:10:5d,temporal and personal both support halt_action
+D0058,combined_temporal_personal,HURT,THEN > BODY > OW > HURT,30.00|20.00|10.00|0.00,U103,pain_complaint,RESOLVED,HURT:pain_complaint:20:5d,temporal and personal both support pain_complaint
+D0059,combined_temporal_personal,SICK,MEDICINE > HURT > SICK,20.00|10.00|0.00,U100,illness_statement,RESOLVED,SICK:illness_statement:15:5d,temporal and personal both support illness_statement
+D0060,combined_temporal_personal,STOP,NOW > STOP,10.00|0.00,U206,halt_action,RESOLVED,STOP:halt_action:15:5d,temporal and personal both support halt_action
+D0061,combined_temporal_personal,HELP,HURT > HELP,10.00|0.00,U101,medical_assistance,RESOLVED,HELP:medical_assistance:20:5d,temporal and personal both support medical_assistance
+D0062,combined_temporal_personal,STOP,JUST > MAYBE > PLEASE > STOP,30.00|20.00|10.00|0.00,U209,halt_action,RESOLVED,STOP:halt_action:15:5d,temporal and personal both support halt_action
+D0063,combined_temporal_personal,DOCTOR,SO > WHEN > DOCTOR,20.00|10.00|0.00,U206,appointment_inquiry,RESOLVED,DOCTOR:appointment_inquiry:10:5d,temporal and personal both support appointment_inquiry
+D0064,combined_temporal_personal,SICK,MAYBE > MEDICINE > ALSO > HURT > SICK,40.00|30.00|20.00|10.00|0.00,U107,illness_statement,RESOLVED,SICK:illness_statement:10:5d,temporal and personal both support illness_statement
+D0065,combined_temporal_personal,WAIT,PLEASE > WAIT,10.00|0.00,U204,patience_request,RESOLVED,WAIT:patience_request:20:5d,temporal and personal both support patience_request
+D0066,combined_temporal_personal,SICK,ALSO > UM > MEDICINE > SICK,30.00|20.00|10.00|0.00,U101,illness_statement,RESOLVED,SICK:illness_statement:20:5d,temporal and personal both support illness_statement
+D0067,combined_temporal_personal,HELP,WORK > THEN > OK > DEADLINE > HELP,40.00|30.00|20.00|10.00|0.00,U209,task_assistance,RESOLVED,HELP:task_assistance:20:5d,temporal and personal both support task_assistance
+D0068,combined_temporal_personal,HELP,SO > SHOW > WORK > SO > FIX > HELP,50.00|40.00|30.00|20.00|10.00|0.00,U200,task_assistance,RESOLVED,HELP:task_assistance:10:5d,temporal and personal both support task_assistance
+D0069,combined_temporal_personal,STOP,SO > PAIN > HURT > OUCH > STOP,40.00|30.00|20.00|10.00|0.00,U109,pain_stop,RESOLVED,STOP:pain_stop:10:5d,temporal and personal both support pain_stop
+D0070,combined_temporal_personal,STOP,ALSO > PLEASE > THAT > SO > NOW > STOP,50.00|40.00|30.00|20.00|10.00|0.00,U203,halt_action,RESOLVED,STOP:halt_action:20:5d,temporal and personal both support halt_action
+E0001,genuinely_ambiguous,WATER,BATH > THIRSTY > CLEAN > DRINK > WATER,40.00|30.00|20.00|10.00|0.00,U310,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC24 (hygiene_request) and SC23 (thirst_request)
+E0002,genuinely_ambiguous,DOCTOR,CHEST > HURT > NOW > PAIN > DOCTOR,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC09 (emergency_medical) and SC08 (medical_care_request)
+E0003,genuinely_ambiguous,GO,HOME > HOSPITAL > NOW > FAST > GO,40.00|30.00|20.00|10.00|0.00,U302,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC29 (destination_request) and SC30 (urgency_go)
+E0004,genuinely_ambiguous,STOP,DO > PLEASE > BYE > FINISHED > STOP,40.00|30.00|20.00|10.00|0.00,U306,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC20 (halt_action) and SC22 (end_conversation)
+E0005,genuinely_ambiguous,SICK,BREATHE > VERY > EAT > FOOD > SICK,40.00|30.00|20.00|10.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC15 (nausea_complaint) and SC16 (severe_illness)
+E0006,genuinely_ambiguous,HURT,OUCH > OW > QUICK > URGENT > HURT,40.00|30.00|20.00|10.00|0.00,U308,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC17 (pain_complaint) and SC18 (injury_emergency)
+E0007,genuinely_ambiguous,HURT,SERIOUS > QUICK > OUCH > BODY > HURT,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC18 (injury_emergency) and SC17 (pain_complaint)
+E0008,genuinely_ambiguous,HURT,SAD > HEART > BODY > OUCH > HURT,40.00|30.00|20.00|10.00|0.00,U308,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC19 (emotional_hurt) and SC17 (pain_complaint)
+E0009,genuinely_ambiguous,WATER,HOT > DIRTY > DRINK > BATH > WATER,40.00|30.00|20.00|10.00|0.00,U300,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC23 (thirst_request) and SC24 (hygiene_request)
+E0010,genuinely_ambiguous,GO,HOME > NOW > HOSPITAL > FAST > GO,40.00|30.00|20.00|10.00|0.00,U309,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC29 (destination_request) and SC30 (urgency_go)
+E0011,genuinely_ambiguous,HURT,SERIOUS > SAD > URGENT > CRY > HURT,40.00|30.00|20.00|10.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC18 (injury_emergency) and SC19 (emotional_hurt)
+E0012,genuinely_ambiguous,WAIT,PAUSE > STOP > SECOND > PLEASE > WAIT,40.00|30.00|20.00|10.00|0.00,U302,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC31 (patience_request) and SC32 (pause_activity)
+E0013,genuinely_ambiguous,BATHROOM,HURRY > URGENT > PRIVATE > PLEASE > BATHROOM,40.00|30.00|20.00|10.00|0.00,U306,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC27 (restroom_need) and SC28 (privacy_request)
+E0014,genuinely_ambiguous,WATER,DRINK > DIRTY > HOT > CLEAN > WATER,40.00|30.00|20.00|10.00|0.00,U305,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC23 (thirst_request) and SC24 (hygiene_request)
+E0015,genuinely_ambiguous,HURT,URGENT > CRY > UPSET > SERIOUS > HURT,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC19 (emotional_hurt) and SC18 (injury_emergency)
+E0016,genuinely_ambiguous,HELP,BLOOD > FIX > FALL > WORK > HELP,40.00|30.00|20.00|10.00|0.00,U306,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC02 (task_assistance) and SC01 (medical_assistance)
+E0017,genuinely_ambiguous,WAIT,HOLD > PLEASE > MOMENT > PAUSE > WAIT,40.00|30.00|20.00|10.00|0.00,U309,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC32 (pause_activity) and SC31 (patience_request)
+E0018,genuinely_ambiguous,GO,HOME > FAST > HURRY > HOSPITAL > GO,40.00|30.00|20.00|10.00|0.00,U306,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC29 (destination_request) and SC30 (urgency_go)
+E0019,genuinely_ambiguous,HELP,WHERE > BREATHE > WHAT > FALL > HELP,40.00|30.00|20.00|10.00|0.00,U307,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC01 (medical_assistance) and SC04 (information_request)
+E0020,genuinely_ambiguous,HOSPITAL,SCHEDULE > PAIN > QUICK > TOMORROW > HOSPITAL,40.00|30.00|20.00|10.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC12 (appointment_destination) and SC11 (emergency_transport)
+E0021,genuinely_ambiguous,HURT,CRY > HEART > FALL > URGENT > HURT,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC19 (emotional_hurt) and SC18 (injury_emergency)
+E0022,genuinely_ambiguous,HURT,FEELINGS > UPSET > QUICK > URGENT > HURT,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC18 (injury_emergency) and SC19 (emotional_hurt)
+E0023,genuinely_ambiguous,DOCTOR,PAIN > BREATHE > QUICK > HURT > DOCTOR,40.00|30.00|20.00|10.00|0.00,U300,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC09 (emergency_medical) and SC08 (medical_care_request)
+E0024,genuinely_ambiguous,DOCTOR,QUICK > SCHEDULE > WHEN > BREATHE > DOCTOR,40.00|30.00|20.00|10.00|0.00,U305,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC10 (appointment_inquiry) and SC09 (emergency_medical)
+E0025,genuinely_ambiguous,STOP,NOW > DO > DONE > GOODBYE > STOP,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC20 (halt_action) and SC22 (end_conversation)
+E0026,genuinely_ambiguous,HELP,DANGER > FALL > QUICK > SICK > HELP,40.00|30.00|20.00|10.00|0.00,U304,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC03 (emergency_support) and SC01 (medical_assistance)
+E0027,genuinely_ambiguous,BATHROOM,NOW > QUICK > PLEASE > ALONE > BATHROOM,40.00|30.00|20.00|10.00|0.00,U308,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC28 (privacy_request) and SC27 (restroom_need)
+E0028,genuinely_ambiguous,SICK,STOMACH > VERY > DIZZY > DIZZY > SICK,40.00|30.00|20.00|10.00|0.00,U304,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC15 (nausea_complaint) and SC16 (severe_illness)
+E0029,genuinely_ambiguous,FOOD,ALLERGY > EAT > LUNCH > MEDICINE > FOOD,40.00|30.00|20.00|10.00|0.00,U300,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC26 (dietary_restriction) and SC25 (hunger_request)
+E0030,genuinely_ambiguous,BATHROOM,URGENT > ALONE > HURRY > PRIVATE > BATHROOM,40.00|30.00|20.00|10.00|0.00,U310,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC27 (restroom_need) and SC28 (privacy_request)
+E0031,genuinely_ambiguous,WATER,CLEAN > THIRSTY > DRINK > WASH > WATER,40.00|30.00|20.00|10.00|0.00,U305,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC24 (hygiene_request) and SC23 (thirst_request)
+E0032,genuinely_ambiguous,HELP,FIRE > CHEST > BLOOD > QUICK > HELP,40.00|30.00|20.00|10.00|0.00,U307,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC01 (medical_assistance) and SC03 (emergency_support)
+E0033,genuinely_ambiguous,WAIT,STOP > SOON > PAUSE > SECOND > WAIT,40.00|30.00|20.00|10.00|0.00,U300,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC32 (pause_activity) and SC31 (patience_request)
+E0034,genuinely_ambiguous,SICK,STOMACH > PAIN > DOCTOR > EAT > SICK,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC14 (illness_statement) and SC15 (nausea_complaint)
+E0035,genuinely_ambiguous,GO,HURRY > WHERE > HOME > URGENT > GO,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC29 (destination_request) and SC30 (urgency_go)
+E0036,genuinely_ambiguous,GO,FAST > HURRY > WHERE > HOSPITAL > GO,40.00|30.00|20.00|10.00|0.00,U306,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC30 (urgency_go) and SC29 (destination_request)
+E0037,genuinely_ambiguous,GO,WHERE > NOW > HURRY > HOME > GO,40.00|30.00|20.00|10.00|0.00,U304,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC30 (urgency_go) and SC29 (destination_request)
+E0038,genuinely_ambiguous,WATER,THIRSTY > DRINK > BATH > DIRTY > WATER,40.00|30.00|20.00|10.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC23 (thirst_request) and SC24 (hygiene_request)
+E0039,genuinely_ambiguous,BATHROOM,NOW > URGENT > PRIVATE > ROOM > BATHROOM,40.00|30.00|20.00|10.00|0.00,U311,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC28 (privacy_request) and SC27 (restroom_need)
+E0040,genuinely_ambiguous,GO,NOW > HOSPITAL > URGENT > WHERE > GO,40.00|30.00|20.00|10.00|0.00,U308,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC29 (destination_request) and SC30 (urgency_go)
+E0041,genuinely_ambiguous,SICK,DOCTOR > MEDICINE > FOOD > EAT > SICK,40.00|30.00|20.00|10.00|0.00,U304,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC15 (nausea_complaint) and SC14 (illness_statement)
+E0042,genuinely_ambiguous,WATER,DRINK > THIRSTY > DIRTY > CLEAN > WATER,40.00|30.00|20.00|10.00|0.00,U301,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC24 (hygiene_request) and SC23 (thirst_request)
+E0043,genuinely_ambiguous,HELP,DANGER > KNOW > URGENT > WHERE > HELP,40.00|30.00|20.00|10.00|0.00,U310,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC04 (information_request) and SC03 (emergency_support)
+E0044,genuinely_ambiguous,HELP,POLICE > DEADLINE > FIX > URGENT > HELP,40.00|30.00|20.00|10.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC02 (task_assistance) and SC03 (emergency_support)
+E0045,genuinely_ambiguous,PAIN,FALL > BLOOD > SAD > ALONE > PAIN,40.00|30.00|20.00|10.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC06 (emotional_distress) and SC05 (medical_symptom)
+E0046,genuinely_ambiguous,GO,NOW > URGENT > HOME > HOSPITAL > GO,40.00|30.00|20.00|10.00|0.00,U300,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC30 (urgency_go) and SC29 (destination_request)
+E0047,genuinely_ambiguous,WAIT,SECOND > PLEASE > PAUSE > STOP > WAIT,40.00|30.00|20.00|10.00|0.00,U308,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC31 (patience_request) and SC32 (pause_activity)
+E0048,genuinely_ambiguous,WAIT,HOLD > PAUSE > MOMENT > PLEASE > WAIT,40.00|30.00|20.00|10.00|0.00,U306,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC31 (patience_request) and SC32 (pause_activity)
+E0049,genuinely_ambiguous,PAIN,FALL > MISS > BREATHE > UPSET > PAIN,40.00|30.00|20.00|10.00|0.00,U310,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC05 (medical_symptom) and SC06 (emotional_distress)
+E0050,genuinely_ambiguous,FOOD,MEAL > EAT > SICK > CANNOT > FOOD,40.00|30.00|20.00|10.00|0.00,U302,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC25 (hunger_request) and SC26 (dietary_restriction)
+E0051,genuinely_ambiguous,WAIT,PAUSE > SOON > MOMENT > HOLD > WAIT,40.00|30.00|20.00|10.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC31 (patience_request) and SC32 (pause_activity)
+E0052,genuinely_ambiguous,HOSPITAL,WHERE > WHICH > TODAY > APPOINTMENT > HOSPITAL,40.00|30.00|20.00|10.00|0.00,U306,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC13 (direction_to_hospital) and SC12 (appointment_destination)
+E0053,genuinely_ambiguous,FOOD,LUNCH > HUNGRY > MEDICINE > CANNOT > FOOD,40.00|30.00|20.00|10.00|0.00,U306,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC25 (hunger_request) and SC26 (dietary_restriction)
+E0054,genuinely_ambiguous,GO,HOME > URGENT > NOW > HOSPITAL > GO,40.00|30.00|20.00|10.00|0.00,U309,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC30 (urgency_go) and SC29 (destination_request)
+E0055,genuinely_ambiguous,WAIT,PAUSE > MOMENT > HOLD > SECOND > WAIT,40.00|30.00|20.00|10.00|0.00,U308,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC32 (pause_activity) and SC31 (patience_request)
+E0056,genuinely_ambiguous,STOP,PAIN > PLEASE > DO > OUCH > STOP,40.00|30.00|20.00|10.00|0.00,U307,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC20 (halt_action) and SC21 (pain_stop)
+E0057,genuinely_ambiguous,DOCTOR,QUICK > WHEN > NOW > APPOINTMENT > DOCTOR,40.00|30.00|20.00|10.00|0.00,U308,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC10 (appointment_inquiry) and SC09 (emergency_medical)
+E0058,genuinely_ambiguous,HOSPITAL,WHERE > TODAY > GO > TOMORROW > HOSPITAL,40.00|30.00|20.00|10.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC13 (direction_to_hospital) and SC12 (appointment_destination)
+E0059,genuinely_ambiguous,WAIT,HOLD > PAUSE > SOON > PLEASE > WAIT,40.00|30.00|20.00|10.00|0.00,U307,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC31 (patience_request) and SC32 (pause_activity)
+E0060,genuinely_ambiguous,STOP,THAT > PLEASE > PAIN > OW > STOP,40.00|30.00|20.00|10.00|0.00,U305,AMBIGUOUS,AMBIGUOUS,,balanced vocabulary from SC21 (pain_stop) and SC20 (halt_action)
+F0001,conflict,PAIN,HERE > LEG > PAIN,16.00|8.00|0.00,U300,AMBIGUOUS,AMBIGUOUS,PAIN:emotional_distress:15:5d,"strength=balanced: temporal->location_pain, personal->emotional_distress"
+F0002,conflict,PAIN,JUST > PAIN,60.00|0.00,U308,location_pain,RESOLVED,PAIN:location_pain:25:3d,"strength=personal_dominant: temporal->medical_symptom, personal->location_pain"
+F0003,conflict,SICK,CHEST > VERY > FALL > SICK,24.00|16.00|8.00|0.00,U302,severe_illness,RESOLVED,SICK:nausea_complaint:3:20d,"strength=temporal_dominant: temporal->severe_illness, personal->nausea_complaint"
+F0004,conflict,GO,HOME > WHERE > HOSPITAL > GO,24.00|16.00|8.00|0.00,U300,destination_request,RESOLVED,GO:urgency_go:3:20d,"strength=temporal_dominant: temporal->destination_request, personal->urgency_go"
+F0005,conflict,HELP,QUICK > POLICE > HELP,16.00|8.00|0.00,U309,AMBIGUOUS,AMBIGUOUS,HELP:medical_assistance:15:5d,"strength=balanced: temporal->emergency_support, personal->medical_assistance"
+F0006,conflict,WATER,THIRSTY > DRINK > WATER,16.00|8.00|0.00,U302,AMBIGUOUS,AMBIGUOUS,WATER:hygiene_request:15:5d,"strength=balanced: temporal->thirst_request, personal->hygiene_request"
+F0007,conflict,FOOD,ALSO > FOOD,60.00|0.00,U307,dietary_restriction,RESOLVED,FOOD:dietary_restriction:25:3d,"strength=personal_dominant: temporal->hunger_request, personal->dietary_restriction"
+F0008,conflict,PAIN,ALSO > PAIN,60.00|0.00,U305,emotional_distress,RESOLVED,PAIN:emotional_distress:25:3d,"strength=personal_dominant: temporal->medical_symptom, personal->emotional_distress"
+F0009,conflict,HOSPITAL,WHERE > GO > WHICH > HOSPITAL,24.00|16.00|8.00|0.00,U309,direction_to_hospital,RESOLVED,HOSPITAL:emergency_transport:3:20d,"strength=temporal_dominant: temporal->direction_to_hospital, personal->emergency_transport"
+F0010,conflict,SICK,FALL > BREATHE > SICK,16.00|8.00|0.00,U302,AMBIGUOUS,AMBIGUOUS,SICK:nausea_complaint:15:5d,"strength=balanced: temporal->severe_illness, personal->nausea_complaint"
+F0011,conflict,SICK,CHEST > DIZZY > SICK,16.00|8.00|0.00,U303,AMBIGUOUS,AMBIGUOUS,SICK:illness_statement:15:5d,"strength=balanced: temporal->severe_illness, personal->illness_statement"
+F0012,conflict,PAIN,WHERE > HEAD > PAIN,16.00|8.00|0.00,U304,AMBIGUOUS,AMBIGUOUS,PAIN:medical_symptom:15:5d,"strength=balanced: temporal->location_pain, personal->medical_symptom"
+F0013,conflict,WATER,UM > WATER,60.00|0.00,U311,thirst_request,RESOLVED,WATER:thirst_request:25:3d,"strength=personal_dominant: temporal->hygiene_request, personal->thirst_request"
+F0014,conflict,HURT,SAD > HEART > CRY > HURT,24.00|16.00|8.00|0.00,U302,emotional_hurt,RESOLVED,HURT:injury_emergency:3:20d,"strength=temporal_dominant: temporal->emotional_hurt, personal->injury_emergency"
+F0015,conflict,WATER,MAYBE > WATER,60.00|0.00,U302,hygiene_request,RESOLVED,WATER:hygiene_request:25:3d,"strength=personal_dominant: temporal->thirst_request, personal->hygiene_request"
+F0016,conflict,SICK,VERY > DIZZY > CHEST > SICK,24.00|16.00|8.00|0.00,U301,severe_illness,RESOLVED,SICK:nausea_complaint:3:20d,"strength=temporal_dominant: temporal->severe_illness, personal->nausea_complaint"
+F0017,conflict,SICK,FOOD > STOMACH > EAT > SICK,24.00|16.00|8.00|0.00,U304,nausea_complaint,RESOLVED,SICK:severe_illness:3:20d,"strength=temporal_dominant: temporal->nausea_complaint, personal->severe_illness"
+F0018,conflict,BATHROOM,PLEASE > ALONE > ROOM > BATHROOM,24.00|16.00|8.00|0.00,U300,privacy_request,RESOLVED,BATHROOM:restroom_need:3:20d,"strength=temporal_dominant: temporal->privacy_request, personal->restroom_need"
+F0019,conflict,HURT,OW > OUCH > BODY > HURT,24.00|16.00|8.00|0.00,U304,pain_complaint,RESOLVED,HURT:emotional_hurt:3:20d,"strength=temporal_dominant: temporal->pain_complaint, personal->emotional_hurt"
+F0020,conflict,HELP,TASK > MAKE > HELP,16.00|8.00|0.00,U310,AMBIGUOUS,AMBIGUOUS,HELP:information_request:15:5d,"strength=balanced: temporal->task_assistance, personal->information_request"
+F0021,conflict,HURT,BODY > OW > HURT,16.00|8.00|0.00,U307,AMBIGUOUS,AMBIGUOUS,HURT:injury_emergency:15:5d,"strength=balanced: temporal->pain_complaint, personal->injury_emergency"
+F0022,conflict,DOCTOR,THEN > DOCTOR,60.00|0.00,U306,emergency_medical,RESOLVED,DOCTOR:emergency_medical:25:3d,"strength=personal_dominant: temporal->medical_care_request, personal->emergency_medical"
+F0023,conflict,PAIN,UM > PAIN,60.00|0.00,U305,location_pain,RESOLVED,PAIN:location_pain:25:3d,"strength=personal_dominant: temporal->medical_symptom, personal->location_pain"
+F0024,conflict,GO,ALSO > GO,60.00|0.00,U303,destination_request,RESOLVED,GO:destination_request:25:3d,"strength=personal_dominant: temporal->urgency_go, personal->destination_request"
+F0025,conflict,DOCTOR,TIME > WHEN > DOCTOR,16.00|8.00|0.00,U307,AMBIGUOUS,AMBIGUOUS,DOCTOR:medical_care_request:15:5d,"strength=balanced: temporal->appointment_inquiry, personal->medical_care_request"
+F0026,conflict,BATHROOM,SO > BATHROOM,60.00|0.00,U300,privacy_request,RESOLVED,BATHROOM:privacy_request:25:3d,"strength=personal_dominant: temporal->restroom_need, personal->privacy_request"
+F0027,conflict,SICK,JUST > SICK,60.00|0.00,U301,illness_statement,RESOLVED,SICK:illness_statement:25:3d,"strength=personal_dominant: temporal->nausea_complaint, personal->illness_statement"
+F0028,conflict,PAIN,BREATHE > DIZZY > BLOOD > PAIN,24.00|16.00|8.00|0.00,U310,medical_symptom,RESOLVED,PAIN:location_pain:3:20d,"strength=temporal_dominant: temporal->medical_symptom, personal->location_pain"
+F0029,conflict,SICK,OK > SICK,60.00|0.00,U307,severe_illness,RESOLVED,SICK:severe_illness:25:3d,"strength=personal_dominant: temporal->nausea_complaint, personal->severe_illness"
+F0030,conflict,PAIN,BLOOD > CHEST > PAIN,16.00|8.00|0.00,U309,AMBIGUOUS,AMBIGUOUS,PAIN:location_pain:15:5d,"strength=balanced: temporal->medical_symptom, personal->location_pain"
+F0031,conflict,HURT,JUST > HURT,60.00|0.00,U304,pain_complaint,RESOLVED,HURT:pain_complaint:25:3d,"strength=personal_dominant: temporal->injury_emergency, personal->pain_complaint"
+F0032,conflict,HOSPITAL,GO > WHICH > WHERE > HOSPITAL,24.00|16.00|8.00|0.00,U301,direction_to_hospital,RESOLVED,HOSPITAL:emergency_transport:3:20d,"strength=temporal_dominant: temporal->direction_to_hospital, personal->emergency_transport"
+F0033,conflict,SICK,PAIN > DOCTOR > MEDICINE > SICK,24.00|16.00|8.00|0.00,U302,illness_statement,RESOLVED,SICK:severe_illness:3:20d,"strength=temporal_dominant: temporal->illness_statement, personal->severe_illness"
+F0034,conflict,STOP,THEN > STOP,60.00|0.00,U303,halt_action,RESOLVED,STOP:halt_action:25:3d,"strength=personal_dominant: temporal->end_conversation, personal->halt_action"
+F0035,conflict,HELP,BREATHE > HURT > HELP,16.00|8.00|0.00,U311,AMBIGUOUS,AMBIGUOUS,HELP:emergency_support:15:5d,"strength=balanced: temporal->medical_assistance, personal->emergency_support"
+F0036,conflict,WAIT,HOLD > PAUSE > WAIT,16.00|8.00|0.00,U309,AMBIGUOUS,AMBIGUOUS,WAIT:patience_request:15:5d,"strength=balanced: temporal->pause_activity, personal->patience_request"
+F0037,conflict,STOP,PAIN > OUCH > STOP,16.00|8.00|0.00,U307,AMBIGUOUS,AMBIGUOUS,STOP:end_conversation:15:5d,"strength=balanced: temporal->pain_stop, personal->end_conversation"
+F0038,conflict,HURT,SAD > FEELINGS > HURT,16.00|8.00|0.00,U307,AMBIGUOUS,AMBIGUOUS,HURT:injury_emergency:15:5d,"strength=balanced: temporal->emotional_hurt, personal->injury_emergency"
+F0039,conflict,HOSPITAL,WHERE > GO > WHICH > HOSPITAL,24.00|16.00|8.00|0.00,U306,direction_to_hospital,RESOLVED,HOSPITAL:emergency_transport:3:20d,"strength=temporal_dominant: temporal->direction_to_hospital, personal->emergency_transport"
+F0040,conflict,HELP,BLOOD > DIZZY > HURT > HELP,24.00|16.00|8.00|0.00,U304,medical_assistance,RESOLVED,HELP:task_assistance:3:20d,"strength=temporal_dominant: temporal->medical_assistance, personal->task_assistance"
+G0001,cold_start,HELP,HELP,0.00,U400,LITERAL,LITERAL,,"observation_count=0, no temporal context"
+G0002,cold_start,PAIN,PAIN,0.00,U400,AMBIGUOUS,AMBIGUOUS,PAIN:medical_symptom:1:5d,"observation_count=1, no temporal context"
+G0003,cold_start,DOCTOR,DOCTOR,0.00,U400,AMBIGUOUS,AMBIGUOUS,DOCTOR:medical_care_request:2:5d,"observation_count=2, no temporal context"
+G0004,cold_start,HELP,HELP,0.00,U400,AMBIGUOUS,AMBIGUOUS,HELP:medical_assistance:5:5d,"observation_count=5, no temporal context"
+G0005,cold_start,PAIN,PAIN,0.00,U400,medical_symptom,RESOLVED,PAIN:medical_symptom:10:5d,"observation_count=10, no temporal context"
+G0006,cold_start,DOCTOR,DOCTOR,0.00,U400,medical_care_request,RESOLVED,DOCTOR:medical_care_request:20:5d,"observation_count=20, no temporal context"
+G0007,cold_start,HELP,HELP,0.00,U400,medical_assistance,RESOLVED,HELP:medical_assistance:30:5d,"observation_count=30, no temporal context"
+G0008,cold_start,PAIN,PAIN,0.00,U401,LITERAL,LITERAL,,"observation_count=0, no temporal context"
+G0009,cold_start,DOCTOR,DOCTOR,0.00,U401,AMBIGUOUS,AMBIGUOUS,DOCTOR:emergency_medical:1:5d,"observation_count=1, no temporal context"
+G0010,cold_start,HELP,HELP,0.00,U401,AMBIGUOUS,AMBIGUOUS,HELP:task_assistance:2:5d,"observation_count=2, no temporal context"
+G0011,cold_start,PAIN,PAIN,0.00,U401,AMBIGUOUS,AMBIGUOUS,PAIN:emotional_distress:5:5d,"observation_count=5, no temporal context"
+G0012,cold_start,DOCTOR,DOCTOR,0.00,U401,emergency_medical,RESOLVED,DOCTOR:emergency_medical:10:5d,"observation_count=10, no temporal context"
+G0013,cold_start,HELP,HELP,0.00,U401,task_assistance,RESOLVED,HELP:task_assistance:20:5d,"observation_count=20, no temporal context"
+G0014,cold_start,PAIN,PAIN,0.00,U401,emotional_distress,RESOLVED,PAIN:emotional_distress:30:5d,"observation_count=30, no temporal context"
+G0015,cold_start,DOCTOR,DOCTOR,0.00,U402,LITERAL,LITERAL,,"observation_count=0, no temporal context"
+G0016,cold_start,HELP,HELP,0.00,U402,AMBIGUOUS,AMBIGUOUS,HELP:emergency_support:1:5d,"observation_count=1, no temporal context"
+G0017,cold_start,PAIN,PAIN,0.00,U402,AMBIGUOUS,AMBIGUOUS,PAIN:location_pain:2:5d,"observation_count=2, no temporal context"
+G0018,cold_start,DOCTOR,DOCTOR,0.00,U402,AMBIGUOUS,AMBIGUOUS,DOCTOR:appointment_inquiry:5:5d,"observation_count=5, no temporal context"
+G0019,cold_start,HELP,HELP,0.00,U402,emergency_support,RESOLVED,HELP:emergency_support:10:5d,"observation_count=10, no temporal context"
+G0020,cold_start,PAIN,PAIN,0.00,U402,location_pain,RESOLVED,PAIN:location_pain:20:5d,"observation_count=20, no temporal context"
+H0001,literal_fallback,BATHROOM,BATHROOM,0.00,U308,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0002,literal_fallback,DOCTOR,DOCTOR,0.00,U307,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0003,literal_fallback,FOOD,FOOD,0.00,U308,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0004,literal_fallback,GO,GO,0.00,U300,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0005,literal_fallback,HELP,HELP,0.00,U307,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0006,literal_fallback,HOSPITAL,HOSPITAL,0.00,U304,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0007,literal_fallback,HURT,HURT,0.00,U303,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0008,literal_fallback,PAIN,PAIN,0.00,U300,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0009,literal_fallback,SICK,SICK,0.00,U308,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0010,literal_fallback,STOP,STOP,0.00,U305,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0011,literal_fallback,WAIT,WAIT,0.00,U309,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0012,literal_fallback,WATER,WATER,0.00,U304,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0013,literal_fallback,BATHROOM,BATHROOM,0.00,U307,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0014,literal_fallback,DOCTOR,DOCTOR,0.00,U301,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0015,literal_fallback,FOOD,FOOD,0.00,U300,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0016,literal_fallback,GO,GO,0.00,U308,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0017,literal_fallback,HELP,HELP,0.00,U304,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0018,literal_fallback,HOSPITAL,HOSPITAL,0.00,U311,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0019,literal_fallback,HURT,HURT,0.00,U311,LITERAL,LITERAL,,"single word, fresh user, zero context"
+H0020,literal_fallback,PAIN,PAIN,0.00,U309,LITERAL,LITERAL,,"single word, fresh user, zero context"
+I0001,adversarial,STOP,TASK > DO > HELP > STOP,24.00|16.00|8.00|0.00,U310,halt_action,RESOLVED,,"misleading trigger immediately before target; intended=halt_action, misleading_word=HELP"
+I0002,adversarial,DOCTOR,APPOINTMENT > SCHEDULE > UM > ALSO > HELP > DOCTOR,40.00|32.00|24.00|16.00|8.00|0.00,U307,appointment_inquiry,RESOLVED,,"misleading trigger 2 positions before target; intended=appointment_inquiry, misleading_word=HELP"
+I0003,adversarial,STOP,TASK > DO > UM > MAYBE > ALSO > ALSO > HELP > STOP,56.00|48.00|40.00|32.00|24.00|16.00|8.00|0.00,U301,halt_action,RESOLVED,,"misleading trigger 4 positions before target; intended=halt_action, misleading_word=HELP"
+I0004,adversarial,DOCTOR,APPOINTMENT > SCHEDULE > UM > MAYBE > JUST > SO > HELP > DOCTOR,56.00|48.00|40.00|32.00|24.00|16.00|8.00|0.00,U309,appointment_inquiry,RESOLVED,,"misleading trigger with irrelevant words interleaved; intended=appointment_inquiry, misleading_word=HELP"
+I0005,adversarial,STOP,TASK > DO > HELP > HELP > STOP,32.00|24.00|16.00|8.00|0.00,U308,halt_action,RESOLVED,,"misleading trigger repeated twice; intended=halt_action, misleading_word=HELP"
+I0006,adversarial,DOCTOR,APPOINTMENT > SCHEDULE > HELP > DOCTOR,10.00|10.00|160.00|0.00,U301,appointment_inquiry,RESOLVED,,"misleading trigger placed OUTSIDE the temporal window; intended=appointment_inquiry, misleading_word=HELP"
+I0007,adversarial,STOP,TASK > DO > HELP > STOP,24.00|16.00|8.00|0.00,U310,halt_action,RESOLVED,,"misleading trigger immediately before target; intended=halt_action, misleading_word=HELP"
+I0008,adversarial,DOCTOR,APPOINTMENT > SCHEDULE > MAYBE > JUST > HELP > DOCTOR,40.00|32.00|24.00|16.00|8.00|0.00,U310,appointment_inquiry,RESOLVED,,"misleading trigger 2 positions before target; intended=appointment_inquiry, misleading_word=HELP"
+I0009,adversarial,STOP,TASK > DO > UM > OK > UM > ALSO > HELP > STOP,56.00|48.00|40.00|32.00|24.00|16.00|8.00|0.00,U303,halt_action,RESOLVED,,"misleading trigger 4 positions before target; intended=halt_action, misleading_word=HELP"
+I0010,adversarial,DOCTOR,APPOINTMENT > SCHEDULE > SO > MAYBE > THEN > ALSO > HELP > DOCTOR,56.00|48.00|40.00|32.00|24.00|16.00|8.00|0.00,U303,appointment_inquiry,RESOLVED,,"misleading trigger with irrelevant words interleaved; intended=appointment_inquiry, misleading_word=HELP"
