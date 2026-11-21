@@ -1,0 +1,28 @@
+held_out_category,n_test,n_test_intent_gold,n_train,n_test_gold_label_unseen_in_train,method,forced_acc,full_acc,tau,params
+clear_context,120,120,380,9,engine,1.0,0.975,,
+clear_context,120,120,380,9,classifier_lr,0.85,0.625,600,{'C': 10}
+clear_context,120,120,380,9,classifier_rf,0.7916666666666666,0.275,120,{'n_estimators': 200}
+temporal_dependent,80,64,420,0,engine,1.0,0.85,,
+temporal_dependent,80,64,420,0,classifier_lr,0.953125,0.7,120,{'C': 10}
+temporal_dependent,80,64,420,0,classifier_rf,0.890625,0.5,60,{'n_estimators': 200}
+personalization_dependent,80,80,420,0,engine,1.0,1.0,,
+personalization_dependent,80,80,420,0,classifier_lr,1.0,0.9375,120,{'C': 10}
+personalization_dependent,80,80,420,0,classifier_rf,1.0,0.9,120,{'n_estimators': 500}
+combined_temporal_personal,70,70,430,0,engine,1.0,1.0,,
+combined_temporal_personal,70,70,430,0,classifier_lr,1.0,0.9714285714285714,60,{'C': 0.1}
+combined_temporal_personal,70,70,430,0,classifier_rf,1.0,0.9857142857142858,60,{'n_estimators': 200}
+genuinely_ambiguous,60,0,440,0,engine,,0.4166666666666667,,
+genuinely_ambiguous,60,0,440,0,classifier_lr,,0.0,30,{'C': 0.1}
+genuinely_ambiguous,60,0,440,0,classifier_rf,,0.0,120,{'n_estimators': 200}
+conflict,40,26,460,0,engine,1.0,0.675,,
+conflict,40,26,460,0,classifier_lr,0.9230769230769231,0.475,120,{'C': 10}
+conflict,40,26,460,0,classifier_rf,0.8846153846153846,0.5,60,{'n_estimators': 500}
+cold_start,20,8,480,0,engine,1.0,0.55,,
+cold_start,20,8,480,0,classifier_lr,0.875,0.5,120,{'C': 10}
+cold_start,20,8,480,0,classifier_rf,0.75,0.4,120,{'n_estimators': 200}
+literal_fallback,20,0,480,0,engine,,1.0,,
+literal_fallback,20,0,480,0,classifier_lr,,1.0,120,{'C': 10}
+literal_fallback,20,0,480,0,classifier_rf,,0.45,60,{'n_estimators': 500}
+adversarial,10,10,490,0,engine,0.1,0.1,,
+adversarial,10,10,490,0,classifier_lr,1.0,1.0,60,{'C': 0.1}
+adversarial,10,10,490,0,classifier_rf,1.0,1.0,60,{'n_estimators': 200}

@@ -1,0 +1,19 @@
+A user of an assistive communication device fingerspelled a word. Choose what they most likely mean by it.
+
+Target word: $target_word
+
+Earlier words in this conversation (oldest first):
+$earlier_words
+
+This user's past usage of $target_word:
+$history
+
+Candidate intents (id | label | message shown if chosen):
+$candidates
+
+Two extra options:
+AMBIGUOUS | the context supports more than one candidate, or the evidence conflicts, so the device should ask for clarification.
+LITERAL | there is not enough usable context to infer any specific intent, so the device should just show the word.
+
+Respond with JSON only, in exactly this form:
+{"answer": <one candidate id, "AMBIGUOUS" or "LITERAL">, "best_intent": <the single most likely candidate id, always a candidate id>, "confidence": <number from 0 to 1, your confidence in best_intent>}
