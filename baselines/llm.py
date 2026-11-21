@@ -46,9 +46,14 @@ SEED = 20240521
 MAX_OUTPUT_TOKENS = 60
 TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "llm_prompt.txt")
 CALL_LOG = os.path.join(RESULTS_DIR, "gemini_call_log.jsonl")
+TMP_DIR = os.path.join(RESULTS_DIR, "tmp")
 DAILY_SAFETY_MARGIN = 5
 RETRYABLE = (429, 503)
 BACKOFF_S = (15, 30, 60)
+REQUEST_TIMEOUT_MS = 60_000
+OUTPUT_AFFECTING_SETTINGS = ("backend", "model", "temperature", "seed", "max_output_tokens",
+                             "response_mime_type", "response_json_schema", "thinking_config",
+                             "num_predict", "format", "think")
 
 
 class QuotaStop(Exception):
@@ -110,27 +115,35 @@ def validate(text: Optional[str], cands: List[str]):
 class GeminiBackend:
     name = "llm_cloud"
 
-    def __init__(self):
-        missing = [v for v in ("GEMINI_API_KEY", "GEMINI_MODEL") if not os.environ.get(v)]
-        if missing:
-            raise SystemExit(f"[LLM] Missing environment variable(s): {', '.join(missing)}. "
-                             f"Set them and re-run.")
+    def __init__(self, cache_only: bool = False):
+        """cache_only=True: replay cached responses only (no key needed, never calls the API);
+        the model id comes from GEMINI_MODEL or, if unset, from the cache file."""
         from google import genai
         from google.genai import types
         self._types = types
-        self._key = os.environ["GEMINI_API_KEY"]
-        self.model = os.environ["GEMINI_MODEL"]
+        self.cache_only = cache_only
         self.rpm = int(os.environ.get("GEMINI_RPM", "15"))
         self.rpd = int(os.environ.get("GEMINI_RPD", "500"))
-        # SDK-internal retries disabled so that every request is counted here.
-        self._client = genai.Client(api_key=self._key, http_options=types.HttpOptions(
-            retry_options=types.HttpRetryOptions(attempts=1)))
+        if cache_only:
+            self._key, self._client = "", None
+            self.model = os.environ.get("GEMINI_MODEL") or self._model_from_cache()
+        else:
+            missing = [v for v in ("GEMINI_API_KEY", "GEMINI_MODEL") if not os.environ.get(v)]
+            if missing:
+                raise SystemExit(f"[LLM] Missing environment variable(s): {', '.join(missing)}. "
+                                 f"Set them and re-run.")
+            self._key = os.environ["GEMINI_API_KEY"]
+            self.model = os.environ["GEMINI_MODEL"]
+            # SDK-internal retries disabled so that every request is counted here.
+            self._client = genai.Client(api_key=self._key, http_options=types.HttpOptions(
+                timeout=REQUEST_TIMEOUT_MS, retry_options=types.HttpRetryOptions(attempts=1)))
         self.settings = {
             "backend": "google-genai", "sdk_version": genai.__version__, "model": self.model,
             "temperature": 0, "seed": SEED, "max_output_tokens": MAX_OUTPUT_TOKENS,
             "response_mime_type": "application/json", "response_json_schema": "per-case enum schema",
             "thinking_config": {"thinking_level": "MINIMAL"},
-            "sdk_retries": "disabled (attempts=1)", "rpm_limit": self.rpm, "rpd_limit": self.rpd,
+            "sdk_retries": "disabled (attempts=1)", "request_timeout_ms": REQUEST_TIMEOUT_MS,
+            "rpm_limit": self.rpm, "rpd_limit": self.rpd,
         }
         self.calls_made = 0
 
@@ -170,7 +183,20 @@ class GeminiBackend:
         return msg.replace(self._key, "<KEY>")
 
     # generation -------------------------------------------------------------
+    @staticmethod
+    def _model_from_cache() -> str:
+        path = os.path.join(RESULTS_DIR, f"llm_cache_{GeminiBackend.name}.jsonl")
+        models = set()
+        if os.path.exists(path):
+            with open(path, encoding="utf-8") as fh:
+                models = {json.loads(l)["model"] for l in fh if l.strip()}
+        if len(models) != 1:
+            raise SystemExit(f"[LLM] cache-only Gemini: expected one model in {path}, found {sorted(models)}")
+        return models.pop()
+
     def generate(self, prompt: str, schema: Dict) -> Dict:
+        if self.cache_only:
+            raise QuotaStop("cache-only mode (no API calls); run with --llm cloud to fetch the rest")
         from google.genai import errors
         t = self._types
         config = t.GenerateContentConfig(
@@ -190,6 +216,13 @@ class GeminiBackend:
                 if e.code in RETRYABLE:
                     raise QuotaStop(f"HTTP {e.code} persisted after {len(BACKOFF_S)} retries") from None
                 raise RuntimeError(self._scrub(f"Gemini HTTP {e.code}: {e.message}")) from None
+            except Exception as e:                  # timeouts / connection errors: retry like a 503
+                self._log_call(f"network_{type(e).__name__}")
+                if attempt < len(BACKOFF_S):
+                    time.sleep(BACKOFF_S[attempt])
+                    continue
+                raise QuotaStop(f"network error persisted after {len(BACKOFF_S)} retries: "
+                                f"{self._scrub(type(e).__name__)}") from None
             latency_ms = (time.perf_counter() - t0) * 1000.0
             self._log_call("ok")
             cand = resp.candidates[0] if resp.candidates else None
@@ -218,6 +251,19 @@ class OllamaBackend:
             "ollama_version": self._run(["ollama", "--version"]),
             "ollama_show": self._run(["ollama", "show", self.model]),
         }
+        self.settings.update(self._parse_show(self.settings["ollama_show"]))
+
+    @staticmethod
+    def _parse_show(text: str) -> Dict:
+        """Pull architecture / parameters / quantization / context length out of `ollama show`."""
+        wanted = {"architecture": "ollama_architecture", "parameters": "ollama_parameters",
+                  "quantization": "ollama_quantization", "context length": "ollama_context_length"}
+        out = {}
+        for line in text.splitlines():
+            for label, key in wanted.items():
+                if line.strip().lower().startswith(label) and key not in out:
+                    out[key] = line.strip()[len(label):].strip()
+        return out
 
     @staticmethod
     def _run(cmd) -> str:
@@ -235,6 +281,16 @@ class OllamaBackend:
         body = {"model": self.model, "messages": [{"role": "user", "content": prompt}],
                 "format": schema, "stream": False, "think": False,
                 "options": {"temperature": 0, "seed": SEED, "num_predict": MAX_OUTPUT_TOKENS}}
+        if not getattr(self, "_warmed", False):
+            # load the model into memory once, untimed and uncached, so case 1's latency
+            # doesn't include the model-load time
+            warm = {"model": self.model, "messages": [{"role": "user", "content": "ok"}], "stream": False,
+                    "think": False, "options": {"num_predict": 1}, "keep_alive": "30m"}
+            urllib.request.urlopen(urllib.request.Request(
+                self.URL, data=json.dumps(warm).encode(), method="POST",
+                headers={"content-type": "application/json"}), timeout=600).read()
+            self._warmed = True
+        body["keep_alive"] = "30m"
         req = urllib.request.Request(self.URL, data=json.dumps(body).encode(), method="POST",
                                      headers={"content-type": "application/json"})
         t0 = time.perf_counter()
@@ -251,27 +307,33 @@ class OllamaBackend:
 class LLMMethod(Method):
     abstains = True
 
-    def __init__(self, backend):
+    def __init__(self, backend, write_to_temp: bool = False):
+        """write_to_temp=True: new responses go to baselines/results/tmp/ (used while another
+        run owns the main results); they are merged into the main cache by merge_temp_caches().
+        Reads always see both the main and the temp cache."""
         self.backend = backend
         self.name = backend.name
-        self.cache_path = os.path.join(RESULTS_DIR, f"llm_cache_{self.name}.jsonl")
+        main_path = os.path.join(RESULTS_DIR, f"llm_cache_{self.name}.jsonl")
+        tmp_path = os.path.join(TMP_DIR, f"llm_cache_{self.name}.jsonl")
+        self.cache_path = tmp_path if write_to_temp else main_path
         self._cache = {}
-        if os.path.exists(self.cache_path):
-            with open(self.cache_path, encoding="utf-8") as fh:
-                for line in fh:
-                    if line.strip():
-                        rec = json.loads(line)
-                        self._cache[rec["key"]] = rec
+        for path in (main_path, tmp_path):
+            if os.path.exists(path):
+                with open(path, encoding="utf-8") as fh:
+                    for line in fh:
+                        if line.strip():
+                            rec = json.loads(line)
+                            self._cache[rec["key"]] = rec
         self._results: Dict[str, Dict] = {}
         self.cache_reads = 0
         self.stop_reason = None
         self._extras = {}
 
     def _key(self, prompt: str, attempt: int) -> str:
-        blob = json.dumps({"model": self.backend.model, "prompt": prompt,
-                           "settings": self.backend.settings | {"ollama_show": None, "ollama_version": None,
-                                                                "sdk_version": None, "rpm_limit": None,
-                                                                "rpd_limit": None},
+        """Hash of everything that can change the model's output -- and nothing else,
+        so operational settings (timeouts, rate limits, versions) never invalidate the cache."""
+        settings = {k: v for k, v in self.backend.settings.items() if k in OUTPUT_AFFECTING_SETTINGS}
+        blob = json.dumps({"model": self.backend.model, "prompt": prompt, "settings": settings,
                            "attempt": attempt}, sort_keys=True)
         return hashlib.sha256(blob.encode()).hexdigest()
 
@@ -283,7 +345,7 @@ class LLMMethod(Method):
         out = self.backend.generate(prompt, schema)
         rec = {"key": k, "attempt": attempt, "model": self.backend.model, "prompt": prompt,
                "fetched_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), **out}
-        os.makedirs(RESULTS_DIR, exist_ok=True)
+        os.makedirs(os.path.dirname(self.cache_path), exist_ok=True)
         with open(self.cache_path, "a", encoding="utf-8") as fh:
             fh.write(json.dumps(rec) + "\n")
         self._cache[k] = rec
@@ -358,13 +420,69 @@ class LLMMethod(Method):
         return rep
 
 
-def build_llm_methods(which: str) -> List[LLMMethod]:
+def other_run_active() -> List[int]:
+    """PIDs of other baselines runs (run_baselines or the LLM pilot), excluding this
+    process and its ancestors (e.g. the shell that launched it)."""
+    mine, pid = {os.getpid()}, os.getpid()
+    while pid > 1:
+        try:
+            pid = int(subprocess.run(["ps", "-o", "ppid=", "-p", str(pid)], capture_output=True,
+                                     text=True).stdout.strip() or 0)
+        except ValueError:
+            break
+        mine.add(pid)
+    out = subprocess.run(["pgrep", "-f", r"python.*-m baselines\.(run_baselines|llm)"],
+                         capture_output=True, text=True).stdout.split()
+    active = []
+    for p in (int(x) for x in out):
+        if p in mine:
+            continue
+        # only real Python processes count -- not shells/monitors whose command text
+        # merely mentions a baselines run (that caused a wait-on-the-watcher deadlock)
+        comm = subprocess.run(["ps", "-o", "comm=", "-p", str(p)], capture_output=True, text=True).stdout
+        if "python" in comm.lower():
+            active.append(p)
+    return active
+
+
+def merge_temp_caches() -> Dict[str, int]:
+    """Fold baselines/results/tmp/llm_cache_*.jsonl into the main caches (dedup by key),
+    then delete the temp files. Only safe when no other run is active."""
+    merged = {}
+    if not os.path.isdir(TMP_DIR):
+        return merged
+    for fname in sorted(os.listdir(TMP_DIR)):
+        if not (fname.startswith("llm_cache_") and fname.endswith(".jsonl")):
+            continue
+        tmp_path, main_path = os.path.join(TMP_DIR, fname), os.path.join(RESULTS_DIR, fname)
+        keys = set()
+        if os.path.exists(main_path):
+            with open(main_path, encoding="utf-8") as fh:
+                keys = {json.loads(l)["key"] for l in fh if l.strip()}
+        added = 0
+        with open(tmp_path, encoding="utf-8") as src, open(main_path, "a", encoding="utf-8") as dst:
+            for line in src:
+                if line.strip() and json.loads(line)["key"] not in keys:
+                    dst.write(line if line.endswith("\n") else line + "\n")
+                    keys.add(json.loads(line)["key"])
+                    added += 1
+        os.remove(tmp_path)
+        merged[fname] = added
+    if not os.listdir(TMP_DIR):
+        os.rmdir(TMP_DIR)
+    return merged
+
+
+def build_llm_methods(which: str, write_to_temp: bool = False) -> List[LLMMethod]:
     methods = []
     if which in ("cloud", "all"):
         methods.append(LLMMethod(GeminiBackend()))
+    elif which == "local" and os.path.exists(os.path.join(RESULTS_DIR, f"llm_cache_{GeminiBackend.name}.jsonl")):
+        # keep the Gemini rows in metrics.json without needing the key or spending quota
+        methods.append(LLMMethod(GeminiBackend(cache_only=True)))
     if which in ("local", "all"):
         if OllamaBackend.available():
-            methods.append(LLMMethod(OllamaBackend()))
+            methods.append(LLMMethod(OllamaBackend(), write_to_temp=write_to_temp))
         else:
             print(f"[LLM] SKIPPING llm_local: {OllamaBackend.model} is not in `ollama list` yet.")
     return methods
@@ -377,7 +495,17 @@ def pilot(n: int, which: str) -> None:
     cases = load_cases()
     step = max(1, len(cases) // n)
     picked = cases[::step][:n]                  # spread across all categories
-    for m in build_llm_methods(which):
+    busy = other_run_active()
+    if busy:
+        print(f"[PILOT] another run is active (pid {busy}); new responses go to {TMP_DIR}")
+    if which == "local":
+        if not OllamaBackend.available():
+            print(f"[PILOT] {OllamaBackend.model} is not in `ollama list` yet.")
+            return
+        methods = [LLMMethod(OllamaBackend(), write_to_temp=bool(busy))]
+    else:
+        methods = build_llm_methods(which)
+    for m in methods:
         t0 = time.time()
         complete = m.run_all([to_input(c) for c in picked])
         wall = time.time() - t0

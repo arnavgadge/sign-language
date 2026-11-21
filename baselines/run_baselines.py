@@ -8,6 +8,8 @@ cases and writes baselines/results/.
     python -m baselines.run_baselines --llm local     (... + local Qwen instead of Gemini)
     --llm {none,cloud,local,all}, default cloud. LLM runs resume from their cache;
     an incomplete LLM run is reported as progress only, never scored.
+    If another run is active, --llm local collects Qwen into baselines/results/tmp/,
+    waits for the other run to finish, then merges and scores (one command).
 
 To add a method, append one instance to METHODS. Methods with trainable=True
 are predicted out-of-fold automatically (see baselines/common.run_method).
@@ -18,6 +20,7 @@ import json
 import logging
 import os
 import sys
+import time
 
 from evaluation.final_variants import run_all_variants
 
@@ -25,7 +28,7 @@ from .base_prior import BasePrior
 from .classifier import classifier_lr, classifier_rf
 from .common import load_cases, run_method, to_input
 from .engine_ref import EngineRef
-from .llm import build_llm_methods
+from .llm import TMP_DIR, build_llm_methods, merge_temp_caches, other_run_active
 from .metrics import compute_all
 from .user_majority import UserMajority
 
@@ -106,6 +109,30 @@ def main():
     logging.disable(logging.CRITICAL)
     cases = load_cases()
     print(f"[BASELINES] {len(cases)} cases")
+
+    busy = other_run_active()
+    if busy:
+        # Another run owns baselines/results/. Local Qwen is collected in parallel into
+        # baselines/results/tmp/; this command then waits for that run, merges and scores.
+        if args.llm != "local":
+            sys.exit(f"[BASELINES] another baselines run is active (pid {busy}); wait for it to finish, "
+                     f"or use --llm local to collect Qwen responses into temporary storage.")
+        local = [m for m in build_llm_methods("local", write_to_temp=True) if m.name == "llm_local"]
+        for m in local:
+            m.run_all([to_input(c) for c in cases])
+            rep = m.run_report([to_input(c) for c in cases])
+            print(f"[BASELINES] collected {rep['n_cases_done']}/{len(cases)} Qwen cases into {TMP_DIR} "
+                  f"(invalid {rep['n_invalid']}). Nothing in baselines/results/ was overwritten.")
+        # One command: wait for the other run to finish, then merge and score below.
+        while other_run_active():
+            print(f"[BASELINES] waiting for the other run (pid {other_run_active()}) to finish "
+                  f"before merging and scoring...", flush=True)
+            time.sleep(60)
+        print("[BASELINES] other run finished; merging temporary storage and scoring.")
+
+    merged = merge_temp_caches()
+    if merged:
+        print(f"[BASELINES] merged temporary LLM caches into baselines/results/: {merged}")
 
     # LLMs: resolve every case first (cache, then API); only complete runs are scored.
     inputs = [to_input(c) for c in cases]

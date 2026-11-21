@@ -83,8 +83,8 @@
       },
       "mcnemar_vs_engine": null,
       "latency_ms": {
-        "mean": 0.11491201090393588,
-        "median": 0.09791701450012624
+        "mean": 0.22291448985924944,
+        "median": 0.09641650831326842
       },
       "per_category_forced": {
         "clear_context": {
@@ -211,8 +211,8 @@
         "p": 2.4010047049319614e-50
       },
       "latency_ms": {
-        "mean": 0.0062896584859117866,
-        "median": 0.005750014679506421
+        "mean": 0.006013082340359688,
+        "median": 0.00554099096916616
       },
       "per_category_forced": {
         "clear_context": {
@@ -329,8 +329,8 @@
         "p": 1.6673314648897893e-34
       },
       "latency_ms": {
-        "mean": 0.007790744537487626,
-        "median": 0.0071664981078356504
+        "mean": 0.01054351864149794,
+        "median": 0.007708993507549167
       },
       "per_category_forced": {
         "clear_context": {
@@ -449,8 +449,8 @@
         "p": 0.803619384765625
       },
       "latency_ms": {
-        "mean": 0.18234350596321747,
-        "median": 0.1784999913070351
+        "mean": 0.18076410808134824,
+        "median": 0.17887500871438533
       },
       "per_category_forced": {
         "clear_context": {
@@ -504,7 +504,7 @@
             },
             "inner_macro_f1": 0.7929498968660881,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 2.405166167009156
+            "fit_seconds_incl_tuning": 2.6037566250015516
           },
           {
             "fold": 1,
@@ -516,7 +516,7 @@
             },
             "inner_macro_f1": 0.7799157432216096,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 2.3128789590264205
+            "fit_seconds_incl_tuning": 2.368830457999138
           },
           {
             "fold": 2,
@@ -528,7 +528,7 @@
             },
             "inner_macro_f1": 0.7799804487212453,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 2.349495542002842
+            "fit_seconds_incl_tuning": 2.3479484579875134
           },
           {
             "fold": 3,
@@ -540,7 +540,7 @@
             },
             "inner_macro_f1": 0.8098986866937612,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 2.456504458008567
+            "fit_seconds_incl_tuning": 2.375767333986005
           },
           {
             "fold": 4,
@@ -552,7 +552,7 @@
             },
             "inner_macro_f1": 0.8019398907882723,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 2.3669894589984324
+            "fit_seconds_incl_tuning": 2.3304443339875434
           }
         ],
         "inspection": {
@@ -771,8 +771,8 @@
         "p": 1.0
       },
       "latency_ms": {
-        "mean": 6.227422719763126,
-        "median": 7.931667001685128
+        "mean": 6.223071410669945,
+        "median": 7.866875501349568
       },
       "per_category_forced": {
         "clear_context": {
@@ -826,7 +826,7 @@
             },
             "inner_macro_f1": 0.7640552336421552,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 7.681858750001993
+            "fit_seconds_incl_tuning": 7.576392874994781
           },
           {
             "fold": 1,
@@ -838,7 +838,7 @@
             },
             "inner_macro_f1": 0.7566773195851335,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 7.561536791996332
+            "fit_seconds_incl_tuning": 7.243919333006488
           },
           {
             "fold": 2,
@@ -850,7 +850,7 @@
             },
             "inner_macro_f1": 0.73811107440631,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 7.655643540987512
+            "fit_seconds_incl_tuning": 7.411761166993529
           },
           {
             "fold": 3,
@@ -862,7 +862,7 @@
             },
             "inner_macro_f1": 0.7563541978313371,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 7.724215791007737
+            "fit_seconds_incl_tuning": 7.414049250015523
           },
           {
             "fold": 4,
@@ -874,7 +874,7 @@
             },
             "inner_macro_f1": 0.7808062524042018,
             "final_fit_convergence_warnings": 0,
-            "fit_seconds_incl_tuning": 7.5092847920022905
+            "fit_seconds_incl_tuning": 7.211206125008175
           }
         ],
         "inspection": {
@@ -942,6 +942,336 @@
           ]
         }
       }
+    },
+    "llm_local": {
+      "forced_accuracy": 0.7804232804232805,
+      "forced_accuracy_ci95": [
+        0.7380952380952381,
+        0.8227513227513228
+      ],
+      "forced_macro_f1": 0.602503272785303,
+      "full_accuracy": 0.552,
+      "full_accuracy_ci95": [
+        0.508,
+        0.594
+      ],
+      "full_ceiling": null,
+      "risk_coverage": {
+        "grid": [
+          {
+            "coverage": 0.1,
+            "n_answered": 38,
+            "accuracy": 1.0,
+            "risk": 0.0
+          },
+          {
+            "coverage": 0.2,
+            "n_answered": 76,
+            "accuracy": 1.0,
+            "risk": 0.0
+          },
+          {
+            "coverage": 0.3,
+            "n_answered": 114,
+            "accuracy": 1.0,
+            "risk": 0.0
+          },
+          {
+            "coverage": 0.4,
+            "n_answered": 152,
+            "accuracy": 0.9716144293317562,
+            "risk": 0.028385570668243765
+          },
+          {
+            "coverage": 0.5,
+            "n_answered": 189,
+            "accuracy": 0.941977290291897,
+            "risk": 0.05802270970810297
+          },
+          {
+            "coverage": 0.6,
+            "n_answered": 227,
+            "accuracy": 0.9089574155653452,
+            "risk": 0.09104258443465485
+          },
+          {
+            "coverage": 0.7,
+            "n_answered": 265,
+            "accuracy": 0.8648370497427101,
+            "risk": 0.13516295025728986
+          },
+          {
+            "coverage": 0.8,
+            "n_answered": 303,
+            "accuracy": 0.8361836183618362,
+            "risk": 0.1638163816381638
+          },
+          {
+            "coverage": 0.9,
+            "n_answered": 341,
+            "accuracy": 0.8127356514453289,
+            "risk": 0.1872643485546711
+          },
+          {
+            "coverage": 1.0,
+            "n_answered": 378,
+            "accuracy": 0.7804232804232805,
+            "risk": 0.21957671957671954
+          }
+        ],
+        "aurc": 0.07694158758726655
+      },
+      "mcnemar_vs_engine": {
+        "b": 83,
+        "c": 9,
+        "p": 3.923298087974169e-16
+      },
+      "latency_ms": {
+        "mean": 4185.397070891457,
+        "median": 4106.114354493911
+      },
+      "per_category_forced": {
+        "clear_context": {
+          "n": 120,
+          "accuracy": 0.575
+        },
+        "temporal_dependent": {
+          "n": 64,
+          "accuracy": 0.703125
+        },
+        "personalization_dependent": {
+          "n": 80,
+          "accuracy": 1.0
+        },
+        "combined_temporal_personal": {
+          "n": 70,
+          "accuracy": 1.0
+        },
+        "conflict": {
+          "n": 26,
+          "accuracy": 0.5
+        },
+        "cold_start": {
+          "n": 8,
+          "accuracy": 1.0
+        },
+        "adversarial": {
+          "n": 10,
+          "accuracy": 1.0
+        }
+      },
+      "gated_decisions": {
+        "resolved_rate": 0.608,
+        "ambiguous_rate": 0.386,
+        "literal_rate": 0.006,
+        "false_confident": {
+          "n_resolved": 304,
+          "n_wrong": 78,
+          "rate": 0.2565789473684211
+        }
+      }
+    },
+    "llm_cloud": {
+      "forced_accuracy": 0.9074074074074074,
+      "forced_accuracy_ci95": [
+        0.8783068783068783,
+        0.9338624338624338
+      ],
+      "forced_macro_f1": 0.8034935384881542,
+      "full_accuracy": 0.694,
+      "full_accuracy_ci95": [
+        0.65,
+        0.736
+      ],
+      "full_ceiling": null,
+      "risk_coverage": {
+        "grid": [
+          {
+            "coverage": 0.1,
+            "n_answered": 38,
+            "accuracy": 0.9716939407341885,
+            "risk": 0.028306059265811534
+          },
+          {
+            "coverage": 0.2,
+            "n_answered": 76,
+            "accuracy": 0.9690402476780186,
+            "risk": 0.03095975232198145
+          },
+          {
+            "coverage": 0.3,
+            "n_answered": 114,
+            "accuracy": 0.9681556833259619,
+            "risk": 0.03184431667403809
+          },
+          {
+            "coverage": 0.4,
+            "n_answered": 152,
+            "accuracy": 0.9501725625539258,
+            "risk": 0.04982743744607421
+          },
+          {
+            "coverage": 0.5,
+            "n_answered": 189,
+            "accuracy": 0.940671350507416,
+            "risk": 0.059328649492583985
+          },
+          {
+            "coverage": 0.6,
+            "n_answered": 227,
+            "accuracy": 0.93413735827255,
+            "risk": 0.06586264172745004
+          },
+          {
+            "coverage": 0.7,
+            "n_answered": 265,
+            "accuracy": 0.9294772656974947,
+            "risk": 0.07052273430250533
+          },
+          {
+            "coverage": 0.8,
+            "n_answered": 303,
+            "accuracy": 0.9259860412270736,
+            "risk": 0.07401395877292638
+          },
+          {
+            "coverage": 0.9,
+            "n_answered": 341,
+            "accuracy": 0.9277212351216146,
+            "risk": 0.07227876487838536
+          },
+          {
+            "coverage": 1.0,
+            "n_answered": 378,
+            "accuracy": 0.9074074074074074,
+            "risk": 0.09259259259259256
+          }
+        ],
+        "aurc": 0.053081670344789014
+      },
+      "mcnemar_vs_engine": {
+        "b": 35,
+        "c": 9,
+        "p": 0.00010604466626773501
+      },
+      "latency_ms": {
+        "mean": 2642.487102898245,
+        "median": 1212.2006874997169
+      },
+      "per_category_forced": {
+        "clear_context": {
+          "n": 120,
+          "accuracy": 0.8333333333333334
+        },
+        "temporal_dependent": {
+          "n": 64,
+          "accuracy": 0.875
+        },
+        "personalization_dependent": {
+          "n": 80,
+          "accuracy": 1.0
+        },
+        "combined_temporal_personal": {
+          "n": 70,
+          "accuracy": 0.9857142857142858
+        },
+        "conflict": {
+          "n": 26,
+          "accuracy": 0.7692307692307693
+        },
+        "cold_start": {
+          "n": 8,
+          "accuracy": 1.0
+        },
+        "adversarial": {
+          "n": 10,
+          "accuracy": 1.0
+        }
+      },
+      "gated_decisions": {
+        "resolved_rate": 0.926,
+        "ambiguous_rate": 0.056,
+        "literal_rate": 0.018,
+        "false_confident": {
+          "n_resolved": 463,
+          "n_wrong": 129,
+          "rate": 0.2786177105831533
+        }
+      }
+    }
+  },
+  "llm_runs": {
+    "llm_cloud": {
+      "method": "llm_cloud",
+      "model": "gemini-3.5-flash-lite",
+      "settings": {
+        "backend": "google-genai",
+        "sdk_version": "3.6.1",
+        "model": "gemini-3.5-flash-lite",
+        "temperature": 0,
+        "seed": 20240521,
+        "max_output_tokens": 60,
+        "response_mime_type": "application/json",
+        "response_json_schema": "per-case enum schema",
+        "thinking_config": {
+          "thinking_level": "MINIMAL"
+        },
+        "sdk_retries": "disabled (attempts=1)",
+        "request_timeout_ms": 60000,
+        "rpm_limit": 15,
+        "rpd_limit": 500
+      },
+      "run_date": "2026-11-21",
+      "n_cases": 500,
+      "n_cases_done": 500,
+      "n_unique_prompts": 466,
+      "api_calls_this_run": 0,
+      "cache_reads_this_run": 466,
+      "n_invalid": 0,
+      "n_needed_retry": 0,
+      "complete": true,
+      "stop_reason": null,
+      "model_versions": [
+        "gemini-3.5-flash-lite"
+      ],
+      "gemini_calls_last_24h": 19,
+      "latency_note": "per-case wall time of the API call(s), INCLUDING network time",
+      "note": "responses fetched across two Google Cloud projects (quota): see gemini_call_log_project1.jsonl and gemini_call_log.jsonl; same model id and settings",
+      "calls_project1": 495,
+      "calls_project2": 19
+    },
+    "llm_local": {
+      "method": "llm_local",
+      "model": "qwen3:14b",
+      "settings": {
+        "backend": "ollama",
+        "model": "qwen3:14b",
+        "temperature": 0,
+        "seed": 20240521,
+        "num_predict": 60,
+        "format": "per-case JSON schema",
+        "think": false,
+        "ollama_version": "ollama version is 0.40.17",
+        "ollama_show": "Model\n    architecture        qwen3          \n    parameters          14.8B          \n    context length      40960          \n    embedding length    5120           \n    quantization        Q4_K_M         \n    template source     go_template    \n\n  Capabilities\n    completion     \n    tools          \n    thinking       \n        levels     false, true    \n        default    true           \n\n  Parameters\n    stop              \"<|im_start|>\"    \n    stop              \"<|im_end|>\"      \n    temperature       0.6               \n    top_k             20                \n    top_p             0.95              \n    repeat_penalty    1                 \n\n  License\n    Apache License               \n    Version 2.0, January 2004    \n    ...",
+        "ollama_architecture": "qwen3",
+        "ollama_parameters": "14.8B",
+        "ollama_context_length": "40960",
+        "ollama_quantization": "Q4_K_M"
+      },
+      "run_date": "2026-11-21",
+      "n_cases": 500,
+      "n_cases_done": 500,
+      "n_unique_prompts": 466,
+      "api_calls_this_run": 0,
+      "cache_reads_this_run": 466,
+      "n_invalid": 0,
+      "n_needed_retry": 0,
+      "complete": true,
+      "stop_reason": null,
+      "model_versions": [
+        "qwen3:14b"
+      ],
+      "latency_note": "per-case local inference wall time"
     }
   }
 }
