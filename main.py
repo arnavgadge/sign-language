@@ -422,7 +422,23 @@ def draw_debug_window(hand_canvas: np.ndarray, geo_metrics: dict) -> None:
 # ==============================================================
 #  MAIN LOOP
 # ==============================================================
+def _init_pilot():
+    """Pilot-study logging, enabled ONLY by `python main.py --pilot <participant_id>`.
+    Returns None (and does nothing at all) when the flag is absent."""
+    if "--pilot" not in sys.argv:
+        return None
+    i = sys.argv.index("--pilot")
+    if i + 1 >= len(sys.argv) or sys.argv[i + 1].startswith("--"):
+        sys.exit("[PILOT][ERROR] Usage: python main.py --pilot <participant_id>")
+    from utils.pilot_logger import PilotSession
+    base = os.path.dirname(os.path.abspath(__file__))
+    return PilotSession(sys.argv[i + 1],
+                        os.path.join(base, "pilot_items.csv"),
+                        os.path.join(base, "pilot_logs"))
+
+
 def run() -> None:
+    pilot = _init_pilot()   # None unless --pilot <id> was given
     import tensorflow as tf
 
     model, label_map, feature_model, prototypes = load_model_and_labels()
@@ -609,8 +625,14 @@ def run() -> None:
         if hand_detected and hand_canvas is not None:
             draw_hand_preview(frame, hand_canvas)
 
-        if show_debug and hand_detected and hand_canvas is not None:
-            draw_debug_window(hand_canvas, geo_metrics)
+        if show_debug:
+            if hand_detected and hand_canvas is not None:
+                draw_debug_window(hand_canvas, geo_metrics)
+            else:
+                placeholder = np.zeros((300, 300, 3), dtype=np.uint8)
+                cv2.putText(placeholder, "No hand detected", (50, 150),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 1, cv2.LINE_AA)
+                cv2.imshow("AE-CP | Debug", placeholder)
 
         if engine_dashboard.visible:
             engine_dashboard.show()   # cheap redisplay of the cached canvas, no recompute
@@ -634,6 +656,8 @@ def run() -> None:
                     user_id=USER_ID,
                     recognized_word=current_word,
                 )
+                if pilot is not None:
+                    pilot.log(current_word, last_resolution)
                 print(f"[INTENT] '{current_word}' → [{last_resolution.status}] "
                       f"{last_resolution.selected_label or current_word} "
                       f"({last_resolution.final_score * 100:.1f}%)")
@@ -675,7 +699,10 @@ def run() -> None:
         elif key in (ord("m"), ord("M")):
             show_debug = not show_debug
             if not show_debug:
-                cv2.destroyWindow("AE-CP | Debug")
+                try:
+                    cv2.destroyWindow("AE-CP | Debug")
+                except cv2.error:
+                    pass
             print(f"[DEBUG] Window {'ON' if show_debug else 'OFF'}")
 
         elif key in (ord("d"), ord("D")):
@@ -688,6 +715,14 @@ def run() -> None:
                 print("[COLLECT] Collection mode ON.  Show a sign then press its letter key.")
             else:
                 print("[COLLECT] Collection mode OFF.")
+
+        # Pilot mode only: N = next item, R = count a retry. Skipped while S
+        # collection mode is on so N/R can still be saved as letter samples.
+        elif pilot is not None and not collection_mode and key in (ord("n"), ord("N")):
+            pilot.next_item()
+
+        elif pilot is not None and not collection_mode and key in (ord("r"), ord("R")):
+            pilot.retry()
 
         elif collection_mode and hand_canvas is not None:
             if ord("a") <= key <= ord("z"):
@@ -703,6 +738,8 @@ def run() -> None:
     detector.close()
     stt_listener.stop()
     intent_engine.close()
+    if pilot is not None:
+        pilot.close()
     cv2.destroyAllWindows()
     if arduino and arduino.is_open:
         arduino.close()

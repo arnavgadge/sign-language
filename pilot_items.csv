@@ -1,0 +1,19 @@
+item_number,intended_words,intended_meaning
+1,HELP,I need help.
+2,PAIN,I am in pain.
+3,DOCTOR,I need to see a doctor.
+4,WATER,I would like some water.
+5,WAIT,Please wait a moment.
+6,FOOD,I am hungry and want food.
+7,BATHROOM,I need to use the bathroom.
+8,STOP,Please stop what you are doing.
+9,YES,Yes.
+10,NO,No.
+11,HOME,I want to go home.
+12,SORRY,I am sorry.
+13,PAIN > HELP,I am in pain and need help.
+14,SICK > DOCTOR,I feel sick and need a doctor.
+15,FOOD > WATER,I am hungry and would also like water.
+16,FOOD > MORE,I would like more food.
+17,STOP > WAIT,Please stop and wait.
+18,PAIN > HELP > DOCTOR,I am in pain; please get a doctor to help me.
